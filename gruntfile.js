@@ -30,6 +30,16 @@ module.exports = function (grunt){
 				src: "bin/<%= pkg.name %>.min.js",
 				dest: "debug/js/<%= pkg.name %>.min.js"
 			}
+		},
+
+		watch: {
+			js : {
+				files: ["src/**/*.js", "tests/**/*.js"],
+				tasks: ["build"],
+				options: {
+					livereload: true
+				}
+			}
 		}
 
 		

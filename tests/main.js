@@ -8,7 +8,7 @@ Main.prototype = {
 		console.log("===== APPLICATION STARTED ======");
 
 		var app = new Animyst.Application();
-		app.startup({paper:true, canvasID:"game"});
+		app.startup({paper:true, canvasID:"game", debug: true});
 
 		var game = new Game("game1");
 		app.run(game);

@@ -1,6 +1,7 @@
 Animyst.Application = function(){
 	this._appStateList = [];
 	this._appStateLib  = {};
+	this._stats = null;
 
 }
 
@@ -16,6 +17,18 @@ Animyst.Application.prototype.startup = function(params){
 		paper.setup(params.canvasID);
 
 		view.onFrame = this.update.bind(this);
+	}
+
+	if(params.debug){
+		//if(window["Stats"]){
+			this._stats = new Stats();
+			this._stats.domElement.style.position = 'absolute';
+			this._stats.domElement.style.left = '0px';
+			this._stats.domElement.style.top = '0px';
+
+			document.body.appendChild( this._stats.domElement );
+			console.log("[Application] Stats Enabled");
+		//}
 	}
 
 
@@ -71,8 +84,16 @@ Animyst.Application.prototype.endAll = function(){
 }
 
 Animyst.Application.prototype.update = function(event){
+	if(this._stats){
+		this._stats.begin();
+	}
+
 	for(var i = 0; i < this._appStateList.length; i++){
 		var state = this._appStateList[i];
 		state.update(event.delta, event.time);
+	}
+
+	if(this._stats){
+		this._stats.end();
 	}
 }
