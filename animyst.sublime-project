@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "src"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "debug"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "tests"
+		}
+	]
+}

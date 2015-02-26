@@ -1,0 +1,1692 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"KEY",
+				"KEY_ACTIVE"
+			],
+			[
+				"TOUCH",
+				"TOUCH_PROPERTIES"
+			],
+			[
+				"id",
+				"identifier"
+			],
+			[
+				"in",
+				"Input"
+			],
+			[
+				"x",
+				"x"
+			],
+			[
+				"stretcHV",
+				"stretchVBottom"
+			],
+			[
+				"handle",
+				"handleOut"
+			],
+			[
+				"ass",
+				"AssetList"
+			],
+			[
+				"anchir",
+				"anchorImageOffset"
+			],
+			[
+				"closest",
+				"closestDist"
+			],
+			[
+				"y",
+				"y"
+			],
+			[
+				"CN",
+				"CNContentInterface"
+			],
+			[
+				"game",
+				"game"
+			],
+			[
+				"start",
+				"startSegment"
+			],
+			[
+				"vector",
+				"vector"
+			],
+			[
+				"STROKE",
+				"STROKE_COLOR"
+			],
+			[
+				"STRO",
+				"STROKE_WIDTH"
+			],
+			[
+				"bounds",
+				"boundsOffsetBuff"
+			],
+			[
+				"bound",
+				"boundsOffsetBuff"
+			],
+			[
+				"boun",
+				"boundsOffset"
+			],
+			[
+				"right",
+				"right"
+			],
+			[
+				"width",
+				"width"
+			],
+			[
+				"PicFS",
+				"PicFS"
+			],
+			[
+				"em",
+				"_emitter"
+			],
+			[
+				"RainbowR",
+				"RainbowRocksUI"
+			],
+			[
+				"SPrite",
+				"SpriteSheetAnimation"
+			],
+			[
+				"Env",
+				"EnvUtil"
+			],
+			[
+				"or",
+				"orientationImage"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"ease",
+				"easeOut"
+			],
+			[
+				"Stage",
+				"StageLights"
+			],
+			[
+				"Image",
+				"ImageGraphic"
+			],
+			[
+				"picRA",
+				"picRA"
+			],
+			[
+				"this",
+				"this"
+			],
+			[
+				"screenCen",
+				"screenCenterX"
+			],
+			[
+				"EGLo",
+				"EGLogo"
+			],
+			[
+				"charF",
+				"charF"
+			],
+			[
+				"charD",
+				"charD"
+			],
+			[
+				"gameStat",
+				"_gameState"
+			],
+			[
+				"SIN",
+				"SIMON_TURN"
+			],
+			[
+				"SIMON",
+				"SIMON_TURN_START"
+			],
+			[
+				"matc",
+				"_matchIndex"
+			],
+			[
+				"total",
+				"totalScoreTxt"
+			],
+			[
+				"levelClearedTit",
+				"levelClearedTitleTxt"
+			],
+			[
+				"uploadPhoto",
+				"uploadPhoto"
+			],
+			[
+				"shado",
+				"shadowOffsetX"
+			],
+			[
+				"shadowO",
+				"shadowOffsetX"
+			],
+			[
+				"Can",
+				"CanvasRenderingContext2D"
+			],
+			[
+				"tit",
+				"titleText"
+			],
+			[
+				"_outl",
+				"_outlineStrength"
+			],
+			[
+				"_shado",
+				"_shadowOffsetX"
+			],
+			[
+				"AL",
+				"ALIGN_LEFT"
+			],
+			[
+				"linewid",
+				"lineWidths"
+			],
+			[
+				"ALIGN",
+				"ALIGN_RIGHT"
+			],
+			[
+				"glob",
+				"globalCompositeOperation"
+			],
+			[
+				"_par",
+				"_particles"
+			],
+			[
+				"ini",
+				"initializer"
+			],
+			[
+				"inti",
+				"initializer"
+			],
+			[
+				"render",
+				"renderManager"
+			],
+			[
+				"Emitt",
+				"Emitter2D"
+			],
+			[
+				"enab",
+				"enableButton"
+			],
+			[
+				"I",
+				"Item"
+			],
+			[
+				"_clic",
+				"_clickOffsetY"
+			],
+			[
+				"_click",
+				"_clickOffsetX"
+			],
+			[
+				"_cli",
+				"_clickOffsetX"
+			],
+			[
+				"show",
+				"showItemBar"
+			],
+			[
+				"item",
+				"itemSignal"
+			],
+			[
+				"ite",
+				"itemSignal"
+			],
+			[
+				"enti",
+				"entities"
+			],
+			[
+				"scr",
+				"screenCenterY"
+			],
+			[
+				"bac",
+				"backButton"
+			],
+			[
+				"mu",
+				"muteOnButton"
+			],
+			[
+				"enabl",
+				"enableButtons"
+			],
+			[
+				"but",
+				"buttonSignal"
+			],
+			[
+				"bu",
+				"buttonSignal"
+			],
+			[
+				"muteO",
+				"muteOffButton"
+			],
+			[
+				"screenCe",
+				"screenCenterY"
+			],
+			[
+				"scree",
+				"screenCenterX"
+			],
+			[
+				"unspport",
+				"unsupportedCookiesImagePath"
+			],
+			[
+				"un",
+				"unsupportedOrientationImagePath"
+			],
+			[
+				"_onKey",
+				"_onKeyUpListener"
+			],
+			[
+				"_onTouc",
+				"_onTouchEndListener"
+			],
+			[
+				"onKe",
+				"onKeyUp"
+			],
+			[
+				"onTouc",
+				"onTouchEnd"
+			],
+			[
+				"_onXHR",
+				"_onXHRLoadListener"
+			],
+			[
+				"_onXH",
+				"_onXHRLoadComplete"
+			],
+			[
+				"_onLo",
+				"_onLoadComplete"
+			],
+			[
+				"_onLoad",
+				"_onLoadListener"
+			],
+			[
+				"_onVisi",
+				"_onVisibilityChangeListener"
+			],
+			[
+				"_onUnlo",
+				"_onUnloadListener"
+			],
+			[
+				"_onBef",
+				"_onBeforeUnloadListener"
+			],
+			[
+				"_onOrien",
+				"_onOrientationChangeListener"
+			],
+			[
+				"_onRes",
+				"_onResizeListener"
+			],
+			[
+				"_onU",
+				"_onUnloadListener"
+			],
+			[
+				"_befo",
+				"_onBeforeUnloadListener"
+			],
+			[
+				"_onScr",
+				"_onScrollListener"
+			],
+			[
+				"_onOr",
+				"_onOrientationChange"
+			],
+			[
+				"_onOrie",
+				"_onOrientationChangeListener"
+			],
+			[
+				"_onDOM",
+				"_onDOMContentLoaded"
+			],
+			[
+				"_onDom",
+				"_onDOMLoadedListener"
+			],
+			[
+				"plat",
+				"platformName"
+			],
+			[
+				"brow",
+				"browserSupport"
+			],
+			[
+				"DEFA",
+				"DEFAULT_BROWSERSUPPORT"
+			],
+			[
+				"hasC",
+				"hasCookies"
+			],
+			[
+				"config",
+				"configPath"
+			],
+			[
+				"_renderCon",
+				"_renderContext"
+			],
+			[
+				"cene",
+				"centerX"
+			],
+			[
+				"_zoo",
+				"_zoomOffsetX"
+			],
+			[
+				"_regist",
+				"_registrationX"
+			],
+			[
+				"_regi",
+				"_registrationX"
+			],
+			[
+				"_p",
+				"_positionY"
+			],
+			[
+				"_sca",
+				"_scaleX"
+			],
+			[
+				"inpu",
+				"inputMap"
+			],
+			[
+				"_of",
+				"_offsetY"
+			],
+			[
+				"_off",
+				"_offsetX"
+			],
+			[
+				"ex",
+				"EXACT_FIT"
+			],
+			[
+				"DEFAU",
+				"DEFAULT_SCALEMODE"
+			],
+			[
+				"init",
+				"initSoundManager"
+			],
+			[
+				"isIOS",
+				"isiOS"
+			],
+			[
+				"_sou",
+				"_soundManager"
+			],
+			[
+				"_pan",
+				"_panNode"
+			],
+			[
+				"_volume",
+				"_volumeNode"
+			],
+			[
+				"_vol",
+				"_volume"
+			],
+			[
+				"_sound",
+				"_soundManager"
+			],
+			[
+				"Sou",
+				"SoundCategory"
+			],
+			[
+				"_volu",
+				"_volumeNode"
+			],
+			[
+				"scre",
+				"screenCenterX"
+			],
+			[
+				"scoreVa",
+				"scoreValueText"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 209,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "gruntfile.js",
+			"settings":
+			{
+				"buffer_size": 925,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "debug/index.html",
+			"settings":
+			{
+				"buffer_size": 430,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "debug/js/animyst.min.js",
+			"settings":
+			{
+				"buffer_size": 15443,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"EnableP",
+				"Package Control: Enable Package"
+			],
+			[
+				"Remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: Insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Project",
+				"Project: Save As"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"addFo",
+				"Project: Add Folder"
+			],
+			[
+				"Add Folder",
+				"Project: Add Folder"
+			],
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"templ",
+				"Create file from Template"
+			],
+			[
+				"tem",
+				"Create file from Template"
+			],
+			[
+				"temp",
+				"Create file from Template"
+			],
+			[
+				"pack rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins pa",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"con tab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"syn ja",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"syn ty",
+				"Set Syntax: TypeScript"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Akil/Desktop/Animyst/debug",
+		"/C/Users/Akil/Desktop/Animyst/debug/js"
+	],
+	"file_history":
+	[
+		"/C/Users/Akil/Desktop/Animyst/bin/animyst.min.js",
+		"/C/Users/Akil/Desktop/Animyst/bin/Animyst.js",
+		"/D/Akil/Google Drive/My Files/Work/Mattel Games/MusicMixer/build.sh",
+		"/D/Akil/Google Drive/My Files/Work/Mattel Games/MusicMixer/buildInfo.sh",
+		"/C/Users/Akil/Desktop/Animyst/animyst.sublime-project",
+		"/D/Akil/Google Drive/My Files/Projects/Sites/Games/project001/debug/js/libs/signals.js",
+		"/D/Akil/Google Drive/My Files/Projects/Sites/CN Games/Jake Game/game/createjs-with-server/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/argument_parser.js",
+		"/D/Akil/Google Drive/My Files/Projects/Sites/Games/project001/debug/js/application.js",
+		"/D/Akil/Google Drive/My Files/Projects/Sites/Games/project001/debug/timescape.js",
+		"/C/Users/Akil/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript.sublime-settings",
+		"/D/Akil/Google Drive/My Files/Projects/Sites/Games/project001/debug/js/libs/paper-full.js",
+		"/D/Akil/Repositories/TimeScapeEngine/TimeScapeEngine/src/systems/sound/SoundData.as",
+		"/D/Akil/Google Drive/My Files/Projects/Sites/CN Games/Jake Game/game/buildInfo.sh",
+		"/D/Akil/Google Drive/My Files/Projects/Sites/CN Games/Jake Game/game/createjs-with-server/node_modules/grunt/node_modules/colors/themes/winston-dark.js",
+		"/D/Akil/Google Drive/My Files/Projects/Sites/CN Games/Jake Game/game/createjs-with-server/node_modules/grunt/node_modules/underscore.string/test/strings_standalone.js",
+		"/D/Akil/Google Drive/My Files/Projects/Sites/Games/project001/project001.sublime-project",
+		"/Users/Saykrd/Sites/Games/project001/index.html",
+		"/Users/Saykrd/Sites/CN Games/Jake Game/game/debug/src/squishyjakegame.js",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/ui/MusicMixerUI.ts",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/data/LayoutData.ts",
+		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/game/ui/Button.ts",
+		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/time/ITickedObject.ts",
+		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/time/Timer.ts",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/assets/audio/ImpulseResponses/IMreverbs3/Scala Milan Opera Hall.wav",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/debug/media/screens/fishnet_background.png",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/buildInfo.sh",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/screens/SongSelectScreen.ts",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/screens/TitleScreen.ts",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/MusicMixerGame.ts",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/level/MusicMixerLevel.ts",
+		"/Users/Saykrd/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/release/media/sound/lose_a_star.mp3",
+		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/easing/Linear.ts",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/assets/buttons/button_ui_help.json",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/build.sh",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/data/GameData.ts",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/mixer/MixerChannel.ts",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/debug/media/screens/screen_gameload_background.png",
+		"/Users/Saykrd/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/src/scenes/RainbowRocksLoader.ts",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/screens/GameLoadScreen.ts",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/debug/media/spritesheets/game_graphic_casta_1.json",
+		"/Users/Saykrd/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/src/scenes/RainbowRocksLoader.js",
+		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/game/graphic/AnimatedGraphic.ts",
+		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/particles/actions/ApproachNeighbours.ts",
+		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/Avota.ts",
+		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/game/engine/rendering/spritesheet/SpriteSheetAnimation.ts",
+		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/game/engine/rendering/spritesheet/SpriteSheet.ts",
+		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/utils/sprintf.d.ts",
+		"/Users/Saykrd/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/assets/twilight_sparkle_play01.mp3",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/debug/strings.json",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/assets/audio/audio_freakyfusion_channel_vocalsbackground.mp3",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/mixer/MixRecorder",
+		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/game/engine/components/TickedComponent.ts",
+		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/game/tilemap/TileCollisionComponent.ts",
+		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/MusicMixer.sublime-project",
+		"/Users/Saykrd/Sites/CN Games/Jake Game/game/createjs-with-server/src/main.js",
+		"/Users/Saykrd/Sites/CN Games/Jake Game/game/debug/index.html",
+		"/Users/Saykrd/Sites/CN Games/Jake Game/game/debug/src/content-interface.min.js",
+		"/A/Akil/Google Drive/My Files/Work/CN Games/Jake Game/game/debug/index.html.txt",
+		"/A/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/src/ui/RainbowRocksUI.js",
+		"/A/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/debug/index.html",
+		"/A/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/debug/indexOLD.html",
+		"/A/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/base/context/Context.js",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/SeeYourselfRockified/game/src/scenes/QAScreen.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/EG Mini Game tracking/README.txt",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/Avota.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/utils/EnvUtil.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/SeeYourselfRockified/game/debug/js/seeyourselfrockified.min.js",
+		"/A/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/debug/index.html",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/debug/js/rainbowrocks.min.js",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/SeeYourselfRockified/game/debug/index.html",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/debug/js/rainbowrocks.min",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/SeeYourselfRockified/game/debug/config.json",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/SeeYourselfRockified/game/src/scenes/NameEntryOverlay.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/src/ui/GameOverlay.js",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/SeeYourselfRockified/game/src/scenes/TitleScreen.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/src/scenes/RainbowRocksLoader.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/EG Mini Game tracking/omniture-tracking.js",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/SeeYourselfRockified/game/src/scenes/CompleteScreen.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/SeeYourselfRockified/game/src/scenes/BackgroundOverlay.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/SeeYourselfRockified/game/src/scenes/ChoosePhotoOverlay.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/game/scene/GameScene.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/game/ui/GameUIOverlay.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/game/ui/GameUI.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/game/scene/Level.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/game/Game.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/game/ui/TextGraphic.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/game/ui/Button.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/src/scenes/TitleScreen.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/game/scene/Screen.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/debug/media/buttons/btn_instrument_a.json",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/SeeYourselfRockified/game/src/ui/RockifiedUI.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/resource/ResourceManager.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/src/RainbowRocks.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/assets/btn_instrument/btn_instrument_a.json",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/game/engine/rendering/IRenderLayer.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/game/engine/rendering/RenderManager.ts",
+		"/C/Users/Akil/Desktop/timeScape_engine_plan.txt",
+		"/C/Users/Akil/AppData/Local/Temp/7zOCB3D.tmp/RainbowRocksLevel.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/particles/emitters/Emitter2D.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/particles/emitters/Emitter.ts",
+		"/C/Users/Akil/AppData/Local/Temp/7zOCBCB.tmp/RainbowRocksLevel.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/SeeYourselfRockified/game/debug/css/game.css",
+		"/C/Users/Akil/Desktop/Monday.txt",
+		"/C/Users/Akil/Desktop/AutoHotkey.ahk",
+		"/C/Users/Akil/Desktop/Tuesday.txt",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/game/engine/rendering/RenderComponent.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS/src/sound/SoundElement.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS/src/sound/SoundManager.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/debug/media/ui_buttons.json",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/debug/media/notes.json",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/src/ui/RainbowRocksUI.js",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/assets/game_graphic_rd.json",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/game/graphic/AnimatedGraphic.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/SeeYourselfRockified/game/src/SeeYourselfRockified.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS-3-05-14/src/game/GameSettings.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS/src/game/GameSettings.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/SeeYourselfRockified/game/src/scenes/CustomizeScreen.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/src/ui/GameOverlay.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/debug/media/game_graphic_pp.json",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/debug/media/game_graphic_djpon3.json",
+		"/C/Users/Akil/Google Drive/My Files/Work/Disney Games/build13/index.html",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/Rapunzel/debug/index.html",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/src/ui/RainbowRocksUI.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS/src/game/Game.ts",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/AvotaJS/src/game/Game.js",
+		"/C/Users/Akil/Google Drive/My Files/Work/Disney Games/MickeySmoothies/index.html",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/Rapunzel/debug/config.json",
+		"/C/Users/Akil/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/debug/css/game.css"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"D:\\Akil\\Google Drive\\My Files\\Projects\\Sites\\Games\\project001\\debug\\js",
+			"A:\\Akil\\Google Drive\\My Files\\Work\\Hasbro Games\\AvotaJS-3-05-14",
+			"C:\\Users\\Akil\\Google Drive\\My Files\\Work\\Hasbro Games\\AvotaJS-3-05-14",
+			"C:\\Users\\Akil\\Google Drive\\My Files\\Work\\Hasbro Games\\RainbowRocks\\game\\src",
+			"C:\\Users\\Akil\\Google Drive\\My Files\\Work\\Hasbro Games\\AvotaJS\\src",
+			"C:\\Users\\Akil\\Google Drive\\My Files\\Work\\Hasbro Games\\RainbowRocks\\game\\src\\gameplay\\GameState.ts",
+			"C:\\Users\\Akil\\Google Drive\\My Files\\Work\\Hasbro Games\\RainbowRocks\\game\\src\\ui\\GameOverlay.ts",
+			"C:\\Users\\Akil\\Google Drive\\My Files\\Work\\Hasbro Games\\RainbowRocks\\game\\src\\ui\\RainbowRocksUI",
+			"C:\\Users\\Akil\\Google Drive\\My Files\\Work\\Hasbro Games\\RainbowRocks\\game\\src\\scenes\\RainbowRocksLevel.ts",
+			"C:\\Users\\Akil\\Google Drive\\My Files\\Work\\Hasbro Games\\RainbowRocks\\game\\src\\scenes\\TitleScreen.ts",
+			"C:\\Users\\Akil\\Google Drive\\My Files\\Work\\Hasbro Games\\RainbowRocks\\game\\src\\scenes\\RainbowRocksLoader.ts",
+			"C:\\Users\\Akil\\Google Drive\\My Files\\Work\\Hasbro Games\\RainbowRocks\\game\\src\\RainbowRocks.ts",
+			"C:\\Users\\Akil\\Google Drive\\My Files\\Work\\Hasbro Games\\SeeYourselfRockified\\game\\src\\scenes\\QAScreen.ts",
+			"C:\\Users\\Akil\\Google Drive\\My Files\\Work\\Hasbro Games\\SeeYourselfRockified\\game\\src\\scenes\\CustomizeScreen.ts",
+			"",
+			"AvotaJS",
+			"ChoosePhotoScreen.ts",
+			"/Users/chris/Dropbox/Work/ChrisCutler/AvotaJS/src,ChoosePhotoScreen.ts",
+			"/Users/chris/Dropbox/Work/ChrisCutler/AvotaJS/src,*.ts",
+			"/Users/chris/Dropbox/Work/ChrisCutler/AvotaJS/src"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"TimeScape",
+			"Graphics",
+			"},",
+			": function",
+			":",
+			"Input",
+			"TimeScape.Input",
+			"App",
+			"Application",
+			"EndScreen",
+			"..",
+			"_scene.",
+			"NEXT",
+			"TitleScreen",
+			"idle_main",
+			"idle_blink",
+			"blink",
+			"idle_blink",
+			"idle",
+			"MusicMixerGame",
+			"soundManager",
+			"updateState",
+			"updateState()",
+			"mp3",
+			"();\n",
+			"stretchV",
+			"inputTarget",
+			");",
+			"playAudio",
+			"CNContent",
+			"CNInterface",
+			"();\n",
+			"x",
+			"()\");\n",
+			"()\")",
+			";\n",
+			"console.log",
+			"hitTest",
+			"orientationchange",
+			"_onOrientationChange",
+			"orientationChangeSignal",
+			"_onChangeOrientation",
+			".orientation",
+			"isLandscape",
+			"isLandscape =",
+			"ORIENTATION",
+			"bg_title",
+			"SequenceFailedBG",
+			"character_a",
+			"hair2",
+			"characters",
+			"accessory_buttons.",
+			"Anchor",
+			"bodies",
+			"callout",
+			"magscreen_graphic_icon",
+			"items",
+			"icon",
+			"makeVideoElement",
+			"console.log",
+			"positionVideo",
+			"suspend",
+			"._scene",
+			"makeButton",
+			"_buttonFrames",
+			"makeButton",
+			"\"Buttons\",",
+			"makeButton",
+			"media/",
+			"Character",
+			"makeButton",
+			"getAsset(",
+			"getLayer",
+			"disableButtons",
+			"particles",
+			"emitter.addaction",
+			"_mxmlImages",
+			"emitter.",
+			"emitter.stop",
+			"_view",
+			"standalone",
+			"inputOut",
+			"_inputComponent",
+			"autoInit",
+			"initSignal",
+			"orientationImage",
+			"unsupportedOrientationImagePath",
+			"setParams",
+			"_settings",
+			"_onChangeOrientation",
+			"orientationImage",
+			"orientation",
+			"unsupportedOrientationImagePath",
+			"Orientation",
+			"orientation",
+			"orientationImage",
+			"unsupportedOrientation",
+			"unsupportedOrientationImagePath",
+			"makeButton",
+			"StageLights",
+			"registration",
+			"playNote",
+			"250",
+			"resumeGameBGM",
+			"_skipCallback",
+			"enableAllButtons",
+			"_characterIndices",
+			"resumeSound",
+			"resume",
+			"volume",
+			"makeSprite",
+			"_rapunzel",
+			"TweenMax",
+			"bg_level",
+			"queueBusy",
+			"queueBust",
+			"RainbowRocksLevel.queueBusy",
+			"queueBusy",
+			"currentState",
+			"()\n",
+			"dispatch(",
+			"dispatch",
+			"BackgroundOverlay",
+			"_ui",
+			"Rockified",
+			"ToggleButton",
+			"TitleScreen",
+			"SeeYourselfRockified"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Animyst",
+			"TimeScape.Graphics",
+			"}",
+			"= function",
+			"=",
+			"TimeScape.Input",
+			"Input",
+			"TimeScape",
+			"App",
+			"ShareScreen",
+			".",
+			"DONE",
+			"FINISH",
+			"EndScreen",
+			"MixRecorder",
+			"wav",
+			"//console.log",
+			"",
+			"media/buttons/",
+			"Instrument",
+			"_characterList",
+			"GameOverlay",
+			"RainbowRocks",
+			"Avota.Button",
+			"RainbowRocksLevel",
+			"RainbowRocks",
+			"QA",
+			"Customize",
+			"ChoosePhoto",
+			"boolean"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 209,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								209,
+								209
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "gruntfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 925,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								785,
+								785
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 121.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "debug/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 430,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								204,
+								204
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "debug/js/animyst.min.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 15443,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 111.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "animyst.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"applicat",
+				"project001\\debug\\js\\application.js"
+			],
+			[
+				"layout",
+				"MusicMixer/src/data/LayoutData.ts"
+			],
+			[
+				"title",
+				"MusicMixer/src/screens/TitleScreen.ts"
+			],
+			[
+				"button",
+				"src/game/ui/Button.ts"
+			],
+			[
+				"songsele",
+				"MusicMixer/src/screens/SongSelectScreen.ts"
+			],
+			[
+				"lay",
+				"MusicMixer/src/data/LayoutData.ts"
+			],
+			[
+				"buttondata",
+				"MusicMixer/src/data/ButtonData.ts"
+			],
+			[
+				"anima",
+				"src/game/graphic/AnimatedGraphic.ts"
+			],
+			[
+				"spritesheetan",
+				"src/game/engine/rendering/spritesheet/SpriteSheetAnimation.ts"
+			],
+			[
+				"tickedob",
+				"src/time/ITickedObject.ts"
+			],
+			[
+				"game",
+				"AvotaJS-3-05-14/src/game/Game.ts"
+			],
+			[
+				"rainbow",
+				"game/debug/js/rainbowrocks.min.js"
+			],
+			[
+				"index",
+				"game/debug/index.html"
+			],
+			[
+				"config",
+				"game/debug/config.json"
+			],
+			[
+				"qascree",
+				"game/src/scenes/QAScreen.ts"
+			],
+			[
+				"envi",
+				"AvotaJS-3-05-14/src/utils/EnvUtil.ts"
+			],
+			[
+				"omni",
+				"game/debug/js/omniture-tracking.js"
+			],
+			[
+				"titlescree",
+				"game/src/scenes/TitleScreen.ts"
+			],
+			[
+				"backgroundov",
+				"game/src/scenes/BackgroundOverlay.ts"
+			],
+			[
+				"complete",
+				"game/src/scenes/CompleteScreen.ts"
+			],
+			[
+				"avota.ts",
+				"AvotaJS-3-05-14/src/Avota.ts"
+			],
+			[
+				"nameen",
+				"game/src/scenes/NameEntryOverlay.ts"
+			],
+			[
+				"gameui",
+				"AvotaJS-3-05-14/src/game/ui/GameUI.ts"
+			],
+			[
+				"gameuiover",
+				"AvotaJS-3-05-14/src/game/ui/GameUIOverlay.ts"
+			],
+			[
+				"scene",
+				"AvotaJS-3-05-14/src/game/scene/GameScene.ts"
+			],
+			[
+				"level",
+				"AvotaJS-3-05-14/src/game/scene/Level.ts"
+			],
+			[
+				"choosephoto",
+				"game/src/scenes/ChoosePhotoOverlay.ts"
+			],
+			[
+				"rainbowroc",
+				"game/src/RainbowRocks.ts"
+			],
+			[
+				"titles",
+				"game/src/scenes/TitleScreen.ts"
+			],
+			[
+				"rockifiedui",
+				"game/src/ui/RockifiedUI.ts"
+			],
+			[
+				"resourcemanager",
+				"AvotaJS-3-05-14/src/resource/ResourceManager.ts"
+			],
+			[
+				"irenderlayer",
+				"AvotaJS-3-05-14/src/game/engine/rendering/IRenderLayer.ts"
+			],
+			[
+				"rendermanager",
+				"AvotaJS-3-05-14/src/game/engine/rendering/RenderManager.ts"
+			],
+			[
+				"textgra",
+				"AvotaJS-3-05-14/src/game/ui/TextGraphic.ts"
+			],
+			[
+				"gamec",
+				"game/debug/css/game.css"
+			],
+			[
+				"emitter",
+				"AvotaJS-3-05-14/src/particles/emitters/Emitter.ts"
+			],
+			[
+				"emitter2d",
+				"AvotaJS-3-05-14/src/particles/emitters/Emitter2D.ts"
+			],
+			[
+				"sharedimages",
+				"AvotaJS-3-05-14/src/particles/initializers/SharedImages.ts"
+			],
+			[
+				"rendercomp",
+				"AvotaJS-3-05-14/src/game/engine/rendering/RenderComponent.ts"
+			],
+			[
+				"canvasgra",
+				"AvotaJS-3-05-14/src/game/graphic/CanvasGraphic.ts"
+			],
+			[
+				"envu",
+				"AvotaJS-3-05-14/src/utils/EnvUtil.ts"
+			],
+			[
+				"ui",
+				"game/debug/media/ui_buttons.json"
+			],
+			[
+				"rrui",
+				"game/src/ui/RainbowRocksUI.ts"
+			],
+			[
+				"screen.ts",
+				"AvotaJS-3-05-14/src/game/scene/Screen.ts"
+			],
+			[
+				"rainbowrui",
+				"game/src/ui/RainbowRocksUI.js"
+			],
+			[
+				"rocifiedui",
+				"game/src/ui/RockifiedUI.ts"
+			],
+			[
+				"gameoverla",
+				"game/src/ui/GameOverlay.ts"
+			],
+			[
+				"rainbowrocks",
+				"game/src/RainbowRocks.ts"
+			],
+			[
+				"rainbowloader",
+				"game/src/scenes/RainbowRocksLoader.ts"
+			],
+			[
+				"animatedgra",
+				"AvotaJS-3-05-14/src/game/graphic/AnimatedGraphic.ts"
+			],
+			[
+				"gamesett",
+				"AvotaJS-3-05-14/src/game/GameSettings.ts"
+			],
+			[
+				"seeyourse",
+				"game/src/SeeYourselfRockified.ts"
+			],
+			[
+				"gamesettings",
+				"AvotaJS-3-05-14/src/game/GameSettings.ts"
+			],
+			[
+				"game.ts",
+				"AvotaJS/src/game/Game.ts"
+			],
+			[
+				"rrload",
+				"game/src/scenes/RainbowRocksLoader.ts"
+			],
+			[
+				"customize",
+				"game/src/scenes/CustomizeScreen.ts"
+			],
+			[
+				"completesc",
+				"game/src/scenes/CompleteScreen.ts"
+			],
+			[
+				"game.css",
+				"game/debug/css/game.css"
+			],
+			[
+				"titlesc",
+				"game/src/scenes/TitleScreen.ts"
+			],
+			[
+				"load",
+				"game/src/scenes/RainbowRocksLoader.ts"
+			],
+			[
+				"characterb",
+				"game/src/graphics/CharacterBuilder.ts"
+			],
+			[
+				"soundelement",
+				"AvotaJS/src/sound/SoundElement.ts"
+			],
+			[
+				"soundmanager",
+				"AvotaJS/src/sound/SoundManager.ts"
+			],
+			[
+				"ssa",
+				"AvotaJS/src/game/engine/rendering/spritesheet/SpriteSheetAnimation.ts"
+			],
+			[
+				"titl",
+				"game/src/scenes/TitleScreen.ts"
+			],
+			[
+				"single",
+				"AvotaJS/src/game/graphic/SingleFrameGraphic.ts"
+			],
+			[
+				"singefram",
+				"AvotaJS/src/game/graphic/SingleFrameGraphic.ts"
+			],
+			[
+				"spritesheet",
+				"AvotaJS/src/game/engine/rendering/spritesheet/SpriteSheet.ts"
+			],
+			[
+				"spritesheetanimat",
+				"AvotaJS/src/game/engine/rendering/spritesheet/SpriteSheetAnimation.ts"
+			],
+			[
+				"animated",
+				"AvotaJS/src/game/graphic/AnimatedGraphic.ts"
+			],
+			[
+				"animat",
+				"AvotaJS/src/game/graphic/AnimatedGraphic.ts"
+			],
+			[
+				"singlefra",
+				"AvotaJS/src/game/graphic/SingleFrameGraphic.ts"
+			],
+			[
+				"gamecss",
+				"game/debug/css/game.css"
+			],
+			[
+				"canva",
+				"AvotaJS/src/game/graphic/CanvasGraphic.ts"
+			],
+			[
+				"signal",
+				"AvotaJS/src/signals/Signal.ts"
+			],
+			[
+				"spritesh",
+				"AvotaJS/src/game/engine/rendering/spritesheet/SpriteSheet.ts"
+			],
+			[
+				"completes",
+				"game/src/scenes/CompleteScreen.ts"
+			],
+			[
+				"backgrou",
+				"game/src/scenes/BackgroundOverlay.ts"
+			],
+			[
+				"singeframe",
+				"AvotaJS/src/game/graphic/SingleFrameGraphic.ts"
+			],
+			[
+				"rockifiedu",
+				"game/src/ui/RockifiedUI.ts"
+			],
+			[
+				"item",
+				"game/src/graphics/Item.ts"
+			],
+			[
+				"gamedata",
+				"game/src/data/GameData.ts"
+			],
+			[
+				"inputmanag",
+				"AvotaJS/src/input/InputManager.ts"
+			],
+			[
+				"inputmanager",
+				"AvotaJS/src/input/InputManager.js"
+			],
+			[
+				"imagegra",
+				"AvotaJS/src/game/graphic/ImageGraphic.ts"
+			],
+			[
+				"ientity",
+				"AvotaJS/src/game/entity/IGameEntity.ts"
+			],
+			[
+				"group",
+				"AvotaJS/src/base/group/Group.ts"
+			],
+			[
+				"igameent",
+				"AvotaJS/src/game/entity/IGameEntity.ts"
+			],
+			[
+				"entity",
+				"AvotaJS/src/base/entity/Entity.ts"
+			],
+			[
+				"element",
+				"AvotaJS/src/base/element/Element.ts"
+			],
+			[
+				"entit",
+				"AvotaJS/src/base/entity/Entity.ts"
+			],
+			[
+				"gameenti",
+				"AvotaJS/src/game/entity/GameEntity.ts"
+			],
+			[
+				"imageg",
+				"AvotaJS/src/game/graphic/ImageGraphic.ts"
+			],
+			[
+				"imagesprite",
+				"AvotaJS/src/game/sprite/ImageSprite.ts"
+			],
+			[
+				"inputcomp",
+				"AvotaJS/src/input/InputComponent.ts"
+			],
+			[
+				"abstract",
+				"AvotaJS/src/base/AbstractBase.ts"
+			],
+			[
+				"stateeleme",
+				"AvotaJS/src/state/StateElement.ts"
+			],
+			[
+				"stateent",
+				"AvotaJS/src/state/StateEntity.ts"
+			],
+			[
+				"gamesce",
+				"AvotaJS/src/game/scene/GameScene.ts"
+			],
+			[
+				"screen",
+				"AvotaJS/src/game/scene/Screen.ts"
+			],
+			[
+				"inputc",
+				"AvotaJS/src/input/InputComponent.ts"
+			],
+			[
+				"gameuioverla",
+				"AvotaJS/src/game/ui/GameUIOverlay.ts"
+			],
+			[
+				"gameent",
+				"AvotaJS/src/game/entity/GameEntity.ts"
+			],
+			[
+				"image",
+				"AvotaJS/src/game/graphic/ImageGraphic.ts"
+			],
+			[
+				"",
+				"/C/Users/Akil/Desktop/Rapunzel/src/ui/RapunzelUI.ts"
+			],
+			[
+				"rapunz",
+				"/C/Users/Akil/Desktop/Rapunzel/src/ui/RapunzelUI.ts"
+			],
+			[
+				"gamescene",
+				"AvotaJS/src/game/scene/GameScene.ts"
+			],
+			[
+				"overlay",
+				"AvotaJS/src/game/ui/GameUIOverlay.js"
+			],
+			[
+				"rockified",
+				"game/src/scenes/RockifiedLoader.ts"
+			],
+			[
+				"buttons",
+				"AvotaJS/src/game/ui/Button.ts"
+			],
+			[
+				"ra",
+				"Rapunzel/debug/media/rapunzel_animations.json"
+			],
+			[
+				"heo",
+				"HelloWorld.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/chris/Dropbox/Work/ChrisCutler/AvotaJS/AvotaJS.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 251.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
