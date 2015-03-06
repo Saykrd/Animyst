@@ -14,12 +14,18 @@ Game.prototype.setup = function(){
 	var input = new Animyst.Input(this.inputData);
 	var inputView = new Animyst.InputDisplay(this.inputData);
 
+	var sound = new Animyst.Sound();
+
+
 
 	input.startup({tool:new Tool(), element: document.getElementById("game")});
 	inputView.startup({});
 
+	sound.startup({});
+
 	this.addSystem("input", input);
-	this.addSystem("inputView", inputView)
+	this.addSystem("inputView", inputView);
+	this.addSystem("sound", sound);
 
 }
 
