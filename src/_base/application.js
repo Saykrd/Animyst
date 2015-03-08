@@ -1,26 +1,83 @@
 Animyst.Application = function(){
-	this._appStateList = [];
-	this._appStateLib  = {};
-	this._stats = null;
+	this._appStateList  = [];
+	this._appStateLib   = {};
 
+	this._stats = null;
+	this._startParams = null;
+
+	this.initSignal = new signals.Signal();
+
+	this.config  = null;
 }
+
 
 Animyst.Application.prototype.startup = function(params){
 	console.log("===================================================");
 	console.log("   ----- AnimystJS: (v 0.0.0) by ~Saykrd -----   ");
 	console.log("===================================================");
 
+	this._startParams = params;
 
+	// Load all configuration files and and assets first
+	Animyst.DataLoad.startup({});
+	Animyst.DataLoad.loadAsset({"id" : "config", "src" : "config.json"}, this._load.bind(this))
+}
 
+Animyst.Application.prototype._load = function(type, evt){
+	if(type == Animyst.DataLoad.FILE_LOADED){
+
+		switch(evt.item.id){
+			case "config":
+				console.log("[Application] Config json loaded");
+				console.log(Animyst.DataLoad.getAsset("config"));
+
+				this.config = Animyst.DataLoad.getAsset("config");
+				Animyst.DataLoad.loadFromManifest([
+					{"id" : "assets", "src" : this.config.assets}, 
+					{"id" : "strings", "src" : this.config.strings}
+				]);
+
+				break;
+			case "assets":
+				console.log("[Application] Assets json loaded");
+				var assets = Animyst.DataLoad.getAsset("assets");
+				Animyst.DataLoad.listAssets(assets.manifest);
+				console.log(Animyst.DataLoad._assetList);
+
+				if(assets.initialLoad){
+					Animyst.DataLoad.loadFromManifest(assets.initialLoad);
+				}
+				break;
+			case "strings":
+				console.log("[Application] Strings json loaded");
+				break;
+
+		}
+		
+		
+	} else if(type == Animyst.DataLoad.LOAD_COMPLETE){
+		//Animyst.DataLoad.removeLoadHandler(this._load);
+		this._init();
+	}
+}
+
+Animyst.Application.prototype._init = function(){
+	var params = this._startParams;
 	if(params.paper){
 		paper.install(window);
-		paper.setup(params.canvasID);
+
+		if(params.canvasID){
+			paper.setup(params.canvasID);
+		} else {
+			console.error("[Application] ! No canvas ID specified. Cant Setup PaperJS.")
+		}
+		
 
 		view.onFrame = this.update.bind(this);
 	}
 
 	if(params.debug){
-		//if(window["Stats"]){
+		if(window["Stats"]){
 			this._stats = new Stats();
 			this._stats.domElement.style.position = 'absolute';
 			this._stats.domElement.style.left = '0px';
@@ -28,11 +85,11 @@ Animyst.Application.prototype.startup = function(params){
 
 			document.body.appendChild( this._stats.domElement );
 			console.log("[Application] Stats Enabled");
-		//}
+		}
 	}
 
-
 	console.log("[Application] Application Started")
+	this.initSignal.dispatch();
 }
 
 Animyst.Application.prototype.run = function(appState){

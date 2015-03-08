@@ -1,17 +1,23 @@
 var Main = function(){
 	this.game = null;
+	this.app  = null;
 }
 
 Main.prototype = {
 
 	start: function(){
-		console.log("===== APPLICATION STARTED ======");
+		console.log("===== MAIN ======");
 
-		var app = new Animyst.Application();
-		app.startup({paper:true, canvasID:"game", debug: true});
+		this.app = new Animyst.Application();
 
+		this.app.initSignal.addOnce(this.onAppInit, this);
+
+		this.app.startup({paper:true, canvasID:"game", debug: true});
+	},
+
+	onAppInit: function(){
 		var game = new Game("game1");
-		app.run(game);
+		this.app.run(game);
 	}
 
 }

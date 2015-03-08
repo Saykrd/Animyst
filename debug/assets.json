@@ -1,0 +1,9 @@
+{
+	"manifest" : [
+		{"id":"music", "src" : "media/audio/bgm_01.mp3"}
+	],
+
+	"preload" : [
+		"music"
+	]
+}

@@ -1,0 +1,6 @@
+{
+	"name" : "test",
+	"settings": {"debug" : true},
+	"assets" : "assets.json",
+	"strings": "strings.json"
+}
