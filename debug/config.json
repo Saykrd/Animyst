@@ -1,6 +1,15 @@
 {
 	"name" : "test",
-	"settings": {"debug" : true},
+	"settings": {
+		"debug" : true,
+		"canvasSettings" : {
+			"type"     : "paper",
+			"id"       : "canvas1",
+			"minWidth" :  1280,
+			"minHeight":  720,
+			"scaleMode": "noBorder" 
+		}
+	},
 	"assets" : "assets.json",
 	"strings": "strings.json"
 }

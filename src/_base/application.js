@@ -63,20 +63,54 @@ Animyst.Application.prototype._load = function(type, evt){
 
 Animyst.Application.prototype._init = function(){
 	var params = this._startParams;
-	if(params.paper){
-		paper.install(window);
+	if(this.config.settings.canvasSettings){
 
-		if(params.canvasID){
-			paper.setup(params.canvasID);
-		} else {
-			console.error("[Application] ! No canvas ID specified. Cant Setup PaperJS.")
+		var canvasSettings = this.config.settings.canvasSettings
+
+		switch(canvasSettings.type){
+			case "paper":
+				paper.install(window);
+
+				var canvas = document.createElement("canvas");
+				canvas.id = "paper";
+
+				document.body.appendChild(canvas);
+
+				scale();
+
+				function scale(){
+					console.log("[Application] Rescale Canvas!")
+					var w, h, parentWidth, parentHeight
+
+					parentWidth  = document.body.clientWidth;
+					parentHeight = document.body.clientHeight;
+
+					if(canvasSettings.scaleMode == "noBorder"){
+						w = parentWidth > canvasSettings.minWidth ? parentWidth : canvasSettings.minWidth;
+						h = parentHeight > canvasSettings.minHeight ?  parentHeight : canvasSettings.minHeight;
+					} else {
+						w = canvasSettings.minWidth  || 0;
+						h = canvasSettings.minHeight || 0;
+					}
+
+					canvas.width  = w;
+					canvas.height = h;
+				}
+
+				Animyst.Window.resizeSignal.add(scale)
+
+				
+
+				paper.setup(canvas);
+			break;
 		}
+		
 		
 
 		view.onFrame = this.update.bind(this);
 	}
 
-	if(params.debug){
+	if(this.config.settings.debug){
 		if(window["Stats"]){
 			this._stats = new Stats();
 			this._stats.domElement.style.position = 'absolute';

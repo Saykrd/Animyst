@@ -1,3 +1,4 @@
+// Under construction, will probably change drastically, as in probably wont be a system but a module instead
 Animyst.Sound = function(){
 	
 }
