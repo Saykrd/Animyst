@@ -1,7 +1,8 @@
 {
 	"name" : "test",
 	"settings": {
-		"debug" : true,
+		"debug"   : true,
+		"logging" : false,
 		"canvasSettings" : {
 			"type"     : "paper",
 			"id"       : "canvas1",

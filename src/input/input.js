@@ -60,27 +60,27 @@ Animyst.Input.prototype.update = function(delta, time){
 //=============== TOUCH EVENTS ======================//
 
 Animyst.Input.prototype.onTouchStart= function(evt){
-	console.log("[Input] Touch Start!");
+	if(Animyst.LOGGING) console.log("[Input] Touch Start!");
 	this.handleTouchInput(Animyst.Input.TOUCH_START, evt);
 }
 
 Animyst.Input.prototype.onTouchMove= function(evt){
-	console.log("[Input] Touch Move!");
+	if(Animyst.LOGGING) console.log("[Input] Touch Move!");
 	this.handleTouchInput(Animyst.Input.TOUCH_MOVE, evt);
 }
 
 Animyst.Input.prototype.onTouchRelease= function(evt){
-	console.log("[Input] Touch Release!");
+	if(Animyst.LOGGING) console.log("[Input] Touch Release!");
 	this.handleTouchInput(Animyst.Input.TOUCH_RELEASE, evt);
 }
 
 Animyst.Input.prototype.onTouchEnter= function(evt){
-	console.log("[Input] Touch Enter!");
+	if(Animyst.LOGGING) console.log("[Input] Touch Enter!");
 	this.handleTouchInput(Animyst.Input.TOUCH_ENTER, evt);
 }
 
 Animyst.Input.prototype.onTouchLeave= function(evt){
-	console.log("[Input] Touch Leave!");
+	if(Animyst.LOGGING) console.log("[Input] Touch Leave!");
 	this.handleTouchInput(Animyst.Input.TOUCH_LEAVE, evt);
 }
 
@@ -88,51 +88,51 @@ Animyst.Input.prototype.onTouchLeave= function(evt){
 //================= MOUSE EVENTS =====================//
 
 Animyst.Input.prototype.onClick = function(evt){
-	console.log("[Input] Mouse Click!");
+	if(Animyst.LOGGING) console.log("[Input] Mouse Click!");
 	this.handleMouseInput(Animyst.Input.MOUSE_CLICK, evt);
 }
 
 Animyst.Input.prototype.onMouseDown = function(evt){
-	console.log("[Input] Mouse Down!");
+	if(Animyst.LOGGING) console.log("[Input] Mouse Down!");
 	this.handleMouseInput(Animyst.Input.MOUSE_DOWN, evt);
 }
 
 Animyst.Input.prototype.onMouseDrag = function(evt){
-	console.log("[Input] Mouse Drag!");
+	if(Animyst.LOGGING) console.log("[Input] Mouse Drag!");
 	this.handleMouseInput(Animyst.Input.MOUSE_DRAG, evt);
 }
 
 Animyst.Input.prototype.onMouseMove = function(evt){
-	console.log("[Input] Mouse Move!");
+	if(Animyst.LOGGING) console.log("[Input] Mouse Move!");
 	this.handleMouseInput(Animyst.Input.MOUSE_MOVE, evt);
 }
 
 Animyst.Input.prototype.onMouseUp = function(evt){
-	console.log("[Input] Mouse Up!");
+	if(Animyst.LOGGING) console.log("[Input] Mouse Up!");
 	this.handleMouseInput(Animyst.Input.MOUSE_UP, evt);
 }
 
 Animyst.Input.prototype.onMouseEnter = function(evt){
-	console.log("[Input] Mouse Enter!");
+	if(Animyst.LOGGING) console.log("[Input] Mouse Enter!");
 	this.handleMouseInput(Animyst.Input.MOUSE_ENTER, evt);
 }
 
 Animyst.Input.prototype.onMouseLeave = function(evt){
-	console.log("[Input] Mouse Leave!");
+	if(Animyst.LOGGING) console.log("[Input] Mouse Leave!");
 	this.handleMouseInput(Animyst.Input.MOUSE_LEAVE, evt);
 }
 
 //================ KEYBOARD EVENTS ===================//
 
 Animyst.Input.prototype.onKeyUp= function(evt){
-	console.log("[Animyst.Input] Released Key:", evt.key);
+	if(Animyst.LOGGING) console.log("[Animyst.Input] Released Key:", evt.key);
 	evt.preventDefault();
 	this.handleKeyInput(Animyst.Input.KEY_UP, evt);
 }
 
 
 Animyst.Input.prototype.onKeyDown= function(evt){
-	console.log("[Animyst.Input] Pressed Key:", evt.key);
+	if(Animyst.LOGGING) console.log("[Animyst.Input] Pressed Key:", evt.key);
 	evt.preventDefault();
 	this.handleKeyInput(Animyst.Input.KEY_DOWN, evt);
 }
@@ -155,7 +155,7 @@ Animyst.Input.prototype.handleMouseInput = function(type, evt){
 }
 
 Animyst.Input.prototype.handleKeyInput = function(type, evt){
-	this.inputData.setKeyInput(type == Animyst.Input.KEY_DOWN, evt.key)
+	this.inputData.setKeyInput(evt.key, type == Animyst.Input.KEY_DOWN)
 }
 
 Animyst.Input.prototype.handleTouchInput = function(type, evt){

@@ -37,7 +37,7 @@ Animyst.InputDisplay.prototype.inputHandler = function(inputType, evtType, data)
 			} 
 
 			this.mouse.position = data.point;
-			console.log(data.point)
+			//console.log(data.point)
 
 			if(data.down){
 				this.mouse.fillColor = "#FF0000"

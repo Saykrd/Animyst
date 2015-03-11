@@ -63,6 +63,9 @@ Animyst.Application.prototype._load = function(type, evt){
 
 Animyst.Application.prototype._init = function(){
 	var params = this._startParams;
+
+	Animyst.LOGGING = this.config.settings.logging;
+
 	if(this.config.settings.canvasSettings){
 
 		var canvasSettings = this.config.settings.canvasSettings

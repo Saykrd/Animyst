@@ -77,7 +77,7 @@ Animyst.InputData.prototype.onTick = function(delta){
 }
 
 Animyst.InputData.prototype.isKeyDown = function(key){
-	return this.map[key] && this.map[key].active;
+	return (this.map[key] && this.map[key].active) ? true : false;
 }
 
 Animyst.InputData.prototype.setKeyInput = function(key, active){
@@ -130,14 +130,14 @@ Animyst.InputData.prototype.setMouseInput = function(evt, down){
 	}
 
 	if(clickStart){
-		console.log("[InputData] Click Start!");
+		if(Animyst.LOGGING) console.log("[InputData] Click Start!");
 		this.mouse.clickStart = clickStart
 		this.mouse.clickTime = 0;
 		evtType = Animyst.InputData.MOUSE_DOWN;
 	}
 
 	if(lastClick){
-		console.log("[InputData] Click Ended!", this.mouse.clickTime);
+		if(Animyst.LOGGING) console.log("[InputData] Click Ended!", this.mouse.clickTime);
 		lastClick.clickStart = this.mouse.clickStart;
 		lastClick.clickTime  = this.mouse.clickTime;
 		
@@ -184,7 +184,7 @@ Animyst.InputData.prototype.addTouches= function(touches){
 
 			this.touches.push(data);
 			this.totalTouchCount++;
-			console.log("[InputData] Adding Touch:", data.uid);
+			if(Animyst.LOGGING) console.log("[InputData] Adding Touch:", data.uid);
 
 			this.signal.dispatch(Animyst.InputData.TOUCH, Animyst.InputData.TOUCH_ADDED, data);
 		}
@@ -207,7 +207,7 @@ Animyst.InputData.prototype.removeTouches= function(touches){
 		}
 
 		if(isGone){
-			console.log("[InputData] Removing Touch:", touchData.uid);
+			if(Animyst.LOGGING) console.log("[InputData] Removing Touch:", touchData.uid);
 			this.touchHistory.shift(touchData);
 			this.touches.splice(i,1);
 			if(this.touchHistory.length > Animyst.InputData.TOUCH_HISTORY_LIMIT){
@@ -237,7 +237,7 @@ Animyst.InputData.prototype.updateTouches= function(touches){
 				data[k] = touch[k];
 			}
 
-			console.log("[InputData] Updated Touch:", data.uid, Math.round(data.pageX), Math.round(data.pageY), Math.round(data.screenX), Math.round(data.screenY), data.force || data.webkitForce);
+			if(Animyst.LOGGING) console.log("[InputData] Updated Touch:", data.uid, Math.round(data.pageX), Math.round(data.pageY), Math.round(data.screenX), Math.round(data.screenY), data.force || data.webkitForce);
 			this.signal.dispatch(Animyst.InputData.TOUCH, Animyst.InputData.TOUCH_UPDATED, data);
 
 		}

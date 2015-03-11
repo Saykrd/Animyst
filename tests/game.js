@@ -2,6 +2,7 @@ Game = function(id){
 	Animyst.AppState.call(this, id);
 
 	this.inputData = null;
+	this.gameData  = null;
 }
 
 Game.prototype = Object.create(Animyst.AppState.prototype);
@@ -10,22 +11,30 @@ Game.prototype.setup = function(){
 	Animyst.AppState.prototype.setup.call(this);
 
 	this.inputData = new Animyst.InputData();
+	this.gameData = new GameData();
 
-	var input = new Animyst.Input(this.inputData);
-	var inputView = new Animyst.InputDisplay(this.inputData);
+	var gameLogic   = new GameLogic(this.gameData, this.inputData);
+	var gameDisplay = new GameDisplay(this.gameData);
+	var input     = new Animyst.Input(this.inputData);
+	//var inputView = new Animyst.InputDisplay(this.inputData);
 
-	var sound = new Animyst.Sound();
+	//var sound = new Animyst.Sound();
 
 
 
 	input.startup({tool:new Tool(), element: document.getElementById("game")});
-	inputView.startup({});
+	//inputView.startup({});
+	
+	gameDisplay.startup();
+	gameLogic.startup();
 
-	sound.startup({});
+
+	//sound.startup({});
 
 	this.addSystem("input", input);
-	this.addSystem("inputView", inputView);
-	this.addSystem("sound", sound);
+	//this.addSystem("inputView", inputView);
+	this.addSystem("gameLogic", gameLogic);
+	//this.addSystem("sound", sound);
 
 }
 
