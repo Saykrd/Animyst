@@ -4,7 +4,17 @@ Animyst.AppState = function(id){
 	this._systemLib  = {};
 	this.active = false;
 	this.paused = false;
+	this.appScope = null;
 
+}
+
+Animyst.AppState.prototype.setScope = function(appScope){
+	this.appScope = appScope;
+}
+
+
+Animyst.AppState.prototype.clearScope = function(){
+	this.appScope = null;
 }
 
 Animyst.AppState.prototype.setup = function(){
@@ -46,6 +56,8 @@ Animyst.AppState.prototype.resume = function(){
 
 Animyst.AppState.prototype.kill = function(){
 	this.stop();
+	this.clearScope();
+	
 	this._systemList = null;
 	this._systemLib  = null;
 }

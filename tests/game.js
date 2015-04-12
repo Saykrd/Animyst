@@ -10,30 +10,21 @@ Game.prototype.setup = function(){
 	console.log("[Game] Setting Up...");
 	Animyst.AppState.prototype.setup.call(this);
 
-	this.inputData = new Animyst.InputData();
+	this.inputData = this.appScope.getDatabase(Animyst.CoreProcess.INPUT);
 	this.gameData = new GameData();
 
 	var gameLogic   = new GameLogic(this.gameData, this.inputData);
-	var gameDisplay = new GameDisplay(this.gameData);
-	var input     = new Animyst.Input(this.inputData);
-	//var inputView = new Animyst.InputDisplay(this.inputData);
-
-	//var sound = new Animyst.Sound();
+	//var gameDisplay = new GameDisplay(this.gameData);
 
 
 
-	input.startup({tool:new Tool(), element: document.getElementById("game")});
-	//inputView.startup({});
 	
-	gameDisplay.startup();
+	//gameDisplay.startup({layer: this.appScope.getDatabase(Animyst.CoreProcess.PAPER_DISPLAY).getLayer(1)});
 	gameLogic.startup();
 
 
-	//sound.startup({});
-
-	this.addSystem("input", input);
-	//this.addSystem("inputView", inputView);
 	this.addSystem("gameLogic", gameLogic);
+	//this.addSystem("gameDisplay", gameDisplay)
 	//this.addSystem("sound", sound);
 
 }

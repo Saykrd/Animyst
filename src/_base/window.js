@@ -4,14 +4,14 @@ Animyst.Window.width  = 0;
 Animyst.Window.height = 0;
 
 Animyst.Window._onResize = function(evt){
-	console.log("[Window] onResize!")
+	Animyst.LOG.output("[Window] onResize!")
 	Animyst.Window.width  = document.body.clientWidth;
 	Animyst.Window.height = document.body.clientHeight;
 	Animyst.Window.resizeSignal.dispatch(evt);
 }
 
 Animyst.Window._onWindowLoad = function(evt){
-	console.log("[Window] Window loaded:" , "w:", Animyst.Window.width, "h:", Animyst.Window.height)
+	Animyst.LOG.output("[Window] Window loaded:" , "w:", Animyst.Window.width, "h:", Animyst.Window.height)
 	Animyst.Window.width  = document.body.clientWidth;
 	Animyst.Window.height = document.body.clientHeight;
 }

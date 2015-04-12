@@ -241,14 +241,14 @@ Animyst.DataLoad.handleLoadInitialize = function(event){
 }
 
 Animyst.DataLoad.handleLoadStart = function(event){
-	console.log("[DataLoad] Load Started!");
+	Animyst.LOG.output("[DataLoad] Load Started!");
 	var loadSignal = Animyst.DataLoad._loadSignal;
 	loadSignal.dispatch(Animyst.DataLoad.LOAD_STARTED, event);
 	Animyst.DataLoad._queueStartedSignal.dispatch(event);
 }
 
 Animyst.DataLoad.handleFileStart = function(event){
-	console.log("[DataLoad] Loading File:", event.item.id, "from:", event.item.src);
+	Animyst.LOG.output("[DataLoad] Loading File:", event.item.id, "from:", event.item.src);
 	var loadSignal = Animyst.DataLoad._loadSignal;
 	loadSignal.dispatch(Animyst.DataLoad.FILE_STARTED, event)
 	Animyst.DataLoad._fileStartedSignal.dispatch(event);
@@ -256,14 +256,14 @@ Animyst.DataLoad.handleFileStart = function(event){
 
 
 Animyst.DataLoad.handleFileLoaded = function(event){
-	console.log("[DataLoad] File Loaded:", event.item.id, "from:", event.item.src);
+	Animyst.LOG.output("[DataLoad] File Loaded:", event.item.id, "from:", event.item.src);
 	var loadSignal = Animyst.DataLoad._loadSignal;
 	loadSignal.dispatch(Animyst.DataLoad.FILE_LOADED, event)
 	Animyst.DataLoad._fileLoadedSignal.dispatch(event);
 }
 
 Animyst.DataLoad.handleLoadComplete = function(event){
-	console.log("[DataLoad] Load Completed!");
+	Animyst.LOG.output("[DataLoad] Load Completed!");
 	var loadSignal       = Animyst.DataLoad._loadSignal;
 	var handlersToRemove = Animyst.DataLoad._weakHandlers.concat();
 

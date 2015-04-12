@@ -18,7 +18,7 @@ GameDisplay.prototype.startup = function(params){
 
 	this.gameData.signal.add(this.entityHandler, this);
 
-	this.layer = new Layer({position: new Point()});
+	this.layer = params.layer || new Layer({position: new Point()});
 	
 	Animyst.System.prototype.startup.call(this, params);
 }

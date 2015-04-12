@@ -13,7 +13,7 @@ Animyst.InputDisplay.prototype.startup = function(params){
 
 	this.inputData.signal.add(this.inputHandler, this);
 
-	this.layer = new Layer({position: new Point()});
+	this.layer = params.layer || new Layer({position: new Point()});
 
 	Animyst.System.prototype.startup.call(this, params);
 }

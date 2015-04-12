@@ -5,6 +5,8 @@ Animyst.Application = function(){
 	this._stats = null;
 	this._startParams = null;
 
+	this.appScope = new Animyst.AppScope;
+
 	this.initSignal = new signals.Signal();
 
 	this.config  = null;
@@ -12,9 +14,9 @@ Animyst.Application = function(){
 
 
 Animyst.Application.prototype.startup = function(params){
-	console.log("===================================================");
-	console.log("   ----- AnimystJS: (v 0.0.0) by ~Saykrd -----   ");
-	console.log("===================================================");
+	Animyst.LOG.output("===================================================");
+	Animyst.LOG.output("   ----- AnimystJS: (v 0.0.0) by ~Saykrd -----   ");
+	Animyst.LOG.output("===================================================");
 
 	this._startParams = params;
 
@@ -28,10 +30,11 @@ Animyst.Application.prototype._load = function(type, evt){
 
 		switch(evt.item.id){
 			case "config":
-				console.log("[Application] Config json loaded");
-				console.log(Animyst.DataLoad.getAsset("config"));
-
+				Animyst.LOG.output("[Application] Config json loaded");
+				
 				this.config = Animyst.DataLoad.getAsset("config");
+				this.appScope.config = this.config;
+
 				Animyst.DataLoad.loadFromManifest([
 					{"id" : "assets", "src" : this.config.assets}, 
 					{"id" : "strings", "src" : this.config.strings}
@@ -39,17 +42,17 @@ Animyst.Application.prototype._load = function(type, evt){
 
 				break;
 			case "assets":
-				console.log("[Application] Assets json loaded");
+				Animyst.LOG.output("[Application] Assets json loaded");
 				var assets = Animyst.DataLoad.getAsset("assets");
 				Animyst.DataLoad.listAssets(assets.manifest);
-				console.log(Animyst.DataLoad._assetList);
+				Animyst.LOG.output(Animyst.DataLoad._assetList);
 
 				if(assets.initialLoad){
 					Animyst.DataLoad.loadFromManifest(assets.initialLoad);
 				}
 				break;
 			case "strings":
-				console.log("[Application] Strings json loaded");
+				Animyst.LOG.output("[Application] Strings json loaded");
 				break;
 
 		}
@@ -64,54 +67,12 @@ Animyst.Application.prototype._load = function(type, evt){
 Animyst.Application.prototype._init = function(){
 	var params = this._startParams;
 
-	Animyst.LOGGING = this.config.settings.logging;
+	Animyst.LOGGING = this.config.settings.logging || false;
+	Animyst.DEBUG   = this.config.settings.debug   || false;
 
-	if(this.config.settings.canvasSettings){
+	paper.install(window);
 
-		var canvasSettings = this.config.settings.canvasSettings
-
-		switch(canvasSettings.type){
-			case "paper":
-				paper.install(window);
-
-				var canvas = document.createElement("canvas");
-				canvas.id = "paper";
-
-				document.body.appendChild(canvas);
-
-				scale();
-
-				function scale(){
-					console.log("[Application] Rescale Canvas!")
-					var w, h, parentWidth, parentHeight
-
-					parentWidth  = document.body.clientWidth;
-					parentHeight = document.body.clientHeight;
-
-					if(canvasSettings.scaleMode == "noBorder"){
-						w = parentWidth > canvasSettings.minWidth ? parentWidth : canvasSettings.minWidth;
-						h = parentHeight > canvasSettings.minHeight ?  parentHeight : canvasSettings.minHeight;
-					} else {
-						w = canvasSettings.minWidth  || 0;
-						h = canvasSettings.minHeight || 0;
-					}
-
-					canvas.width  = w;
-					canvas.height = h;
-				}
-
-				Animyst.Window.resizeSignal.add(scale)
-
-				
-
-				paper.setup(canvas);
-			break;
-		}
-		
-		
-
-		view.onFrame = this.update.bind(this);
-	}
+	Animyst.LOG.output("[Application] Application Started")
 
 	if(this.config.settings.debug){
 		if(window["Stats"]){
@@ -121,11 +82,23 @@ Animyst.Application.prototype._init = function(){
 			this._stats.domElement.style.top = '0px';
 
 			document.body.appendChild( this._stats.domElement );
-			console.log("[Application] Stats Enabled");
+			Animyst.LOG.output("[Application] Stats Enabled");
 		}
 	}
 
-	console.log("[Application] Application Started")
+	
+
+	var coreprocess = new Animyst.CoreProcess(Animyst.CoreProcess.ID);
+	this.run(coreprocess);
+
+	if(view){
+		view.onFrame = this.update.bind(this);	
+	} else {
+		this._initFrame();
+	}
+	
+
+	
 	this.initSignal.dispatch();
 }
 
@@ -135,6 +108,7 @@ Animyst.Application.prototype.run = function(appState){
 
 		this._appStateList.push(appState);
 
+		appState.setScope(this.appScope);
 		appState.setup();
 		appState.start();
 	}
@@ -190,4 +164,10 @@ Animyst.Application.prototype.update = function(event){
 	if(this._stats){
 		this._stats.end();
 	}
+}
+
+
+Animyst.Application.prototype._initFrame =  function(){
+	requestAnimationFrame(this._initFrame.bind(this));
+	this.update();
 }
