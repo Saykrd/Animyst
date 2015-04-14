@@ -10,6 +10,7 @@ Animyst.Application = function(){
 	this.initSignal = new signals.Signal();
 
 	this.config  = null;
+	this.runtime = 0;
 }
 
 
@@ -45,7 +46,7 @@ Animyst.Application.prototype._load = function(type, evt){
 				Animyst.LOG.output("[Application] Assets json loaded");
 				var assets = Animyst.DataLoad.getAsset("assets");
 				Animyst.DataLoad.listAssets(assets.manifest);
-				Animyst.LOG.output(Animyst.DataLoad._assetList);
+				//Animyst.LOG.output(Animyst.DataLoad._assetList);
 
 				if(assets.initialLoad){
 					Animyst.DataLoad.loadFromManifest(assets.initialLoad);
@@ -83,6 +84,10 @@ Animyst.Application.prototype._init = function(){
 
 			document.body.appendChild( this._stats.domElement );
 			Animyst.LOG.output("[Application] Stats Enabled");
+		}
+
+		if(window["dat"]){
+			Animyst.datGUI = new dat.GUI();
 		}
 	}
 
@@ -152,13 +157,27 @@ Animyst.Application.prototype.endAll = function(){
 }
 
 Animyst.Application.prototype.update = function(event){
+	// Calculate time intervals
+	var delta = 0;
+	var time  = 0;
+
+	if(event){
+		delta = event.delta;
+		time  = event.time;
+	} else {
+		time  = Date.now() / 1000;
+		delta = time - this.runtime;
+	}
+
+	this.runtime += delta;
+
 	if(this._stats){
 		this._stats.begin();
 	}
 
 	for(var i = 0; i < this._appStateList.length; i++){
 		var state = this._appStateList[i];
-		state.update(event.delta, event.time);
+		state.update(delta, time);
 	}
 
 	if(this._stats){

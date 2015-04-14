@@ -5,7 +5,7 @@ Animyst.PaperDisplay = function(){
 	this.layers = [];
 }
 
-Animyst.PaperDisplay.prototype = Object.create(Animyst.PaperDisplay.prototype);
+Animyst.PaperDisplay.prototype = Object.create(Animyst.Database.prototype);
 Animyst.PaperDisplay.prototype.clear = function(){
 
 	Animyst.Database.prototype.clear.call(this);

@@ -4,10 +4,9 @@
 		"debug"   : true,
 		"logging" : true,
 		"canvasSettings" : {
-			"type"     : "paper",
+			"type"     : "three",
 			"id"       : "canvas1",
-			"minWidth" :  1280,
-			"minHeight":  720,
+			"container": "game",
 			"scaleMode": "noBorder" 
 		}
 	},

@@ -37,6 +37,16 @@ Animyst.CoreProcess.prototype.setup = function(){
 				this.addSystem("paperEngine", paperEngine);
 				this.appScope.addDatabase(Animyst.CoreProcess.PAPER_DISPLAY, paperDisplay);
 				break;
+			case "three":
+
+				var threeDisplay = new Animyst.ThreeDisplay();
+				var threeEngine  = new Animyst.ThreeEngine(threeDisplay);
+
+				threeEngine.startup({canvasSettings: canvasSettings});
+				this.addSystem("threeEngine", threeEngine);
+				this.appScope.addDatabase(Animyst.CoreProcess.THREE_DISPLAY, threeDisplay);
+
+				break;
 		}	
 	}
 
