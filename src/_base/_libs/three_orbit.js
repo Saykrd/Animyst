@@ -382,7 +382,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 		if ( state !== STATE.NONE ) {
 			document.addEventListener( 'mousemove', onMouseMove, false );
 			document.addEventListener( 'mouseup', onMouseUp, false );
-			scope.dispatchEvent( startEvent );
+			if(scope.dispatchEvent) scope.dispatchEvent( startEvent );
 		}
 
 	}
@@ -452,7 +452,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 		document.removeEventListener( 'mousemove', onMouseMove, false );
 		document.removeEventListener( 'mouseup', onMouseUp, false );
-		scope.dispatchEvent( endEvent );
+		if(scope.dispatchEvent)scope.dispatchEvent( endEvent );
 		state = STATE.NONE;
 
 	}
@@ -487,8 +487,8 @@ THREE.OrbitControls = function ( object, domElement ) {
 		}
 
 		scope.update();
-		scope.dispatchEvent( startEvent );
-		scope.dispatchEvent( endEvent );
+		if(scope.dispatchEvent)scope.dispatchEvent( startEvent );
+		if(scope.dispatchEvent)scope.dispatchEvent( endEvent );
 
 	}
 
@@ -564,7 +564,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 		}
 
-		if ( state !== STATE.NONE ) scope.dispatchEvent( startEvent );
+		if ( state !== STATE.NONE && scope.dispatchEvent) scope.dispatchEvent( startEvent );
 
 	}
 
@@ -651,7 +651,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 		if ( scope.enabled === false ) return;
 
-		scope.dispatchEvent( endEvent );
+		if(scope.dispatchEvent)scope.dispatchEvent( endEvent );
 		state = STATE.NONE;
 
 	}

@@ -39,7 +39,7 @@ Animyst.AppState.prototype.update = function(delta, time){
 		for(var i = 0 ; i < this._systemList.length; i++){
 			var system = this._systemList[i];
 			if(system.started && !system.paused){
-				system.update(delta);	
+				system.update(delta, time);	
 			}
 		}
 

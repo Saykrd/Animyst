@@ -1,6 +1,12 @@
 {
 	"manifest" : [
-		{"id":"music", "src" : "media/audio/bgm_01.mp3"}
+		{"id":"music", "src" : "media/audio/bgm_01.mp3"},
+		{"id":"run_data", "src" : "media/images/spritesheets/run.json", "datatype" : "spritesheet"},
+		{"id":"run_sheet", "src" : "media/images/spritesheets/run.png"}
+	],
+
+	"initialLoad": [
+		"run_data", "run_sheet"
 	],
 
 	"preload" : [

@@ -11,6 +11,7 @@ Animyst.Application = function(){
 
 	this.config  = null;
 	this.runtime = 0;
+	this._lastFrame = 0;
 }
 
 
@@ -23,6 +24,7 @@ Animyst.Application.prototype.startup = function(params){
 
 	// Load all configuration files and and assets first
 	Animyst.DataLoad.startup({});
+	Animyst.PixiEngine.cacheSpritesheets();
 	Animyst.DataLoad.loadAsset({"id" : "config", "src" : "config.json"}, this._load.bind(this))
 }
 
@@ -165,8 +167,9 @@ Animyst.Application.prototype.update = function(event){
 		delta = event.delta;
 		time  = event.time;
 	} else {
-		time  = Date.now() / 1000;
-		delta = time - this.runtime;
+		time  = Date.now();
+		delta = time - (this._lastFrame || Date.now());
+		this._lastFrame = time;
 	}
 
 	this.runtime += delta;
@@ -177,7 +180,7 @@ Animyst.Application.prototype.update = function(event){
 
 	for(var i = 0; i < this._appStateList.length; i++){
 		var state = this._appStateList[i];
-		state.update(delta, time);
+		state.update(delta, this.runtime);
 	}
 
 	if(this._stats){
