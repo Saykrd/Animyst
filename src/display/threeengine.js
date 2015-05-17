@@ -94,32 +94,7 @@ Animyst.ThreeEngine.prototype.startup = function(params){
 	scene.add(sprite);
 
 	this.spriteSheetTexture = texture;
-	this.spriteSheetTexture.play(1000, true);
-
-	/*var frames = [];
-	var json = Animyst.DataLoad.getAsset("run_data");
-	for(var k in json.frames){
-		frames.push(k);
-	}
-	var count = 0;
-
-
-	function animate(){
-		var frame = frames[count];
-
-		console.log("animate", frame)
-
-		pixiSprite.setTexture(PIXI.Texture.fromFrame(frame));
-		pixiRenderer.render(pixiStage);
-
-		texture.needsUpdate = true;
-		count++
-		if(count >= frames.length) count = 0;
-	}
-
-	this.animate = animate.bind(this);*/
-
-
+	this.spriteSheetTexture.play(500, true);
 
 
 	var spotLight = new THREE.SpotLight(0xFFFFFF);
@@ -158,7 +133,7 @@ Animyst.ThreeEngine.prototype.shutdown = function(){
 }
 
 Animyst.ThreeEngine.prototype.update = function(delta, time){
-	
+
 	this.spriteSheetTexture.animate(delta, time);
 	this.threeDisplay.render();
 	Animyst.System.prototype.update.call(this, delta, time);
