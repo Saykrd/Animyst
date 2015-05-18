@@ -12,7 +12,7 @@ Animyst.PixiEngine.cacheSpritesheets = function(){
 	function onLoad(event){
 		var data = Animyst.DataLoad.getData(event.item.id);
 
-		if(data.datatype == "spritesheet"){
+		if(data.dataType == "spritesheet"){
 			Animyst.LOG.output("[PixiEngine] Spritesheet JSON Loaded!", data)
 			var ssLoader = new PIXI.SpriteSheetLoader(data.src);
 			ssLoader.load();
