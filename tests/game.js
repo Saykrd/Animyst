@@ -11,19 +11,25 @@ Game.prototype.setup = function(){
 	Animyst.AppState.prototype.setup.call(this);
 
 	this.inputData = this.appScope.getDatabase(Animyst.CoreProcess.INPUT);
-	this.gameData = new GameData();
+	//this.gameData = new GameData();
 
-	var gameLogic   = new GameLogic(this.gameData, this.inputData);
+	//var gameLogic   = new GameLogic(this.gameData, this.inputData);
 	//var gameDisplay = new GameDisplay(this.gameData);
 
 
 
 	
 	//gameDisplay.startup({layer: this.appScope.getDatabase(Animyst.CoreProcess.PAPER_DISPLAY).getLayer(1)});
-	gameLogic.startup();
+	//gameLogic.startup();
 
+	var threeDisplay = this.appScope.getDatabase(Animyst.CoreProcess.THREE_DISPLAY);
+	var sideScrollerWorld3d = new Animyst.SideScrollerWorld3D(threeDisplay);
 
-	this.addSystem("gameLogic", gameLogic);
+	sideScrollerWorld3d.startup({})
+
+	this.addSystem("world", sideScrollerWorld3d);
+
+	//this.addSystem("gameLogic", gameLogic);
 	//this.addSystem("gameDisplay", gameDisplay)
 	//this.addSystem("sound", sound);
 

@@ -1,46 +1,38 @@
 Animyst.ThreeEngine = function (threeDisplay){
+	Animyst.System.call(this);
+
 	this.threeDisplay  = threeDisplay;
 	this.sceneSettings = null;
 	this.spriteSheetTexture = null
-
 }
 
 Animyst.ThreeEngine.prototype = Object.create(Animyst.System.prototype);
 Animyst.ThreeEngine.prototype.startup = function(params){
 	var settings = params.canvasSettings;
 
-	var W    = settings.minWidth || Animyst.Window.width;
-	var H    = settings.minHeight || Animyst.Window.height;
-	var VIEW_ANGLE = 45;
-	var ASPECT = W / H;
-	var NEAR = 0.1;
-	var FAR  = 10000;
+	this.threeDisplay.initDisplay({
+		width: settings.minWidth || Animyst.Window.width,
+		height: settings.minHeight || Animyst.Window.height,
+		viewAngle: 45,
+		near: params.near || 0.1,
+		far: params.far || 10000,
+		container: settings.container,
+
+		cameraX: params.cameraX || 0,
+		cameraY: params.cameraY || 0,
+		cameraZ: params.cameraZ || 30,
+
+		rendererColor: 0xEEEEEE,
+		addAxis: true,
+		debugControls: true
+
+	})
 
 
-	var scene    = new THREE.Scene();
-	var renderer = new THREE.WebGLRenderer();
-	var camera   = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
-	var container = document.getElementById(settings.container);
-
-	
-	scene.add(camera);
-	
-	camera.position.x = -30;
-	camera.position.y = 40;
-	camera.position.z = 30;
-
-	camera.lookAt(scene.position);
 
 	
 
-	renderer.setClearColor(new THREE.Color(0xEEEEEE, 1.0));
-	renderer.setSize(W, H);
-	renderer.shadowMapEnabled = true;
-
-	var axis = new THREE.AxisHelper(20);
-	scene.add(axis);
-
-	var planeGeometry = new THREE.PlaneBufferGeometry(60,20,1,1);
+	/*var planeGeometry = new THREE.PlaneBufferGeometry(60,20,1,1);
 	var planeMaterial = new THREE.MeshLambertMaterial({color:0xffffff});
 	var plane = new THREE.Mesh(planeGeometry, planeMaterial);
 
@@ -65,14 +57,6 @@ Animyst.ThreeEngine.prototype.startup = function(params){
 	scene.add(cube);
 
 	
-
-	/*var pixiStage    = new PIXI.Stage(0xFFFFFF)
-	var pixiRenderer = new PIXI.WebGLRenderer(256, 256, {transparent:true});	
-	var that = this;
-
-	var pixiSprite = new PIXI.Sprite(PIXI.Texture.fromFrame("run0001.png"));
-	pixiStage.addChild(pixiSprite);
-	pixiRenderer.render(pixiStage);*/
 
 	var spriteGeometry = new THREE.PlaneGeometry(4,4,1,1);
 	var texture  = new Animyst.SpriteSheetTexture(Animyst.DataLoad.getAsset("run_data"));
@@ -101,24 +85,8 @@ Animyst.ThreeEngine.prototype.startup = function(params){
 	spotLight.position.set(-40, 60, -10);
 	spotLight.castShadow = true;
 
-	scene.add(spotLight);
+	scene.add(spotLight);*/
 
-
-	//this.orbitControls = THREE.OrbitControls != null;
-	//Animyst.datGUI.add(this, "orbitControls");
-
-	var controls = THREE.OrbitControls(camera);
-
-
-
-	if(container){
-		container.appendChild(renderer.domElement)
-		//container.appendChild(pixiRenderer.view)
-	}
-
-	this.threeDisplay.scene  = scene;
-	this.threeDisplay.camera = camera;
-	this.threeDisplay.renderer = renderer;
 
 	this.sceneSettings = settings;
 
@@ -134,7 +102,7 @@ Animyst.ThreeEngine.prototype.shutdown = function(){
 
 Animyst.ThreeEngine.prototype.update = function(delta, time){
 
-	this.spriteSheetTexture.animate(delta, time);
+	//this.spriteSheetTexture.animate(delta, time);
 	this.threeDisplay.render();
 	Animyst.System.prototype.update.call(this, delta, time);
 }
