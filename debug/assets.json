@@ -2,11 +2,13 @@
 	"manifest" : [
 		{"id":"music", "src" : "media/audio/bgm_01.mp3"},
 		{"id":"run_data", "src" : "media/images/spritesheets/run.json", "dataType" : "spritesheet"},
-		{"id":"run_sheet", "src" : "media/images/spritesheets/run.png"}
+		{"id":"run_sheet", "src" : "media/images/spritesheets/run.png"},
+
+		{"id":"cube", "src" : "media/3d/cube.json"}
 	],
 
 	"initialLoad": [
-		"run_data", "run_sheet"
+		"run_data", "run_sheet", "cube"
 	],
 
 	"preload" : [

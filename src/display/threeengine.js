@@ -20,7 +20,7 @@ Animyst.ThreeEngine.prototype.startup = function(params){
 
 		cameraX: params.cameraX || 0,
 		cameraY: params.cameraY || 0,
-		cameraZ: params.cameraZ || 30,
+		cameraZ: params.cameraZ || 50,
 
 		rendererColor: 0xEEEEEE,
 		addAxis: true,
