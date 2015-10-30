@@ -45,6 +45,13 @@ Animyst.Input.prototype.startup = function(params){
 		element.addEventListener('touchend', this.onTouchRelease.bind(this));
 		element.addEventListener('touchenter', this.onTouchEnter.bind(this));
 		element.addEventListener('touchleave', this.onTouchLeave.bind(this));
+
+		element.addEventListener('mousedown', this.onMouseDown.bind(this));
+		element.addEventListener('mouseup', this.onMouseUp.bind(this));
+		element.addEventListener('mousemove', this.onMouseMove.bind(this));
+		element.addEventListener('mouseenter', this.onMouseEnter.bind(this));
+		element.addEventListener('mouseleave', this.onMouseLeave.bind(this));
+
 		element.addEventListener('keydown', this.onKeyDown.bind(this));
 		element.addEventListener('keyup', this.onKeyUp.bind(this));
 	}
@@ -143,7 +150,7 @@ Animyst.Input.prototype.onKeyDown= function(evt){
 	if(!this.keyboardSettings.allowDefault[evt.key || Animyst.InputData.KEY_NAMES[evt.keyCode]]){
 		evt.preventDefault();
 	}
-	
+
 	this.handleKeyInput(Animyst.Input.KEY_DOWN, evt.keyCode || Animyst.InputData.KEY_CODES[evt.key]);
 }
 

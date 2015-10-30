@@ -19,6 +19,10 @@ Animyst.Application.prototype.startup = function(params){
 	Animyst.LOG.output("===================================================");
 	Animyst.LOG.output("   ----- AnimystJS: (v 0.0.0) by ~Saykrd -----   ");
 	Animyst.LOG.output("===================================================");
+	Animyst.LOG.output("Browser:", Animyst.Environment.browserName);
+	Animyst.LOG.output("Version:", Animyst.Environment.browserVersion);
+	Animyst.LOG.output("Platform:", Animyst.Environment.platformName);
+	Animyst.LOG.output("===================================================");
 
 	this._startParams = params;
 
@@ -77,7 +81,7 @@ Animyst.Application.prototype._init = function(){
 	Animyst.LOG.output("[Application] Application Started")
 
 	if(this.config.settings.debug){
-		if(window["Stats"]){
+		if(window["Stats"] && !Animyst.Environment.isCocoonJS){
 			this._stats = new Stats();
 			this._stats.domElement.style.position = 'absolute';
 			this._stats.domElement.style.left = '0px';
@@ -87,7 +91,7 @@ Animyst.Application.prototype._init = function(){
 			Animyst.LOG.output("[Application] Stats Enabled");
 		}
 
-		if(window["dat"]){
+		if(window["dat"] && !Animyst.Environment.isCocoonJS){
 			Animyst.datGUI = new dat.GUI();
 		}
 	}

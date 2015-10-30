@@ -41,7 +41,7 @@ Game.prototype.start = function(){
 }
 
 Game.prototype.update = function(delta, time){
-	//console.log("[Game] Updating...")
+	//console.log("[Game] Updating...", delta, time)
 	Animyst.AppState.prototype.update.call(this, delta, time);
 }
 

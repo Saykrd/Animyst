@@ -23,7 +23,7 @@ Animyst.CoreProcess.prototype.setup = function(){
 	var input  = new Animyst.Input(this.inputData);
 
 
-	input.startup({element: document.body, keyboardSettings:config.settings.keyboard});
+	input.startup({element: document.getElementById(config.settings.document.container) || document.body, keyboardSettings:config.settings.keyboard});
 
 	this.addSystem("input", input);
 

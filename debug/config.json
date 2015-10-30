@@ -3,10 +3,7 @@
 	"settings": {
 		"debug"   : true,
 		"logging" : true,
-		"canvasSettings" : {
-			"type"     : "three",
-			"id"       : "canvas1",
-			"container": "game",
+		"document" : {
 			"scaleMode": "noBorder" 
 		},
 

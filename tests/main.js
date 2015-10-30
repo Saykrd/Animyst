@@ -12,7 +12,7 @@ Main.prototype = {
 
 		this.app.initSignal.addOnce(this.onAppInit, this);
 
-		this.app.startup({paper:true, canvasID:"game"});
+		this.app.startup({});
 
 	},
 
