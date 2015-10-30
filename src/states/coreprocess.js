@@ -7,10 +7,10 @@ Animyst.CoreProcess = function(id){
 
 Animyst.CoreProcess.ID      = "core";
 
-Animyst.CoreProcess.INPUT         = "input";
-Animyst.CoreProcess.PAPER_DISPLAY = "paperDisplay";
-Animyst.CoreProcess.THREE_DISPLAY = "threeDisplay";
-Animyst.CoreProcess.PIXI_DISPLAY  = "PIXIDisplay";
+Animyst.CoreProcess.INPUT          = "input";
+Animyst.CoreProcess.PAPER_VIEWPORT = "paperViewport";
+Animyst.CoreProcess.VIEWPORT_3D    = "threeViewport";
+Animyst.CoreProcess.PIXI_VIEWPORT  = "PIXIViewport";
 
 Animyst.CoreProcess.prototype = Object.create(Animyst.AppState.prototype);
 Animyst.CoreProcess.prototype.setup = function(){
@@ -22,39 +22,8 @@ Animyst.CoreProcess.prototype.setup = function(){
 	var config = this.appScope.config;
 	var input  = new Animyst.Input(this.inputData);
 
-	if(config.settings.canvasSettings){
 
-		var canvasSettings = config.settings.canvasSettings;
-		switch(canvasSettings.type){
-			case "paper":
-				//
-				var paperDisplay = new Animyst.PaperDisplay();
-				var paperEngine  = new Animyst.PaperEngine(paperDisplay);
-				
-
-				paperEngine.startup({canvasSettings : canvasSettings})
-
-				this.addSystem("paperEngine", paperEngine);
-				this.appScope.addDatabase(Animyst.CoreProcess.PAPER_DISPLAY, paperDisplay);
-				break;
-			case "three":
-
-				var threeDisplay = new Animyst.ThreeDisplay();
-				var threeEngine  = new Animyst.ThreeEngine(threeDisplay);
-
-				threeEngine.startup({canvasSettings: canvasSettings});
-				this.addSystem("threeEngine", threeEngine);
-				this.appScope.addDatabase(Animyst.CoreProcess.THREE_DISPLAY, threeDisplay);
-
-				break;
-		}	
-	}
-
-	
-
-
-
-	input.startup({tool:new Tool(), element: document.getElementById(canvasSettings.id)});
+	input.startup({element: document.body, keyboardSettings:config.settings.keyboard});
 
 	this.addSystem("input", input);
 

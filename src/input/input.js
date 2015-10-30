@@ -2,6 +2,7 @@ Animyst.Input = function(inputData){
 	Animyst.System.call(this);
 
 	this.inputData = inputData;
+	this.keyboardSettings = null;
 }
 
 Animyst.Input.KEY_DOWN      = 0;
@@ -22,10 +23,12 @@ Animyst.Input.MOUSE_LEAVE   = 10;
 Animyst.Input.MOUSE_CLICK   = 11;
 
 
+
 Animyst.Input.prototype = Object.create(Animyst.System.prototype);
 Animyst.Input.prototype.startup = function(params){
 	var element = params.element;
 	var tool    = params.tool;
+	this.keyboardSettings = params.keyboardSettings;
 
 	if(tool){
 		tool.onKeyUp     = this.onKeyUp.bind(this);
@@ -42,6 +45,8 @@ Animyst.Input.prototype.startup = function(params){
 		element.addEventListener('touchend', this.onTouchRelease.bind(this));
 		element.addEventListener('touchenter', this.onTouchEnter.bind(this));
 		element.addEventListener('touchleave', this.onTouchLeave.bind(this));
+		element.addEventListener('keydown', this.onKeyDown.bind(this));
+		element.addEventListener('keyup', this.onKeyUp.bind(this));
 	}
 
 	Animyst.System.prototype.startup.call(this, params);
@@ -125,16 +130,21 @@ Animyst.Input.prototype.onMouseLeave = function(evt){
 //================ KEYBOARD EVENTS ===================//
 
 Animyst.Input.prototype.onKeyUp= function(evt){
-	if(Animyst.LOGGING) console.log("[Animyst.Input] Released Key:", evt.key);
-	evt.preventDefault();
-	this.handleKeyInput(Animyst.Input.KEY_UP, evt);
+	if(Animyst.LOGGING) console.log("[Animyst.Input] Released Key:", evt.key || Animyst.InputData.KEY_NAMES[evt.keyCode]);
+	if(!this.keyboardSettings.allowDefault[evt.key || Animyst.InputData.KEY_NAMES[evt.keyCode]]){
+		evt.preventDefault();
+	}
+	this.handleKeyInput(Animyst.Input.KEY_UP, evt.keyCode || Animyst.InputData.KEY_CODES[evt.key]);
 }
 
 
 Animyst.Input.prototype.onKeyDown= function(evt){
-	if(Animyst.LOGGING) console.log("[Animyst.Input] Pressed Key:", evt.key);
-	evt.preventDefault();
-	this.handleKeyInput(Animyst.Input.KEY_DOWN, evt);
+	if(Animyst.LOGGING) console.log("[Animyst.Input] Pressed Key:", evt.key || Animyst.InputData.KEY_NAMES[evt.keyCode]);
+	if(!this.keyboardSettings.allowDefault[evt.key || Animyst.InputData.KEY_NAMES[evt.keyCode]]){
+		evt.preventDefault();
+	}
+	
+	this.handleKeyInput(Animyst.Input.KEY_DOWN, evt.keyCode || Animyst.InputData.KEY_CODES[evt.key]);
 }
 
 //====================================================//
@@ -154,8 +164,8 @@ Animyst.Input.prototype.handleMouseInput = function(type, evt){
  	this.inputData.setMouseInput(evt, down);
 }
 
-Animyst.Input.prototype.handleKeyInput = function(type, evt){
-	this.inputData.setKeyInput(evt.key, type == Animyst.Input.KEY_DOWN)
+Animyst.Input.prototype.handleKeyInput = function(type, keyCode){
+	this.inputData.setKeyInput(keyCode, type == Animyst.Input.KEY_DOWN)
 }
 
 Animyst.Input.prototype.handleTouchInput = function(type, evt){
@@ -176,3 +186,4 @@ Animyst.Input.prototype.handleTouchInput = function(type, evt){
 
 	this.inputData.updateTouches(evt.changedTouches);
 }
+

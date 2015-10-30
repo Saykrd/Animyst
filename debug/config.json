@@ -8,8 +8,17 @@
 			"id"       : "canvas1",
 			"container": "game",
 			"scaleMode": "noBorder" 
+		},
+
+		"keyboard": {
+			"allowDefault" : {
+				"f12" : true
+			}
 		}
+
 	},
 	"assets" : "assets.json",
 	"strings": "strings.json"
+
+	
 }

@@ -1,8 +1,8 @@
-Animyst.ThreeDisplay = function(){
+Animyst.Viewport3D = function(scene, width, height){
 	Animyst.Database.call(this);
 
-	this.W    = 800;
-	this.H    = 600;
+	this.width   = width  || 800;
+	this.height  = height || 600;
 	this.VIEW_ANGLE = 45;
 	this.ASPECT = this.W / this.H;
 	this.NEAR = 0.1;
@@ -14,33 +14,31 @@ Animyst.ThreeDisplay = function(){
 	this.container = null;
 	this.settings  = null;
 
-}
+};
 
-Animyst.ThreeDisplay.prototype = Object.create(Animyst.Database.prototype);
-Animyst.ThreeDisplay.prototype.clear = function(){
+Animyst.Viewport3D.prototype = Object.create(Animyst.Database.prototype);
+Animyst.Viewport3D.prototype.clear = function(){
 
 	Animyst.Database.prototype.clear.call(this);
-}
+};
 
-Animyst.ThreeDisplay.prototype.destroy = function(){
+Animyst.Viewport3D.prototype.destroy = function(){
 
 	Animyst.Database.prototype.destroy.call(this);
-}
+};
 
-Animyst.ThreeDisplay.prototype.initDisplay = function(params){
+Animyst.Viewport3D.prototype.initDisplay = function(params){
 	if(!params){
-		Animyst.LOG.error("[ThreeDisplay] No initialization params specified");
+		Animyst.LOG.error("[Viewport3D] No initialization params specified");
 	 	return;	
 	} 
 
-	this.W = params.width || this.W;
-	this.H = params.height || this.H;
 	this.VIEW_ANGLE = params.viewAngle || this.VIEW_ANGLE;
 	this.ASPECT = this.W / this.H;
 	this.NEAR = params.near || this.NEAR;
 	this.FAR = params.far || this.far;
 
-	this.scene    = new THREE.Scene();
+	this.scene    = this.scene || new THREE.Scene();
 	this.renderer = new THREE.WebGLRenderer();
 	this.camera   = new THREE.PerspectiveCamera(this.VIEW_ANGLE, this.ASPECT, this.NEAR, this.FAR);
 
@@ -51,9 +49,9 @@ Animyst.ThreeDisplay.prototype.initDisplay = function(params){
 	if(params.container){
 		var container = document.getElementById(params.container);
 		if(container)	{
-			container.appendChild(this.renderer.domElement)
+			container.appendChild(this.renderer.domElement);
 		} else {
-			Animyst.LOG.error("[ThreeDisplay] Container ID", params.container, "doesn't exist");
+			Animyst.LOG.error("[Viewport3D] Container ID", params.container, "doesn't exist");
 		}
 	}
 
@@ -76,7 +74,7 @@ Animyst.ThreeDisplay.prototype.initDisplay = function(params){
 		var controls = THREE.OrbitControls(this.camera);
 
 		if(Animyst.datGUI){
-			var displayControls = Animyst.datGUI.addFolder("ThreeDisplay");
+			var displayControls = Animyst.datGUI.addFolder("Viewport3D");
 			var c_folder = displayControls.addFolder("camera");
 
 			c_folder.add(this.camera.position, "x", -1000, 1000).listen();
@@ -88,9 +86,26 @@ Animyst.ThreeDisplay.prototype.initDisplay = function(params){
 
 
 
-}
+};
 
-Animyst.ThreeDisplay.prototype.render = function(){
+
+Animyst.Viewport3D.prototype.append = function(containerID){
+
+	if(!containerID){
+		document.body.appendChild(this.renderer.domElement);
+	} else {
+		var container = document.getElementById(containerID);
+		if(container)	{
+			container.appendChild(this.renderer.domElement);
+		} else {
+			Animyst.LOG.error("[Viewport3D] Container ID", containerID, "doesn't exist");
+		}	
+	}
+	
+};
+
+
+
+Animyst.Viewport3D.prototype.render = function(){
 	this.renderer.render(this.scene, this.camera);
-}
-
+};

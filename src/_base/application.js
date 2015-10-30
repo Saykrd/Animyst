@@ -5,7 +5,7 @@ Animyst.Application = function(){
 	this._stats = null;
 	this._startParams = null;
 
-	this.appScope = new Animyst.AppScope;
+	this.appScope = new Animyst.AppScope();
 
 	this.initSignal = new signals.Signal();
 
@@ -24,7 +24,6 @@ Animyst.Application.prototype.startup = function(params){
 
 	// Load all configuration files and and assets first
 	Animyst.DataLoad.startup({});
-	Animyst.PixiEngine.cacheSpritesheets();
 	Animyst.DataLoad.loadAsset({"id" : "config", "src" : "config.json"}, this._load.bind(this))
 }
 
@@ -73,7 +72,7 @@ Animyst.Application.prototype._init = function(){
 	Animyst.LOGGING = this.config.settings.logging || false;
 	Animyst.DEBUG   = this.config.settings.debug   || false;
 
-	paper.install(window);
+	//paper.install(window);
 
 	Animyst.LOG.output("[Application] Application Started")
 
@@ -98,8 +97,8 @@ Animyst.Application.prototype._init = function(){
 	var coreprocess = new Animyst.CoreProcess(Animyst.CoreProcess.ID);
 	this.run(coreprocess);
 
-	if(view){
-		view.onFrame = this.update.bind(this);	
+	if(window["view"]){
+		window["view"].onFrame = this.update.bind(this);	
 	} else {
 		this._initFrame();
 	}

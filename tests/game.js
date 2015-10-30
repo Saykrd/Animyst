@@ -22,12 +22,12 @@ Game.prototype.setup = function(){
 	//gameDisplay.startup({layer: this.appScope.getDatabase(Animyst.CoreProcess.PAPER_DISPLAY).getLayer(1)});
 	//gameLogic.startup();
 
-	var threeDisplay = this.appScope.getDatabase(Animyst.CoreProcess.THREE_DISPLAY);
-	var sideScrollerWorld3d = new Animyst.SideScrollerWorld3D(threeDisplay);
+	//var threeDisplay = this.appScope.getDatabase(Animyst.CoreProcess.THREE_DISPLAY);
+	//var sideScrollerWorld3d = new Animyst.SideScrollerWorld3D(threeDisplay);
 
-	sideScrollerWorld3d.startup({})
+	//sideScrollerWorld3d.startup({})
 
-	this.addSystem("world", sideScrollerWorld3d);
+	//this.addSystem("world", sideScrollerWorld3d);
 
 	//this.addSystem("gameLogic", gameLogic);
 	//this.addSystem("gameDisplay", gameDisplay)
