@@ -3,6 +3,7 @@ Game = function(id){
 
 	this.inputData = null;
 	this.gameData  = null;
+	this.viewport = null;
 }
 
 Game.prototype = Object.create(Animyst.AppState.prototype);
@@ -11,6 +12,11 @@ Game.prototype.setup = function(){
 	Animyst.AppState.prototype.setup.call(this);
 
 	this.inputData = this.appScope.getDatabase(Animyst.CoreProcess.INPUT);
+	
+	var scene = new THREE.Scene();
+	this.viewport = new Animyst.Viewport3D(scene, Animyst.Window.width, Animyst.Window.height);
+	this.viewport.initDisplay({resize : true, debugControls : true, addAxis : true});
+	this.viewport.append();
 	//this.gameData = new GameData();
 
 	//var gameLogic   = new GameLogic(this.gameData, this.inputData);
@@ -43,6 +49,8 @@ Game.prototype.start = function(){
 Game.prototype.update = function(delta, time){
 	//console.log("[Game] Updating...", delta, time)
 	Animyst.AppState.prototype.update.call(this, delta, time);
+
+	this.viewport.render();
 }
 
 Game.prototype.pause = function(){

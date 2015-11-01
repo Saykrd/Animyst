@@ -76,7 +76,8 @@ Animyst.Application.prototype._init = function(){
 	Animyst.LOGGING = this.config.settings.logging || false;
 	Animyst.DEBUG   = this.config.settings.debug   || false;
 
-	//paper.install(window);
+	window["Paper"] = {};
+	paper.install(window["Paper"]);
 
 	Animyst.LOG.output("[Application] Application Started")
 

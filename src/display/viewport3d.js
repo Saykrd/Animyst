@@ -4,7 +4,7 @@ Animyst.Viewport3D = function(scene, width, height){
 	this.width   = width  || 800;
 	this.height  = height || 600;
 	this.VIEW_ANGLE = 45;
-	this.ASPECT = this.W / this.H;
+	this.ASPECT = this.width / this.height;
 	this.NEAR = 0.1;
 	this.FAR  = 10000;
 
@@ -13,6 +13,7 @@ Animyst.Viewport3D = function(scene, width, height){
 	this.camera   = null;
 	this.container = null;
 	this.settings  = null;
+	this.resize = false;
 
 };
 
@@ -34,9 +35,10 @@ Animyst.Viewport3D.prototype.initDisplay = function(params){
 	} 
 
 	this.VIEW_ANGLE = params.viewAngle || this.VIEW_ANGLE;
-	this.ASPECT = this.W / this.H;
+	this.ASPECT = this.width / this.height;
 	this.NEAR = params.near || this.NEAR;
 	this.FAR = params.far || this.far;
+	this.resize = params.resize;
 
 	this.scene    = this.scene || new THREE.Scene();
 	this.renderer = new THREE.WebGLRenderer();
@@ -55,14 +57,14 @@ Animyst.Viewport3D.prototype.initDisplay = function(params){
 		}
 	}
 
-	this.camera.position.x = params.cameraX || 0;
-	this.camera.position.y = params.cameraY || 0;
-	this.camera.position.z = params.cameraZ || 0;
+	this.camera.position.x = params.cameraX || 500;
+	this.camera.position.y = params.cameraY || 500;
+	this.camera.position.z = params.cameraZ || 500;
 
 	this.camera.lookAt(this.scene.position);
 
-	this.renderer.setClearColor(params.rendererColor || 0x000000);
-	this.renderer.setSize(this.W, this.H);
+	this.renderer.setClearColor(params.rendererColor || 0x888888);
+	this.renderer.setSize(this.width, this.height);
 	this.renderer.shadowMapEnabled = true;
 
 	if(params.addAxis){
@@ -84,7 +86,9 @@ Animyst.Viewport3D.prototype.initDisplay = function(params){
 	}
 	
 
-
+	if(params.resize){
+		Animyst.Window.resizeSignal.add(this.onResize, this);
+	}
 
 };
 
@@ -105,7 +109,10 @@ Animyst.Viewport3D.prototype.append = function(containerID){
 };
 
 
-
 Animyst.Viewport3D.prototype.render = function(){
 	this.renderer.render(this.scene, this.camera);
 };
+
+Animyst.Viewport3D.prototype.onResize = function(){
+	//this.renderer.setSize(Animyst.)
+}

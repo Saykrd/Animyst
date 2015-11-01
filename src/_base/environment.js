@@ -105,8 +105,11 @@ Environment._checkDevice = function(){
 	Environment.colorDepth = window.screen.colorDepth;
 
 	if(Environment.isMobile){
-		Environment.screenWidth = window.screen.width  * Environment.pixelRatio;
-		Environment.screenWidth = window.screen.height * Environment.pixelRatio;
+		Environment.screenWidth  = window.screen.width  * Environment.pixelRatio;
+		Environment.screenHeight = window.screen.height * Environment.pixelRatio;
+	} else {
+		Environment.screenWidth  = window.screen.width;
+		Environment.screenHeight = window.screen.height;
 	}
 }
 
