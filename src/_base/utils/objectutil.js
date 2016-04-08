@@ -1,4 +1,4 @@
-var ObjectUtil = {};
+var ObjectUtil = module.exports = {};
 
 /**
  * [Inverts the properties and keys of an object]
@@ -14,7 +14,3 @@ ObjectUtil.invert = function (object){
 
 	return obj
 }
-
-
-
-Animyst.ObjectUtil = ObjectUtil;

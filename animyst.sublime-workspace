@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"1000",
+				"1000"
+			],
+			[
 				"ENTITY",
 				"ENTITY_UPDATED"
 			],
@@ -510,10 +514,6 @@
 			[
 				"_sound",
 				"_soundManager"
-			],
-			[
-				"Sou",
-				"SoundCategory"
 			]
 		]
 	},
@@ -523,15 +523,79 @@
 			"file": "src/display/viewport3d.js",
 			"settings":
 			{
-				"buffer_size": 2829,
+				"buffer_size": 3081,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tests/game.js",
+			"settings":
+			{
+				"buffer_size": 1924,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "src/_base/application.js",
 			"settings":
 			{
-				"buffer_size": 4454,
+				"buffer_size": 4855,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 325,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/_base/environment.js",
+			"settings":
+			{
+				"buffer_size": 5932,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "debug/js/animyst.min.js",
+			"settings":
+			{
+				"buffer_size": 1380126,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/_base/animyst.js",
+			"settings":
+			{
+				"buffer_size": 68,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/window.js",
+			"settings":
+			{
+				"buffer_size": 1224,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tests/main.js",
+			"settings":
+			{
+				"buffer_size": 351,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/_base/logging.js",
+			"settings":
+			{
+				"buffer_size": 487,
 				"line_ending": "Windows"
 			}
 		},
@@ -539,7 +603,7 @@
 			"file": "src/states/coreprocess.js",
 			"settings":
 			{
-				"buffer_size": 1606,
+				"buffer_size": 1610,
 				"line_ending": "Windows"
 			}
 		},
@@ -547,26 +611,15 @@
 			"file": "src/_base/utils/objectutil.js",
 			"settings":
 			{
-				"buffer_size": 331,
+				"buffer_size": 332,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Package Control Messages\n========================\n\nSublimeCodeIntel\n----------------\n\n  SublimeCodeIntel\n  ================\n  \n   ____        _     _ _                 ____          _      ___       _       _\n  / ___| _   _| |__ | (_)_ __ ___   ___ / ___|___   __| | ___|_ _|_ __ | |_ ___| |\n  \\___ \\| | | | '_ \\| | | '_ ` _ \\ / _ \\ |   / _ \\ / _` |/ _ \\| || '_ \\| __/ _ \\ |\n   ___) | |_| | |_) | | | | | | | |  __/ |__| (_) | (_| |  __/| || | | | ||  __/ |\n  |____/ \\__,_|_.__/|_|_|_| |_| |_|\\___|\\____\\___/ \\__,_|\\___|___|_| |_|\\__\\___|_|\n  A full-featured code intelligence and smart autocomplete engine for Sublime Text.\n     (Code intelligence plugin ported from Open Komodo Editor to Sublime Text)\n  \n  \n  +-------------------------------- HELP WANTED ---------------------------------+\n  |     Maintaining this project is hard, I do it in my spare time, but I'm      |\n  |     basically all alone. If anyone is interested in contributing, please     |\n  |     contact me. I really need much more help maintaining SublimeCodeIntel    |\n  |                                                                              |\n  |                       Follow me on twitter @germbravo                        |\n  |           You can find us at #sublimecodeintel on irc.freenode.net           |\n  |                                                                              |\n  |             If you like SublimeCodeIntel, please make a donation:            |\n  |        http://sublimecodeintel.github.io/SublimeCodeIntel/donate.html        |\n  +------------------------------------------------------------------------------+\n  \n  \n  Features\n  --------\n  \n  Supports all the languages Komodo Editor supports for Code Intelligence (CIX, CodeIntel2):\n  \n  JavaScript, Mason, XBL, XUL, RHTML, SCSS, Python, HTML, Ruby, Python3, XML, Sass, XSLT, Django, HTML5, Perl, CSS, Twig, Less, Smarty, Node.js, Tcl, TemplateToolkit, PHP.\n  \n  \n  Provides the following features:\n  \n  * Jump to Symbol Definition - Jump to the file and line of the definition of a symbol.\n  * Imports autocomplete - Shows autocomplete with the available modules/symbols in real time.\n  * Function Call tooltips - Displays information in the status bar about the working function.\n  \n  \n  + Shortcuts for jump to definition have changed:\n  \n    For Mac OS X:\n      * Jump to definition = ``Control+Click``\n      * Jump to definition = ``Control+Command+Alt+Up``\n      * Go back = ``Control+Command+Alt+Left``\n      * Manual CodeIntel = ``Control+Shift+space``\n  \n    For Linux:\n      * Jump to definition = ``Super+Click``\n      * Jump to definition = ``Control+Super+Alt+Up``\n      * Go back = ``Control+Super+Alt+Left``\n      * Manual CodeIntel = ``Control+Shift+space``\n  \n    For Windows:\n      * Jump to definition = ``Alt+Click``\n      * Jump to definition = ``Control+Windows+Alt+Up``\n      * Go back = ``Control+Windows+Alt+Left``\n      * Manual CodeIntel = ``Control+Shift+space``\n  \n  \n  \n  Notes\n  -----\n  \n  ** Restart Sublime Text after reading this **\n  \n  \n  More information\n  ----------------\n  Please take the time to read the documentation:\n  \n  In case of trouble, please read the Troubleshooting section in the README.\n  \n  * Online - http://sublimecodeintel.github.io/SublimeCodeIntel/\n  * Git - https://github.com/SublimeCodeIntel/SublimeCodeIntel\n  \n  \n  IMPORTANT\n  ---------\n  \n  Do NOT edit the default SublimeCodeIntel settings. Your changes will be lost\n  when SublimeCodeIntel is updated. ALWAYS edit the user SublimeCodeIntel settings\n  by selecting \"Preferences->Package Settings->SublimeCodeIntel->Settings - User\".\n  Note that individual settings you include in your user settings will **completely**\n  replace the corresponding default setting, so you must provide that setting in its entirety.\n",
-			"settings":
-			{
-				"buffer_size": 3795,
-				"line_ending": "Windows",
-				"name": "Package Control Messages",
-				"read_only": true,
-				"scratch": true
 			}
 		},
 		{
 			"file": "src/input/input.js",
 			"settings":
 			{
-				"buffer_size": 5419,
+				"buffer_size": 6237,
 				"line_ending": "Unix"
 			}
 		},
@@ -574,7 +627,7 @@
 			"file": "src/input/inputdata.js",
 			"settings":
 			{
-				"buffer_size": 8092,
+				"buffer_size": 8326,
 				"line_ending": "Windows"
 			}
 		},
@@ -590,7 +643,7 @@
 			"file": "debug/config.json",
 			"settings":
 			{
-				"buffer_size": 265,
+				"buffer_size": 253,
 				"line_ending": "Windows"
 			}
 		},
@@ -614,8 +667,24 @@
 			"file": "debug/index.html",
 			"settings":
 			{
-				"buffer_size": 392,
+				"buffer_size": 400,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "gruntfile.js",
+			"settings":
+			{
+				"buffer_size": 1422,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "debug/style/style.css",
+			"settings":
+			{
+				"buffer_size": 56,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -626,7 +695,7 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 104.0,
+		"height": 127.0,
 		"last_filter": "Instal",
 		"selected_items":
 		[
@@ -767,29 +836,21 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/Akil/Desktop/Animyst/src",
-		"/C/Users/Akil/Desktop/Animyst/src/_base",
-		"/C/Users/Akil/Desktop/Animyst/src/_base/_libs",
-		"/C/Users/Akil/Desktop/Animyst/src/_base/utils",
-		"/C/Users/Akil/Desktop/Animyst/src/audio",
-		"/C/Users/Akil/Desktop/Animyst/src/display",
-		"/C/Users/Akil/Desktop/Animyst/src/input",
-		"/C/Users/Akil/Desktop/Animyst/src/states",
+		"/C/Users/Akil/Desktop/Animyst",
+		"/C/Users/Akil/Desktop/Animyst/bin",
 		"/C/Users/Akil/Desktop/Animyst/debug",
-		"/C/Users/Akil/Desktop/Animyst/debug/js",
-		"/C/Users/Akil/Desktop/Animyst/debug/media",
-		"/C/Users/Akil/Desktop/Animyst/debug/media/images",
-		"/C/Users/Akil/Desktop/Animyst/debug/media/images/spritesheets",
-		"/C/Users/Akil/Desktop/Animyst/debug/style",
-		"/C/Users/Akil/Desktop/Animyst/tests"
+		"/C/Users/Akil/Desktop/Animyst/debug/js"
 	],
 	"file_history":
 	[
+		"/C/Users/Akil/Desktop/Animyst/package.json",
+		"/C/Users/Akil/Desktop/Animyst/debug/media/images/spritesheets/run.json",
+		"/C/Users/Akil/Desktop/Display/ss/run.json",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/_libs/dat.gui.min.js",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/appscope.js",
 		"/C/Users/Akil/AppData/Roaming/Sublime Text 3/Packages/JsFormat/JsFormat.sublime-settings",
 		"/C/Users/Akil/Desktop/Animyst/debug/index.html",
-		"/C/Users/Akil/Desktop/Animyst/package.json",
 		"/C/Users/Akil/Desktop/Animyst/debug/assets.json",
-		"/C/Users/Akil/Desktop/Animyst/debug/media/images/spritesheets/run.json",
 		"/C/Users/Akil/Desktop/Animyst/debug/config.json",
 		"/C/Users/Akil/Desktop/Animyst/debug/strings.json",
 		"/C/Users/Akil/Desktop/Animyst/src/_base/animyst.js",
@@ -797,7 +858,6 @@
 		"/C/Users/Akil/Desktop/Animyst/src/_base/application.js",
 		"/C/Users/Akil/Desktop/Animyst/tests/game.js",
 		"/C/Users/Akil/Desktop/Animyst/src/_base/appstate.js",
-		"/C/Users/Akil/Desktop/Animyst/src/_base/appscope.js",
 		"/C/Users/Akil/Desktop/Animyst/src/states/coreprocess.js",
 		"/C/Users/Akil/Desktop/Animyst/src/display/paperengine.js",
 		"/C/Users/Akil/Desktop/Animyst/src/display/paperdisplay.js",
@@ -839,7 +899,6 @@
 		"/C/Users/Akil/Desktop/Animyst/tests/gamedata.js",
 		"/C/Users/Akil/Desktop/Animyst/tests/gamedisplay.js",
 		"/C/Users/Akil/Desktop/Animyst/src/display/threedisplay.js",
-		"/C/Users/Akil/Desktop/Display/ss/run.json",
 		"/C/Users/Akil/Desktop/Animyst/src/_base/_libs/three_orbit.js",
 		"/C/Users/Akil/Desktop/Animyst/debug/js/OrbitControls.js",
 		"/D/Akil/Google Drive/My Files/Work/Mattel Games/Polly Pocket/140328_PollyvilleBuild/src/com/mattel/pollyPockets/pollyville/entities/popup/CoinWonPopup.as",
@@ -911,8 +970,7 @@
 		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/debug/media/spritesheets/game_graphic_casta_1.json",
 		"/Users/Saykrd/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/src/scenes/RainbowRocksLoader.js",
 		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/game/graphic/AnimatedGraphic.ts",
-		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/particles/actions/ApproachNeighbours.ts",
-		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/Avota.ts"
+		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/particles/actions/ApproachNeighbours.ts"
 	],
 	"find":
 	{
@@ -951,6 +1009,21 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Updated Touch",
+			"W",
+			"screenWidth",
+			"THREE",
+			"width",
+			"Animyst",
+			"ID",
+			"nvUtil",
+			"ua",
+			"(ua.indexOf(\"Version\") !=-1) ? ua.substring(ua.indexOf(\"Version\") + 8) : ua.substring(ua.indexOf(\"Safari\") + 7);",
+			"ua",
+			"touch",
+			"Display",
+			"view",
+			"key",
 			"190",
 			"handleKeyInput",
 			"handleKeyIn",
@@ -1063,22 +1136,7 @@
 			"standalone",
 			"inputOut",
 			"_inputComponent",
-			"autoInit",
-			"initSignal",
-			"orientationImage",
-			"unsupportedOrientationImagePath",
-			"setParams",
-			"_settings",
-			"_onChangeOrientation",
-			"orientationImage",
-			"orientation",
-			"unsupportedOrientationImagePath",
-			"Orientation",
-			"orientation",
-			"orientationImage",
-			"unsupportedOrientation",
-			"unsupportedOrientationImagePath",
-			"makeButton"
+			"autoInit"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1086,6 +1144,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"userAgent",
+			"mouse",
+			"Viewport",
+			"keyCode",
 			"PaperViewport",
 			"Viewport3D",
 			"ThreeViewport",
@@ -1139,7 +1201,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -1148,19 +1210,50 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2829,
+						"buffer_size": 3081,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								587,
-								587
+								1928,
+								1928
 							]
 						],
 						"settings":
 						{
+							"auto_complete": false,
+							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 604.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "tests/game.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1924,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								569,
+								569
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
 							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
@@ -1168,87 +1261,155 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 2,
 					"file": "src/_base/application.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4454,
+						"buffer_size": 4855,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								884,
-								884
+								1166,
+								1166
 							]
 						],
 						"settings":
 						{
+							"auto_complete": false,
 							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							}
 						},
 						"translation.x": 0.0,
-						"translation.y": 198.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "src/states/coreprocess.js",
+					"buffer": 3,
+					"file": "package.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1606,
+						"buffer_size": 325,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								616,
-								616
+								325,
+								325
 							]
 						],
 						"settings":
 						{
+							"syntax": "Packages/Better JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/_base/environment.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5932,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1346,
+								1346
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"open_with_edit": true,
 							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 22.0,
+						"translation.y": 726.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/_base/utils/objectutil.js",
+					"buffer": 5,
+					"file": "debug/js/animyst.min.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 331,
+						"buffer_size": 1380126,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								331,
-								331
+								25,
+								25
 							]
 						],
 						"settings":
 						{
-							"open_with_edit": true,
+							"auto_complete": false,
+							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/_base/animyst.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 68,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68,
+								68
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
 							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -1259,96 +1420,216 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 7,
+					"file": "src/_base/window.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3795,
+						"buffer_size": 1224,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3795,
-								3795
+								1224,
+								1224
 							]
 						],
 						"settings":
 						{
-							"auto_indent": false,
-							"default_dir": "C:\\Users\\Akil\\Desktop\\Animyst\\src",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_width": 2,
-							"word_wrap": true
+							"auto_complete": false,
+							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 990.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 8,
+					"file": "tests/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 351,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								256,
+								256
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/_base/logging.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 487,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								102,
+								102
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/states/coreprocess.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1610,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								831,
+								831
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 72.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/_base/utils/objectutil.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 332,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								297,
+								297
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"open_with_edit": true,
+							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
 					"file": "src/input/input.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5419,
+						"buffer_size": 6237,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4680,
-								4680
+								664,
+								664
 							]
 						],
 						"settings":
 						{
+							"auto_complete": false,
 							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2926.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 13,
 					"file": "src/input/inputdata.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8092,
+						"buffer_size": 8326,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2259,
-								2259
+								8326,
+								8326
 							]
 						],
 						"settings":
 						{
+							"auto_complete": false,
 							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4422.0,
+						"translation.y": 7526.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 14,
 					"file": "src/display/paperviewport.js",
 					"semi_transient": false,
 					"settings":
@@ -1372,34 +1653,36 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 20,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 2,
+			"selected": 4,
 			"sheets":
 			[
 				{
-					"buffer": 8,
+					"buffer": 15,
 					"file": "debug/config.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 265,
+						"buffer_size": 253,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								91,
+								91
 							]
 						],
 						"settings":
 						{
+							"auto_complete": true,
+							"history_list_is_closing": true,
 							"syntax": "Packages/Better JavaScript/JSON.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
@@ -1407,11 +1690,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 16,
 					"file": "debug/strings.json",
 					"semi_transient": false,
 					"settings":
@@ -1435,11 +1718,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 17,
 					"file": "debug/assets.json",
 					"semi_transient": false,
 					"settings":
@@ -1464,28 +1747,29 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 18,
 					"file": "debug/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 392,
+						"buffer_size": 400,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								315,
+								315
 							]
 						],
 						"settings":
 						{
+							"auto_complete": false,
 							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
@@ -1493,7 +1777,70 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "gruntfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1422,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								147,
+								128
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "debug/style/style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 56,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								54,
+								41
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
 					"type": "text"
 				}
 			]
@@ -1527,7 +1874,7 @@
 		"cols":
 		[
 			0.0,
-			0.711106079612,
+			0.741172616359,
 			1.0
 		],
 		"rows":
@@ -1563,12 +1910,40 @@
 				"src\\input\\inputdata.js"
 			],
 			[
-				"dataload",
-				"src\\_base\\dataload.js"
+				"window",
+				"src\\_base\\window.js"
 			],
 			[
 				"corepro",
 				"src\\states\\coreprocess.js"
+			],
+			[
+				"wind",
+				"src\\_base\\window.js"
+			],
+			[
+				"applicat",
+				"src\\_base\\application.js"
+			],
+			[
+				"log",
+				"src\\_base\\logging.js"
+			],
+			[
+				"appsco",
+				"src\\_base\\appscope.js"
+			],
+			[
+				"corepr",
+				"src\\states\\coreprocess.js"
+			],
+			[
+				"corep",
+				"src\\states\\coreprocess.js"
+			],
+			[
+				"dataload",
+				"src\\_base\\dataload.js"
 			],
 			[
 				"application",
@@ -1631,10 +2006,6 @@
 				"src\\_base\\_libs\\three_orbit.js"
 			],
 			[
-				"window",
-				"src\\_base\\window.js"
-			],
-			[
 				"config",
 				"debug\\config.json"
 			],
@@ -1661,10 +2032,6 @@
 			[
 				"gae",
 				"tests\\game.js"
-			],
-			[
-				"applicat",
-				"project001\\debug\\js\\application.js"
 			],
 			[
 				"layout",
@@ -2049,26 +2416,6 @@
 			[
 				"gamesce",
 				"AvotaJS/src/game/scene/GameScene.ts"
-			],
-			[
-				"screen",
-				"AvotaJS/src/game/scene/Screen.ts"
-			],
-			[
-				"inputc",
-				"AvotaJS/src/input/InputComponent.ts"
-			],
-			[
-				"gameuioverla",
-				"AvotaJS/src/game/ui/GameUIOverlay.ts"
-			],
-			[
-				"gameent",
-				"AvotaJS/src/game/entity/GameEntity.ts"
-			],
-			[
-				"image",
-				"AvotaJS/src/game/graphic/ImageGraphic.ts"
 			]
 		],
 		"width": 0.0
