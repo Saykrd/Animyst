@@ -1421,6 +1421,7 @@ global.Animyst = Animyst;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./audio/Sound":1,"./core/Application":4,"./core/Appscope":5,"./core/Appstate":6,"./core/DataLoad":7,"./core/Database":8,"./core/Entity":9,"./core/Environment":10,"./core/Logging":11,"./core/Physics":12,"./core/System":13,"./core/Window":14,"./display/Graphics":15,"./display/PaperView":16,"./display/SideScrollerView3D":17,"./display/SpriteSheetTexture":18,"./display/View3D":19,"./input/Input":21,"./input/InputData":22,"./states/CoreProcess":23,"./utils/ObjectUtil":24}],21:[function(require,module,exports){
 var System = require('../core/System'),
+	InputData = require('./InputData'),
 	Log = require('../core/Logging');
 
 
@@ -1496,7 +1497,6 @@ Input.prototype.shutdown = function(){
 Input.prototype.update = function(delta, time){
 	this.inputData.onTick(delta);
 }
-
 
 //=============== TOUCH EVENTS ======================//
 
@@ -1624,7 +1624,7 @@ Input.prototype.handleTouchInput = function(type, evt){
 }
 
 
-},{"../core/Logging":11,"../core/System":13}],22:[function(require,module,exports){
+},{"../core/Logging":11,"../core/System":13,"./InputData":22}],22:[function(require,module,exports){
 var Database = require('../core/Database');
 var ObjectUtil=  require('../utils/ObjectUtil');
 

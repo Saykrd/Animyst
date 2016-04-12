@@ -1,4 +1,5 @@
 var System = require('../core/System'),
+	InputData = require('./InputData'),
 	Log = require('../core/Logging');
 
 
@@ -74,7 +75,6 @@ Input.prototype.shutdown = function(){
 Input.prototype.update = function(delta, time){
 	this.inputData.onTick(delta);
 }
-
 
 //=============== TOUCH EVENTS ======================//
 

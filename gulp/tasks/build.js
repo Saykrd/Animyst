@@ -62,4 +62,3 @@ gulp.task('port_externals', function(){
 })
 
 gulp.task('build', gulp.series('clean', 'bundle_vendor', 'uglify', 'bundle_app', 'port_externals'));
-
