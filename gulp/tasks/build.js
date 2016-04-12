@@ -5,11 +5,22 @@ var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps')
 var del = require('del')
 var pkg = require('../../package.json');
+var babel = require('gulp-babel');
+
+
+function packageSource(source, dest){
+	return gulp.src(source)
+		.pipe(sourcemaps.init())
+		.pipe(babel())
+		.pipe(uglify())
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest(dest))
+}
 
 gulp.task('clean', function(){
 	return del([
 		"./bin/*",
-		"./debug/js/*.js"
+		"./debug/js/*"
 	])
 });
 
@@ -24,17 +35,8 @@ gulp.task('bundle_vendor', function(){
 		   //.pipe(gulp.src('./bin/' + pkg.name + '.js'));
 });
 
-gulp.task('uglify', function(){
-	return gulp.src('./bin/animyst.js')
-		.pipe(sourcemaps.init())
-		.pipe(uglify())
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest('./bin/min'))
-		
+gulp.task('package_vendor', () => packageSource('./bin/animyst.js', './bin/min'));
 
-	//gulp.src('./bin/animyst.js')
-	//	.pipe(sourcemaps.init())
-});
 
 gulp.task('sourcemaps', function(){
 	return gulp.src('./bin/min/*.js')
@@ -50,8 +52,11 @@ gulp.task('bundle_app', function(){
 		   		console.log(e)
 		   })
 		   .pipe(source('app.js'))
+		   //.pipe(babel())
 		   .pipe(gulp.dest('./debug/js/'))
 })
+
+gulp.task('package_app', () => packageSource('./debug/js/app.js', './debug/js/'));
 
 gulp.task('port_externals', function(){
 	gulp.src('./bin/min/*.*')
@@ -61,4 +66,4 @@ gulp.task('port_externals', function(){
 		.pipe(gulp.dest('./debug/js'))
 })
 
-gulp.task('build', gulp.series('clean', 'bundle_vendor', 'uglify', 'bundle_app', 'port_externals'));
+gulp.task('build', gulp.series('clean', 'bundle_vendor', 'package_vendor', 'bundle_app', 'package_app', 'port_externals'));

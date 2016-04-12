@@ -1,4 +1,4 @@
-Graphics = module.exports = {}
+var Graphics = module.exports = {}
 
 Graphics.initialize = function (){
 	console.log("[Graphics] Initalizing...")

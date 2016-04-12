@@ -388,7 +388,7 @@ DataLoad.LOAD_ERROR      = 4;
 DataLoad.FILE_STARTED    = 5;
 DataLoad.FILE_PROGRESS   = 6;
 DataLoad.FILE_LOADED     = 7;
-DataLoad.FILE_ERROR      = 8;
+DataLoad.FILE_ERROR      = 9;
 
 
 DataLoad.startup = function(params){
@@ -463,7 +463,7 @@ DataLoad.loadFromManifest = function(value, loadHandler, persistant){
 
 
 DataLoad.loadAsset = function(value, loadHandler, persistant){
-	var queue = DataLoad._loadQueue;
+	let queue = DataLoad._loadQueue;
 	var item; 
 
 	if(typeof value == "string"){
@@ -915,7 +915,7 @@ var Logging = module.exports = {};
 Logging.output = function (){
 	if(!Logging) return;
 
-	var logData = [];
+	let logData = [];
 
 	logData.push("::[LOG]::");
 
@@ -1000,7 +1000,7 @@ Window._setup = function(){
 }
 Window._setup();
 },{"./Logging":11}],15:[function(require,module,exports){
-Graphics = module.exports = {}
+var Graphics = module.exports = {}
 
 Graphics.initialize = function (){
 	console.log("[Graphics] Initalizing...")

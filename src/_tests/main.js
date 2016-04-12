@@ -10,7 +10,7 @@ module.exports = Main;
 Main.prototype = {
 
 	start: function(){
-		console.log("===== MAIN ======");
+		console.log("====== MAIN ======");
 
 		this.app = new Animyst.Application();
 
@@ -21,7 +21,7 @@ Main.prototype = {
 	},
 
 	onAppInit: function(){
-		var game = new Game("game1");
+		let game = new Game("game1");
 		this.app.run(game);
 	}
 
