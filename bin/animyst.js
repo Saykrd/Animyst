@@ -349,8 +349,8 @@ Application.prototype.update = function(event){
 }
 
 Application.prototype._initFrame =  function(){
-	requestAnimationFrame(this._initFrame.bind(this));
-	this.update();
+	requestAnimationFrame(() => this._initFrame.call(this));
+	this.update()
 }
 },{"../states/CoreProcess":23,"./AppScope":2,"./DataLoad":7,"./Environment":10,"./Logging":11,"signals":28}],5:[function(require,module,exports){
 arguments[4][2][0].apply(exports,arguments)

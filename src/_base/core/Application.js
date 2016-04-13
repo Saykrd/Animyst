@@ -202,6 +202,6 @@ Application.prototype.update = function(event){
 }
 
 Application.prototype._initFrame =  function(){
-	requestAnimationFrame(this._initFrame.bind(this));
-	this.update();
+	requestAnimationFrame(() => this._initFrame.call(this));
+	this.update()
 }
