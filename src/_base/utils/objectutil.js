@@ -14,3 +14,20 @@ ObjectUtil.invert = function (object){
 
 	return obj
 }
+
+ObjectUtil.copy = function(obj, target){
+	target = target || {};
+	for(var k in obj){
+		if(obj[k] instanceof Object){
+			if(Array.isArray(obj[k])){
+				target[k] = obj[k].concat()
+			} else {
+				target[k] = ObjectUtil.copyProperties(obj[k]);
+			}
+		} else {
+			target[k] = obj[k];
+		}
+	}
+
+	return target;
+}

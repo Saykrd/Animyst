@@ -7,7 +7,7 @@ var del = require('del')
 var pkg = require('../../package.json');
 
 gulp.task('watch_vendor', function(){
-	return gulp.watch('src/_base/**/*.*', gulp.parallel('build_vendor'));
+	return gulp.watch('src/_base/**/*.*', gulp.series('build_vendor', 'build_app'));
 });
 
 gulp.task('watch_app', function(){

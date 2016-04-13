@@ -28,6 +28,8 @@ var Animyst = module.exports = {
 
 	//Utils 
 	ObjectUtil : require('./utils/ObjectUtil'),
+	ArrayUtil : require('./utils/ArrayUtil'),
+	MathUtil : require('./utils/MathUtil'),
 
 	//Audio
 	Sound: require('./audio/Sound')
