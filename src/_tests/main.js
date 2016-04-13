@@ -19,7 +19,7 @@ Main.prototype = {
 	},
 
 	onAppInit: function(){
-		let game = new Game("game1");
+		var game = new Game("game1");
 		this.app.run(game);
 	}
 

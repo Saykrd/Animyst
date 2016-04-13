@@ -1,9 +1,9 @@
-var Log = require('./Logging'),
-	DataLoad = require('./DataLoad'),
-	Environment = require('./Environment'),
-	CoreProcess = require('../states/CoreProcess'),
-	AppScope = require('./AppScope'),
-	signals = require('signals');
+var Log = require('./Logging');
+var	DataLoad = require('./DataLoad');
+var	Environment = require('./Environment');
+var	CoreProcess = require('../states/CoreProcess');
+var	AppScope = require('./AppScope');
+var	signals = require('signals');
 
 
 
@@ -202,6 +202,6 @@ Application.prototype.update = function(event){
 }
 
 Application.prototype._initFrame =  function(){
-	requestAnimationFrame(() => this._initFrame.call(this));
+	requestAnimationFrame(this._initFrame.bind(this));
 	this.update()
 }

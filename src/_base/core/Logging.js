@@ -3,7 +3,7 @@ var Logging = module.exports = {};
 Logging.output = function (){
 	if(!Logging) return;
 
-	let logData = [];
+	var logData = [];
 
 	logData.push("::[LOG]::");
 

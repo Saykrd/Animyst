@@ -104,7 +104,7 @@ DataLoad.loadFromManifest = function(value, loadHandler, persistant){
 
 
 DataLoad.loadAsset = function(value, loadHandler, persistant){
-	let queue = DataLoad._loadQueue;
+	var queue = DataLoad._loadQueue;
 	var item; 
 
 	if(typeof value == "string"){
