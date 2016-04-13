@@ -1,4 +1,4 @@
-GameData = function () {
+var GameData = function () {
 	Animyst.Database.call(this);
 
 	this.entities            = {};

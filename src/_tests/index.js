@@ -1,6 +1,6 @@
 //Animyst = require("../../bin/animyst.js");
-Main    = require('./main.js');
-Game 	= require('./game.js');
-GameLogic = require('./gamelogic.js');
-GameData = require('./gamedata.js');
-GameDisplay = require('./gamedisplay.js');
+global.Main    = require('./main.js');
+global.Game 	= require('./game.js');
+global.GameLogic = require('./gamelogic.js');
+global.GameData = require('./gamedata.js');
+global.GameDisplay = require('./gamedisplay.js');

@@ -1,4 +1,4 @@
-GameLogic = function (gameData, inputData){
+var GameLogic = function (gameData, inputData){
 	Animyst.System.call(this);
 
 	this.gameData  = gameData;

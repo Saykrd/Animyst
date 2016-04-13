@@ -1,4 +1,4 @@
-GameDisplay = function(gameData){
+var GameDisplay = function(gameData){
 	Animyst.System.call(this);
 
 	this.gameData = gameData;

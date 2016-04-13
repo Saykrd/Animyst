@@ -1,6 +1,4 @@
-//require("../../bin/animyst.js");
-
-Main = function(){
+var Main = function(){
 	this.game = null;
 	this.app  = null;
 }
@@ -10,7 +8,7 @@ module.exports = Main;
 Main.prototype = {
 
 	start: function(){
-		console.log("====== MAIN ======");
+		console.log("======= MAIN ======");
 
 		this.app = new Animyst.Application();
 

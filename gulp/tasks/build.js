@@ -17,10 +17,9 @@ function packageSource(source, dest){
 		.pipe(gulp.dest(dest))
 }
 
-gulp.task('clean', function(){
+gulp.task('clean_vendor', function(){
 	return del([
-		"./bin/*",
-		"./debug/js/*"
+		"./bin/*"
 	])
 });
 
@@ -38,12 +37,11 @@ gulp.task('bundle_vendor', function(){
 gulp.task('package_vendor', () => packageSource('./bin/animyst.js', './bin/min'));
 
 
-gulp.task('sourcemaps', function(){
-	return gulp.src('./bin/min/*.js')
-		.pipe(sourcemaps.init())
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest('./bin/min/'));
-})
+gulp.task('clean_app', function(){
+	return del([
+		"./debug/js/*"
+	])
+});
 
 gulp.task('bundle_app', function(){
 	return browserify('./src/_tests/index.js')
@@ -66,4 +64,6 @@ gulp.task('port_externals', function(){
 		.pipe(gulp.dest('./debug/js'))
 })
 
-gulp.task('build', gulp.series('clean', 'bundle_vendor', 'package_vendor', 'bundle_app', 'package_app', 'port_externals'));
+gulp.task('build_vendor', gulp.series('clean_vendor', 'bundle_vendor', 'package_vendor'));
+gulp.task('build_app', gulp.series('clean_app', 'bundle_app', 'package_app', 'port_externals'));
+gulp.task('build', gulp.series('build_vendor', 'build_app'));

@@ -1,4 +1,4 @@
-Game = function(id){
+var Game = function(id){
 	Animyst.AppState.call(this, id);
 
 	this.inputData = null;

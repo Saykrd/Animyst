@@ -1,5 +1,5 @@
-Animyst.InputDisplay = function(inputData){
-	Animyst.System.call(this);
+var InputDisplay = function(inputData){
+	System.call(this);
 
 	this.inputData = inputData;
 	this.layer = null;
@@ -8,29 +8,31 @@ Animyst.InputDisplay = function(inputData){
 	this.touches = {};
 }
 
-Animyst.InputDisplay.prototype = Object.create(Animyst.System.prototype);
-Animyst.InputDisplay.prototype.startup = function(params){
+module.exports = InputDisplay;
+
+InputDisplay.prototype = Object.create(System.prototype);
+InputDisplay.prototype.startup = function(params){
 
 	this.inputData.signal.add(this.inputHandler, this);
 
 	this.layer = params.layer || new Layer({position: new Point()});
 
-	Animyst.System.prototype.startup.call(this, params);
+	System.prototype.startup.call(this, params);
 }
 
-Animyst.InputDisplay.prototype.shutdown = function(){
+InputDisplay.prototype.shutdown = function(){
 	this.started = false;
 
-	Animyst.System.prototype.shutdown.call(this);
+	System.prototype.shutdown.call(this);
 }
 
-Animyst.InputDisplay.prototype.update = function(delta, time){
+InputDisplay.prototype.update = function(delta, time){
 
 }
 
-Animyst.InputDisplay.prototype.inputHandler = function(inputType, evtType, data) {
+InputDisplay.prototype.inputHandler = function(inputType, evtType, data) {
 	switch(inputType){
-		case Animyst.InputData.MOUSE:
+		case InputData.MOUSE:
 			if(!this.mouse){
 				this.mouse = new Shape.Circle({radius:10, fillColor:"#00FFFF", opacity:0.5});
 				this.layer.addChild(this.mouse);
@@ -47,9 +49,9 @@ Animyst.InputDisplay.prototype.inputHandler = function(inputType, evtType, data)
 
 			break;
 
-		case Animyst.InputData.TOUCH:
+		case InputData.TOUCH:
 			switch(evtType){
-				case Animyst.InputData.TOUCH_ADDED:
+				case InputData.TOUCH_ADDED:
 					var id = data.uid;
 					var c = new Shape.Circle({radius:30, fillColor:"#FF0000", opacity:0.5});
 
@@ -59,7 +61,7 @@ Animyst.InputDisplay.prototype.inputHandler = function(inputType, evtType, data)
 
 					this.touches[id] = c;
 					break;
-				case Animyst.InputData.TOUCH_REMOVED:
+				case InputData.TOUCH_REMOVED:
 					var id = data.uid;
 					var c = this.touches[id];
 
@@ -68,7 +70,7 @@ Animyst.InputDisplay.prototype.inputHandler = function(inputType, evtType, data)
 					delete this.touches[id];
 					break;
 
-				case Animyst.InputData.TOUCH_UPDATED:
+				case InputData.TOUCH_UPDATED:
 					var id = data.uid;
 					var c = this.touches[id];
 
@@ -80,7 +82,7 @@ Animyst.InputDisplay.prototype.inputHandler = function(inputType, evtType, data)
 
 			break;
 
-		case Animyst.InputData.KEY:
+		case InputData.KEY:
 
 			break;
 	}
