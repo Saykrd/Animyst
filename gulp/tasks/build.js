@@ -17,12 +17,10 @@ function bundle(src, targetName, dest){
 		   .pipe(source( targetName ))
 		   .pipe(buffer())
 		   .pipe(sourcemaps.init({loadMaps:true}))
-		   .pipe(babel())
 		   .pipe(uglify())
 		   	.on('error', function(e){console.log(e)})
 		   .pipe(sourcemaps.write('.'))
 		   .pipe(gulp.dest(dest));
-		   //.pipe(gulp.src('./bin/' + pkg.name + '.js'));
 }
 
 gulp.task('clean_vendor', function(){

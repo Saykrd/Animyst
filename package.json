@@ -29,7 +29,8 @@
   },
   "browserify": {
     "transform": [
-      "browserify-shim"
+      "browserify-shim",
+      ["babelify", { "presets": ["es2015"] }]
     ],
     "external": [
       "three"

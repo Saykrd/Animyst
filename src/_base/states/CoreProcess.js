@@ -1,5 +1,7 @@
 var AppState = require('../core/AppState'),
-	Log = require('../core/Logging');
+	Log = require('../core/Logging'),
+	Input = require('../input/Input'),
+	InputData = require('../input/InputData');
 
 var CoreProcess = function(id){
 	AppState.call(this, id);
@@ -22,10 +24,10 @@ CoreProcess.prototype.setup = function(){
 	Log.output("[CoreProcess] Core Process Initialize");
 	AppState.prototype.setup.call(this);
 
-	this.inputData = new Animyst.InputData();
+	this.inputData = new InputData();
 
 	var config = this.appScope.config;
-	var input  = new Animyst.Input(this.inputData);
+	var input  = new Input(this.inputData);
 
 
 	input.startup({element: document.body, keyboardSettings:config.settings.keyboard});

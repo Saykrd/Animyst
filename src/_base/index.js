@@ -17,6 +17,7 @@ var Animyst = module.exports = {
 	PaperView  			: require('./display/PaperView'),
 	View3D				: require('./display/View3D'),
 	SpritesheetTexture  : require('./display/SpriteSheetTexture'),
+	HUDTexture		    : require('./display/HUDTexture'),
 	SideScrollerView3D  : require('./display/SideScrollerView3D'),
 
 	//Input

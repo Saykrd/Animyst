@@ -1,6 +1,9 @@
 var THREE = require('three');
+var PIXI = require('pixi');
 var Database = require('../core/Database'),
-	Log = require('../core/Logging');
+	Log = require('../core/Logging'),
+	HUDTexture = require('../display/HUDTexture');
+
 
 var View3D = function(scene, width, height){
 	Database.call(this);
@@ -23,6 +26,7 @@ var View3D = function(scene, width, height){
 	this.container = null;
 	this.settings  = null;
 	this.resize = false;
+	this.ui = null;
 
 };
 
@@ -76,7 +80,21 @@ View3D.prototype.initDisplay = function(params){
 
 	this.renderer.setClearColor(params.rendererColor || 0x888888);
 	this.renderer.setSize(this.width, this.height);
-	this.renderer.shadowMapEnabled = true;
+	this.renderer.shadowMapEnabled = false;
+
+	var geom = new THREE.PlaneGeometry(this.width, this.height, 32 );
+	var texture = new HUDTexture(this.width, this.height);
+	var matr = new THREE.MeshBasicMaterial({map:texture, side:THREE.DoubleSide});
+	matr.transparent = true;
+	this.ui = new THREE.Mesh( geom, matr);
+
+	let vFOV = this.camera.fov * (Math.PI / 180);
+	let distance =  this.height / (2 * Math.tan(vFOV / 2));
+
+	this.ui.position.set(0,0, -distance);
+	this.scene.add(this.ui);
+
+	this.camera.add(this.ui);
 
 	if(params.addAxis){
 		var axis = new THREE.AxisHelper(20);
@@ -122,6 +140,9 @@ View3D.prototype.append = function(containerID){
 
 View3D.prototype.render = function(){
 	this.renderer.render(this.scene, this.camera);
+};
+
+View3D.prototype.update = function(){
 };
 
 View3D.prototype.onResize = function(){
