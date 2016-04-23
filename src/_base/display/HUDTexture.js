@@ -1,6 +1,7 @@
 var THREE = require('three');
 var PIXI = require('pixi');
 var Window = require('../core/Window');
+var DataLoad = require('../core/DataLoad');
 
 var HUDTexture = function(width, height){
 	THREE.Texture.call(this);
@@ -21,13 +22,17 @@ HUDTexture.prototype._init = function(){
 
 	this.image = this.renderer.view;
 
-	document.body.appendChild(this.image);
+	//document.body.appendChild(this.image);
 
 	let graphics = new PIXI.Graphics();
 	graphics.lineStyle(2, 0xFF00FF, 1);
 	graphics.beginFill(0xFF00BB, 0.25);
 	graphics.drawCircle(this.width/2, this.height/2, 100, 100);
 	graphics.endFill();
+
+	let texture = PIXI.Texture.fromCanvas(DataLoad.getAsset('samusftilt'));
+	let sprite = new PIXI.Sprite(texture);
+	this.stage.addChild(sprite);
 
 	this.stage.addChild(graphics);
 

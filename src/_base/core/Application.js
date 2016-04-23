@@ -4,6 +4,8 @@ var	Environment = require('./Environment');
 var	CoreProcess = require('../states/CoreProcess');
 var	AppScope = require('./AppScope');
 var	signals = require('signals');
+var Stats = require('stats');
+var datGUI = require('datGUI');
 
 
 
@@ -92,7 +94,7 @@ Application.prototype._init = function(){
 	Log.output("[Application] Application Started")
 
 	if(this.config.settings.debug){
-		if(window["Stats"] && !Environment.isCocoonJS){
+		if(Stats && !Environment.isCocoonJS){
 			this._stats = new Stats();
 			this._stats.domElement.style.position = 'absolute';
 			this._stats.domElement.style.left = '0px';
@@ -102,8 +104,8 @@ Application.prototype._init = function(){
 			Log.output("[Application] Stats Enabled");
 		}
 
-		if(window["dat"] && !Environment.isCocoonJS){
-			Animyst.datGUI = new dat.GUI();
+		if(datGUI && !Environment.isCocoonJS){
+			Animyst.datGUI = new datGUI.GUI();
 		}
 	}
 	
