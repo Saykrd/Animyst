@@ -3,7 +3,7 @@ var PIXI = require('pixi');
 var DataLoad = require('../core/DataLoad');
 var Database = require('../core/Database'),
 	Log = require('../core/Logging'),
-	HUDTexture = require('../display/HUDTexture');
+	PIXITexture = require('../display/PIXITexture');
 
 
 var View3D = function(scene, width, height){
@@ -21,7 +21,7 @@ var View3D = function(scene, width, height){
 	this.NEAR = 0.1;
 	this.FAR  = 10000;
 
-	this.scene    = null;
+	this.scene    = scene;
 	this.renderer = null;
 	this.camera   = null;
 	this.container = null;
@@ -71,7 +71,7 @@ View3D.prototype.initDisplay = function(params){
 		if(container)	{
 			container.appendChild(this.renderer.domElement);
 		} else {
-			Log.error("[Viewport3D] Container ID", params.container, "doesn't exist");
+			Log.error("[View3D] Container ID", params.container, "doesn't exist");
 		}
 	}
 
@@ -85,8 +85,8 @@ View3D.prototype.initDisplay = function(params){
 	this.renderer.setSize(this.width, this.height);
 	this.renderer.shadowMapEnabled = false;
 
-	var geom = new THREE.PlaneGeometry(this.width, this.height, 32 );
-	var texture = new HUDTexture(this.width, this.height);
+	/*var geom = new THREE.PlaneGeometry(this.width, this.height, 32 );
+	var texture = new PIXITexture(new PIXI.Stage(0xFFFFFF), new PIXI.WebGLRenderer(this.width, this.height, {transparent : true}));
 	var matr = new THREE.MeshBasicMaterial({map:texture, side:THREE.DoubleSide});
 	matr.transparent = true;
 	this.ui = new THREE.Mesh( geom, matr);
@@ -97,7 +97,7 @@ View3D.prototype.initDisplay = function(params){
 	this.ui.position.set(0,0, -distance);
 	this.scene.add(this.ui);
 
-	this.camera.add(this.ui);
+	this.camera.add(this.ui);*/
 
 
 	/*this.stage    = new PIXI.Stage(0xFFFFFF);

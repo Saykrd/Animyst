@@ -1,5 +1,6 @@
 var signals = require('signals');
 var ArrayUtil = require('../utils/ArrayUtil');
+var Item = require('./Item');
 
 var Database = function(){
 	this.signal = new signals.Signal();
@@ -27,6 +28,10 @@ Database.prototype.addCategory = function(name, check, cls, context){
 	this._categoryChecks[name] = { check: check, context: context, cls: cls};
 
 	this.traverse(this.listItem, this);
+};
+
+Database.prototype.hasCategory = function(name){
+	return this._categoryLists[name] != null;
 };
 
 /**
@@ -106,17 +111,23 @@ Database.prototype.traverse = function(command, context, category = null){
 
 /**
  * Adds item to the database
- * @param {object} type   Class of the item
+ * @param {object} cls   Class of the item
  * @param {string} id     Item ID
  * @param {object} params Params to initialize the item
  * @return {object} Returns the item that was added
  */
-Database.prototype.addItem = function(type, id, params){
- 	var item = new type(id, params);
+Database.prototype.addItem = function(item, id, params){
+ 	if(!id){
+ 		id = "item" + this.itemCount  
+ 	}
 
 	if(this._items[id]){
 		id = id + this.itemCount;
 	}
+
+	//var item = new cls(id, params);
+
+	item.id = id;
 
 	this._items[id] = item;
 	this._itemList.push(item.id);
@@ -170,3 +181,4 @@ Database.prototype.clear = function(){
 Database.prototype.destroy = function(){
 
 }
+

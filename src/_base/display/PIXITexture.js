@@ -3,26 +3,20 @@ var PIXI = require('pixi');
 var Window = require('../core/Window');
 var DataLoad = require('../core/DataLoad');
 
-var HUDTexture = function(width, height){
+var PIXITexture = function(stage, renderer){
 	THREE.Texture.call(this);
-	this.stage = null;
-	this.renderer = null;
-	this.width = width || 256;
-	this.height = height || 256;
+	this.stage = stage;
+	this.renderer = renderer;
+	this.width = renderer.view.width;
+	this.height = renderer.view.height;
 	this.shouldUpdate = false;
 	this._init();
 }
 
-module.exports = HUDTexture;
-if(THREE) HUDTexture.prototype = Object.create(THREE.Texture.prototype);
-HUDTexture.prototype._init = function(){
-
-	this.stage    = new PIXI.Stage(0xFFFFFF);
-	this.renderer = new PIXI.WebGLRenderer(this.width, this.height, {transparent : true});
-
+module.exports = PIXITexture;
+if(THREE) PIXITexture.prototype = Object.create(THREE.Texture.prototype);
+PIXITexture.prototype._init = function(){
 	this.image = this.renderer.view;
-
-	//document.body.appendChild(this.image);
 
 	let graphics = new PIXI.Graphics();
 	graphics.lineStyle(2, 0xFF00FF, 1);
@@ -40,11 +34,11 @@ HUDTexture.prototype._init = function(){
 	this.update();
 }
 
-HUDTexture.prototype.invalidate = function(){
+PIXITexture.prototype.invalidate = function(){
 	 this.shouldUpdate = true; 
 };
 
-HUDTexture.prototype.update = function(){
+PIXITexture.prototype.update = function(){
 	 if(this.shouldUpdate){
 	 	this.renderer.render(this.stage);
 	 	this.needsUpdate = true;

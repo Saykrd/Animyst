@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"Mat",
+				"Math.tan()	Math"
+			],
+			[
+				"Math",
+				"Math.PI	Math"
+			],
+			[
 				"1000",
 				"1000"
 			],
@@ -506,40 +514,336 @@
 			[
 				"_volume",
 				"_volumeNode"
-			],
-			[
-				"_vol",
-				"_volume"
-			],
-			[
-				"_sound",
-				"_soundManager"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src/display/viewport3d.js",
+			"file": "debug/index.html",
 			"settings":
 			{
-				"buffer_size": 3081,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "tests/game.js",
-			"settings":
-			{
-				"buffer_size": 1924,
+				"buffer_size": 652,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/_base/application.js",
+			"file": "src/_base/index.js",
 			"settings":
 			{
-				"buffer_size": 4855,
+				"buffer_size": 1438,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/core/Application.js",
+			"settings":
+			{
+				"buffer_size": 5363,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/core/Appscope.js",
+			"settings":
+			{
+				"buffer_size": 295,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/core/Appstate.js",
+			"settings":
+			{
+				"buffer_size": 2131,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/core/DataLoad.js",
+			"settings":
+			{
+				"buffer_size": 7824,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/display/PIXITexture.js",
+			"settings":
+			{
+				"buffer_size": 1222,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/display/Graphics.js",
+			"settings":
+			{
+				"buffer_size": 789,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/_tests/gamedisplay.js",
+			"settings":
+			{
+				"buffer_size": 1713,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_tests/gamedata.js",
+			"settings":
+			{
+				"buffer_size": 2378,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/core/Entity.js",
+			"settings":
+			{
+				"buffer_size": 624,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/_base/core/Environment.js",
+			"settings":
+			{
+				"buffer_size": 5911,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/core/Logging.js",
+			"settings":
+			{
+				"buffer_size": 480,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/core/Physics.js",
+			"settings":
+			{
+				"buffer_size": 238,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/_base/core/System.js",
+			"settings":
+			{
+				"buffer_size": 406,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/core/Window.js",
+			"settings":
+			{
+				"buffer_size": 1098,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/core/Database.js",
+			"settings":
+			{
+				"buffer_size": 4645,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/core/Item.js",
+			"settings":
+			{
+				"buffer_size": 373,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/utils/ArrayUtil.js",
+			"settings":
+			{
+				"buffer_size": 2124,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/display/SpriteSheetTexture.js",
+			"settings":
+			{
+				"buffer_size": 2796,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/utils/MathUtil.js",
+			"settings":
+			{
+				"buffer_size": 792,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/audio/Sound.js",
+			"settings":
+			{
+				"buffer_size": 911,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/display/PaperView.js",
+			"settings":
+			{
+				"buffer_size": 401,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/display/SideScrollerView3D.js",
+			"settings":
+			{
+				"buffer_size": 3966,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/display/View3D.js",
+			"settings":
+			{
+				"buffer_size": 4941,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/input/Input.js",
+			"settings":
+			{
+				"buffer_size": 5804,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/_base/input/InputData.js",
+			"settings":
+			{
+				"buffer_size": 8013,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/spritesheet/SpriteSheetAnimation.js",
+			"settings":
+			{
+				"buffer_size": 2368,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/states/CoreProcess.js",
+			"settings":
+			{
+				"buffer_size": 1581,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_base/utils/ObjectUtil.js",
+			"settings":
+			{
+				"buffer_size": 621,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_tests/index.js",
+			"settings":
+			{
+				"buffer_size": 260,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_tests/gamelogic.js",
+			"settings":
+			{
+				"buffer_size": 2430,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_tests/game.js",
+			"settings":
+			{
+				"buffer_size": 2490,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/_base/spritesheet/SpriteSheetData.js",
+			"settings":
+			{
+				"buffer_size": 1701,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_tests/inputdisplay.js",
+			"settings":
+			{
+				"buffer_size": 1887,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/_tests/main.js",
+			"settings":
+			{
+				"buffer_size": 377,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/Akil/Repositories/pixi.js/gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 885,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Akil/Repositories/pixi.js/src/mesh/Mesh.js",
+			"settings":
+			{
+				"buffer_size": 13123,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 111,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "gulp/tasks/build.js",
+			"settings":
+			{
+				"buffer_size": 1464,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "gulp/tasks/watch.js",
+			"settings":
+			{
+				"buffer_size": 556,
 				"line_ending": "Windows"
 			}
 		},
@@ -547,96 +851,8 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 325,
+				"buffer_size": 1626,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/_base/environment.js",
-			"settings":
-			{
-				"buffer_size": 5932,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "debug/js/animyst.min.js",
-			"settings":
-			{
-				"buffer_size": 1380126,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/_base/animyst.js",
-			"settings":
-			{
-				"buffer_size": 68,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/_base/window.js",
-			"settings":
-			{
-				"buffer_size": 1224,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "tests/main.js",
-			"settings":
-			{
-				"buffer_size": 351,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/_base/logging.js",
-			"settings":
-			{
-				"buffer_size": 487,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/states/coreprocess.js",
-			"settings":
-			{
-				"buffer_size": 1610,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/_base/utils/objectutil.js",
-			"settings":
-			{
-				"buffer_size": 332,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/input/input.js",
-			"settings":
-			{
-				"buffer_size": 6237,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/input/inputdata.js",
-			"settings":
-			{
-				"buffer_size": 8326,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/display/paperviewport.js",
-			"settings":
-			{
-				"buffer_size": 396,
-				"line_ending": "Windows"
 			}
 		},
 		{
@@ -659,23 +875,23 @@
 			"file": "debug/assets.json",
 			"settings":
 			{
-				"buffer_size": 370,
+				"buffer_size": 446,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "debug/index.html",
+			"file": "debug/media/images/spritesheets/run.json",
 			"settings":
 			{
-				"buffer_size": 400,
-				"line_ending": "Unix"
+				"buffer_size": 4005,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "gruntfile.js",
 			"settings":
 			{
-				"buffer_size": 1422,
+				"buffer_size": 1782,
 				"line_ending": "Windows"
 			}
 		},
@@ -704,12 +920,16 @@
 				"Package Control: Install Package"
 			],
 			[
-				"lower",
-				"Convert Case: Lower Case"
+				"Remove",
+				"Package Control: Remove Package"
 			],
 			[
 				"Install",
 				"Package Control: Install Package"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
 			],
 			[
 				"Enable",
@@ -718,10 +938,6 @@
 			[
 				"EnableP",
 				"Package Control: Enable Package"
-			],
-			[
-				"Remove",
-				"Package Control: Remove Package"
 			],
 			[
 				"Package Control: Insta",
@@ -837,12 +1053,77 @@
 	"expanded_folders":
 	[
 		"/C/Users/Akil/Desktop/Animyst",
-		"/C/Users/Akil/Desktop/Animyst/bin",
 		"/C/Users/Akil/Desktop/Animyst/debug",
-		"/C/Users/Akil/Desktop/Animyst/debug/js"
+		"/C/Users/Akil/Desktop/Animyst/debug/js",
+		"/C/Users/Akil/Desktop/Animyst/debug/media",
+		"/C/Users/Akil/Desktop/Animyst/debug/media/images",
+		"/C/Users/Akil/Desktop/Animyst/debug/media/images/spritesheets",
+		"/C/Users/Akil/Desktop/Animyst/src",
+		"/C/Users/Akil/Desktop/Animyst/src/_base",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/core",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/display",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/input",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/spritesheet",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/states",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/utils",
+		"/C/Users/Akil/Desktop/Animyst/src/_libs",
+		"/C/Users/Akil/Desktop/Animyst/src/_tests"
 	],
 	"file_history":
 	[
+		"/C/Users/Akil/Desktop/Animyst/src/_tests/game.js",
+		"/C/Users/Akil/Desktop/Animyst/src/_tests/SpriteSheetData.js",
+		"/D/Akil/Google Drive/My Files/Games/ZSNES/zsnesw.cfg",
+		"/C/Users/Akil/Desktop/Animyst/src/_libs/dat.gui.min.js",
+		"/C/Users/Akil/Desktop/Animyst/src/_libs/stats.min.js",
+		"/C/Users/Akil/Desktop/Animyst/debug/js/animyst.js",
+		"/D/Akil/Google Drive/My Files/BMFont/exports/burbank_regular/BurbankRegular.fnt",
+		"/C/Users/Akil/Desktop/Animyst/bin/animyst.js",
+		"/C/Users/Akil/Desktop/Animyst/src/_tests/main.js",
+		"/C/Users/Akil/Desktop/Animyst/.babelrc",
+		"/C/Users/Akil/Desktop/Animyst/debug/js/app.js",
+		"/C/Users/Akil/Desktop/Animyst/gulp/tasks/build.js",
+		"/D/Akil/Repositories/pixi.js/src/index.js",
+		"/C/Users/Akil/Desktop/Animyst/debug/js/app.min.js",
+		"/D/Akil/Repositories/pixi.js/package.json",
+		"/D/Akil/Repositories/pixi.js/gulp/util/bundle.js",
+		"/D/Akil/Repositories/pixi.js/gulp/tasks/scripts.js",
+		"/D/Akil/Repositories/pixi.js/gulp/tasks/build.js",
+		"/D/Akil/Repositories/pixi.js/gulp/tasks/clean.js",
+		"/C/Users/Akil/Desktop/Animyst/bin/min/animyst.js",
+		"/D/Akil/Repositories/pixi.js/bin/pixi.js",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/display/Graphics.js",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/window.js",
+		"/D/Akil/Repositories/pixi.js/src/core/index.js",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/display/view3d.js",
+		"/D/Akil/Repositories/pixi.js/src/core/display/Container.js",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/logging.js",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/utils/objectutil.js",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/environment.js",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/application.js",
+		"/D/Akil/Repositories/pixi.js/src/polyfill/requestAnimationFrame.js",
+		"/D/Akil/Repositories/pixi.js/src/polyfill/Object.assign.js",
+		"/D/Akil/Repositories/pixi.js/src/polyfill/Math.sign.js",
+		"/D/Akil/Repositories/pixi.js/src/polyfill/index.js",
+		"/D/Akil/Repositories/pixi.js/src/loaders/loader.js",
+		"/D/Akil/Repositories/pixi.js/src/deprecation.js",
+		"/D/Akil/Repositories/pixi.js/src/core/const.js",
+		"/D/Akil/Repositories/pixi.js/src/interaction/index.js",
+		"/D/Akil/Repositories/pixi.js/src/loaders/index.js",
+		"/D/Akil/Repositories/pixi.js/src/mesh/index.js",
+		"/D/Akil/Repositories/pixi.js/gulp/tasks/jshint.js",
+		"/D/Akil/Repositories/pixi.js/bin/pixi.min.js",
+		"/D/Akil/Repositories/pixi.js/src/core/renderers/SystemRenderer.js",
+		"/D/Akil/Repositories/pixi.js/bower.json",
+		"/C/Users/Akil/Desktop/Animyst/src/display/viewport3d.js",
+		"/C/Users/Akil/Desktop/Animyst/debug/js/animyst.min.js",
+		"/C/Users/Akil/Desktop/Animyst/src/display/paperviewport.js",
+		"/C/Users/Akil/Desktop/Animyst/src/input/inputdata.js",
+		"/C/Users/Akil/Desktop/Animyst/src/input/input.js",
+		"/C/Users/Akil/Desktop/Animyst/src/states/coreprocess.js",
+		"/C/Users/Akil/Desktop/Animyst/src/animyst.js",
+		"/C/Users/Akil/Desktop/Animyst/src/_base/animyst.js",
+		"/C/Users/Akil/AppData/Roaming/Sublime Text 3/Packages/Babel/Monokai Phoenix.tmTheme",
 		"/C/Users/Akil/Desktop/Animyst/package.json",
 		"/C/Users/Akil/Desktop/Animyst/debug/media/images/spritesheets/run.json",
 		"/C/Users/Akil/Desktop/Display/ss/run.json",
@@ -853,22 +1134,15 @@
 		"/C/Users/Akil/Desktop/Animyst/debug/assets.json",
 		"/C/Users/Akil/Desktop/Animyst/debug/config.json",
 		"/C/Users/Akil/Desktop/Animyst/debug/strings.json",
-		"/C/Users/Akil/Desktop/Animyst/src/_base/animyst.js",
 		"/C/Users/Akil/Desktop/Animyst/tests/main.js",
-		"/C/Users/Akil/Desktop/Animyst/src/_base/application.js",
 		"/C/Users/Akil/Desktop/Animyst/tests/game.js",
 		"/C/Users/Akil/Desktop/Animyst/src/_base/appstate.js",
-		"/C/Users/Akil/Desktop/Animyst/src/states/coreprocess.js",
 		"/C/Users/Akil/Desktop/Animyst/src/display/paperengine.js",
 		"/C/Users/Akil/Desktop/Animyst/src/display/paperdisplay.js",
 		"/C/Users/Akil/Desktop/Animyst/src/display/threeengine.js",
 		"/C/Users/Akil/Desktop/Animyst/src/display/sidescrollerworld3d.js",
 		"/C/Users/Akil/Desktop/Animyst/tests/gamelogic.js",
-		"/C/Users/Akil/Desktop/Animyst/src/display/viewport3d.js",
-		"/C/Users/Akil/Desktop/Animyst/src/_base/logging.js",
-		"/C/Users/Akil/Desktop/Animyst/src/_base/window.js",
 		"/C/Users/Akil/Desktop/Animyst/src/_base/dataload.js",
-		"/C/Users/Akil/Desktop/Animyst/src/input/inputdata.js",
 		"/D/Akil/Repositories/javascript-racer/common.js",
 		"/D/Akil/Google Drive/My Files/Work/CN Games/Jake Game/game/debug/src/PaperSprite.js",
 		"/C/Users/Akil/Desktop/Animyst/src/display/spritesheettexture.js",
@@ -893,7 +1167,6 @@
 		"/D/Akil/Google Drive/My Files/Work/CN Games/Jake Game/game/debug/src/squishyjakegame.js",
 		"/C/Users/Akil/Desktop/Animyst/src/display/spritesheetmaterial.js",
 		"/C/Users/Akil/Desktop/Animyst/tests/inputdisplay.js",
-		"/C/Users/Akil/Desktop/Animyst/src/input/input.js",
 		"/C/Users/Akil/Desktop/Animyst/src/audio/sound.js",
 		"/C/Users/Akil/Desktop/Animyst/gruntfile.js",
 		"/C/Users/Akil/Desktop/Animyst/tests/gamedata.js",
@@ -921,56 +1194,11 @@
 		"/C/Users/Akil/Desktop/Animyst/src/main.js",
 		"/D/Akil/Repositories/stats.js/LICENSE",
 		"/C/Users/Akil/Desktop/Animyst/src/display/graphics.js",
-		"/C/Users/Akil/Desktop/Animyst/debug/js/animyst.min.js",
 		"/C/Users/Akil/Desktop/Animyst/src/game.js",
 		"/C/Users/Akil/Desktop/Animyst/src/base/entity.js",
 		"/C/Users/Akil/Desktop/Animyst/src/base/system.js",
 		"/C/Users/Akil/Desktop/Animyst/src/entity.js",
-		"/C/Users/Akil/Desktop/Animyst/src/graphics.js",
-		"/C/Users/Akil/Desktop/Animyst/src/animyst.js",
-		"/C/Users/Akil/Desktop/Animyst/bin/animyst.min.js",
-		"/C/Users/Akil/Desktop/Animyst/bin/Animyst.js",
-		"/D/Akil/Google Drive/My Files/Work/Mattel Games/MusicMixer/build.sh",
-		"/D/Akil/Google Drive/My Files/Work/Mattel Games/MusicMixer/buildInfo.sh",
-		"/C/Users/Akil/Desktop/Animyst/animyst.sublime-project",
-		"/D/Akil/Google Drive/My Files/Projects/Sites/Games/project001/debug/js/libs/signals.js",
-		"/D/Akil/Google Drive/My Files/Projects/Sites/CN Games/Jake Game/game/createjs-with-server/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/argument_parser.js",
-		"/D/Akil/Google Drive/My Files/Projects/Sites/Games/project001/debug/js/application.js",
-		"/D/Akil/Google Drive/My Files/Projects/Sites/Games/project001/debug/timescape.js",
-		"/C/Users/Akil/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript.sublime-settings",
-		"/D/Akil/Google Drive/My Files/Projects/Sites/Games/project001/debug/js/libs/paper-full.js",
-		"/D/Akil/Repositories/TimeScapeEngine/TimeScapeEngine/src/systems/sound/SoundData.as",
-		"/D/Akil/Google Drive/My Files/Projects/Sites/CN Games/Jake Game/game/buildInfo.sh",
-		"/D/Akil/Google Drive/My Files/Projects/Sites/CN Games/Jake Game/game/createjs-with-server/node_modules/grunt/node_modules/colors/themes/winston-dark.js",
-		"/D/Akil/Google Drive/My Files/Projects/Sites/CN Games/Jake Game/game/createjs-with-server/node_modules/grunt/node_modules/underscore.string/test/strings_standalone.js",
-		"/D/Akil/Google Drive/My Files/Projects/Sites/Games/project001/project001.sublime-project",
-		"/Users/Saykrd/Sites/Games/project001/index.html",
-		"/Users/Saykrd/Sites/CN Games/Jake Game/game/debug/src/squishyjakegame.js",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/ui/MusicMixerUI.ts",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/data/LayoutData.ts",
-		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/game/ui/Button.ts",
-		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/time/ITickedObject.ts",
-		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/time/Timer.ts",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/assets/audio/ImpulseResponses/IMreverbs3/Scala Milan Opera Hall.wav",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/debug/media/screens/fishnet_background.png",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/buildInfo.sh",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/screens/SongSelectScreen.ts",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/screens/TitleScreen.ts",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/MusicMixerGame.ts",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/level/MusicMixerLevel.ts",
-		"/Users/Saykrd/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/release/media/sound/lose_a_star.mp3",
-		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/easing/Linear.ts",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/assets/buttons/button_ui_help.json",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/build.sh",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/data/GameData.ts",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/mixer/MixerChannel.ts",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/debug/media/screens/screen_gameload_background.png",
-		"/Users/Saykrd/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/src/scenes/RainbowRocksLoader.ts",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/src/screens/GameLoadScreen.ts",
-		"/Users/Saykrd/Sites/Mattel Games/MusicMixer/debug/media/spritesheets/game_graphic_casta_1.json",
-		"/Users/Saykrd/Google Drive/My Files/Work/Hasbro Games/RainbowRocks/game/src/scenes/RainbowRocksLoader.js",
-		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/game/graphic/AnimatedGraphic.ts",
-		"/Users/Saykrd/Sites/Mattel Games/AvotaJS/src/particles/actions/ApproachNeighbours.ts"
+		"/C/Users/Akil/Desktop/Animyst/src/graphics.js"
 	],
 	"find":
 	{
@@ -981,6 +1209,10 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"C:\\Users\\Akil\\Desktop\\Animyst",
+			"C:\\Users\\Akil\\Desktop\\Animyst\\src",
+			"C:\\Users\\Akil\\Desktop\\Animyst\\src\\_base",
+			"C:\\Users\\Akil\\Desktop\\Animyst\\src\\_base\\core",
 			"C:\\Users\\Akil\\Desktop\\Animyst\\src",
 			"D:\\Akil\\Google Drive\\My Files\\Projects\\Sites\\Games\\project001\\debug\\js",
 			"A:\\Akil\\Google Drive\\My Files\\Work\\Hasbro Games\\AvotaJS-3-05-14",
@@ -1009,6 +1241,80 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"listItem",
+			"HUDTexture",
+			"UITexture",
+			"HUDTexture",
+			"_initSprite",
+			"SpriteSheetTexture",
+			".items",
+			"Entity",
+			"entity",
+			"entities",
+			"Entity",
+			"entity",
+			"entities",
+			"entity",
+			"entities",
+			"entity",
+			":any",
+			": any",
+			": number",
+			"static ",
+			":void",
+			":any",
+			":any[]",
+			"static ",
+			"let",
+			"stats",
+			"_initFrame",
+			"Animyst.",
+			"Main",
+			"var ",
+			"let",
+			"Animyst.LOG",
+			"LoggingGING",
+			"Logging",
+			"createjs",
+			"Animyst",
+			"require",
+			"Dataload",
+			"createjs",
+			"load",
+			"Animyst",
+			"THREE",
+			"Animyst.LOG",
+			"Animyst.AppState",
+			"Animyst.CoreProcess",
+			"Animyst.Database",
+			"Animyst.InputData",
+			"Animyst.LOGGING",
+			"Animyst.System",
+			"Animyst.Input",
+			"Animyst.LOG",
+			"Animyst.Database",
+			"Animyst.Viewport3D",
+			"Animyst",
+			"Animyst.SpriteSheetTexture",
+			"Animyst.System",
+			"Animyst.SideScrollerWorld3D",
+			"Animyst.PaperViewport",
+			"Animyst.Graphics",
+			"Animyst.Window",
+			"Animyst.LOG",
+			"Animyst.Entity",
+			"Animyst.DataLoad",
+			"Animyst.AppState",
+			"Animyst.DataLoad",
+			"Animyst.Environment",
+			"Animyst.LOG",
+			"Animyst",
+			"require",
+			"require(",
+			"Main",
+			"background",
+			"import",
+			"let",
 			"Updated Touch",
 			"W",
 			"screenWidth",
@@ -1062,81 +1368,7 @@
 			"TimeScape.Input",
 			"App",
 			"Application",
-			"EndScreen",
-			"..",
-			"_scene.",
-			"NEXT",
-			"TitleScreen",
-			"idle_main",
-			"idle_blink",
-			"blink",
-			"idle_blink",
-			"idle",
-			"MusicMixerGame",
-			"soundManager",
-			"updateState",
-			"updateState()",
-			"mp3",
-			"();\n",
-			"stretchV",
-			"inputTarget",
-			");",
-			"playAudio",
-			"CNContent",
-			"CNInterface",
-			"();\n",
-			"x",
-			"()\");\n",
-			"()\")",
-			";\n",
-			"console.log",
-			"hitTest",
-			"orientationchange",
-			"_onOrientationChange",
-			"orientationChangeSignal",
-			"_onChangeOrientation",
-			".orientation",
-			"isLandscape",
-			"isLandscape =",
-			"ORIENTATION",
-			"bg_title",
-			"SequenceFailedBG",
-			"character_a",
-			"hair2",
-			"characters",
-			"accessory_buttons.",
-			"Anchor",
-			"bodies",
-			"callout",
-			"magscreen_graphic_icon",
-			"items",
-			"icon",
-			"makeVideoElement",
-			"console.log",
-			"positionVideo",
-			"suspend",
-			"._scene",
-			"makeButton",
-			"_buttonFrames",
-			"makeButton",
-			"\"Buttons\",",
-			"makeButton",
-			"media/",
-			"Character",
-			"makeButton",
-			"getAsset(",
-			"getLayer",
-			"disableButtons",
-			"particles",
-			"emitter.addaction",
-			"_mxmlImages",
-			"emitter.",
-			"emitter.stop",
-			"_view",
-			"standalone",
-			"inputOut",
-			"_inputComponent",
-			"autoInit"
+			"EndScreen"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1144,6 +1376,44 @@
 		"regex": false,
 		"replace_history":
 		[
+			"PIXITexture",
+			"UITexture",
+			"HUDTexture",
+			"._items",
+			"Item",
+			"item",
+			"items",
+			"Item",
+			"item",
+			"items",
+			"item",
+			"items",
+			"item",
+			"",
+			"Log",
+			"AppState",
+			"CoreProcess",
+			"Database",
+			"InputData",
+			"Log",
+			"System",
+			"Input",
+			"Log",
+			"Database",
+			"View3D",
+			"SpriteSheetTexture",
+			"System",
+			"SideScrollerView3D",
+			"PaperView",
+			"Graphics",
+			"Window",
+			"Logging",
+			"Entity",
+			"DataLoad",
+			"AppState",
+			"DataLoad",
+			"Environment",
+			"Log",
 			"userAgent",
 			"mouse",
 			"Viewport",
@@ -1201,61 +1471,119 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 27,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/display/viewport3d.js",
+					"file": "debug/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3081,
+						"buffer_size": 652,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1928,
-								1928
+								513,
+								513
 							]
 						],
 						"settings":
 						{
 							"auto_complete": false,
-							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 604.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 41,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "tests/game.js",
+					"file": "src/_base/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1924,
+						"buffer_size": 1438,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								569,
-								569
+								1118,
+								1118
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
-							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
+							"history_list_is_closing": true,
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 127.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/_base/core/Application.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5363,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3757,
+								3757
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2640.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/_base/core/Appscope.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 295,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								295,
+								295
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1265,286 +1593,70 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "src/_base/application.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4855,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1166,
-								1166
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"typescript_plugin_format_options":
-							{
-								"convertTabsToSpaces": false,
-								"indentSize": 4,
-								"tabSize": 4
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "package.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 325,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								325,
-								325
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Better JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
 					"buffer": 4,
-					"file": "src/_base/environment.js",
+					"file": "src/_base/core/Appstate.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5932,
+						"buffer_size": 2131,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1346,
-								1346
+								540,
+								540
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
-							"open_with_edit": true,
-							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 726.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "debug/js/animyst.min.js",
+					"file": "src/_base/core/DataLoad.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1380126,
+						"buffer_size": 7824,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								25,
-								25
+								3389,
+								3392
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
-							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2214.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "src/_base/animyst.js",
+					"file": "src/_base/display/PIXITexture.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 68,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								68,
-								68
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src/_base/window.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1224,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1224,
-								1224
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "tests/main.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 351,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								256,
-								256
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "src/_base/logging.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 487,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								102,
-								102
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 18,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "src/states/coreprocess.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1610,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								831,
-								831
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 72.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "src/_base/utils/objectutil.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 332,
+						"buffer_size": 1222,
 						"regions":
 						{
 						},
@@ -1557,9 +1669,530 @@
 						],
 						"settings":
 						{
-							"auto_complete": false,
 							"open_with_edit": true,
-							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/_base/display/Graphics.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 789,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								599,
+								599
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 36,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/_tests/gamedisplay.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1713,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4,
+								4
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 26,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/_tests/gamedata.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2378,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								154,
+								154
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 25,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/_base/core/Entity.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 624,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								594,
+								594
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 40,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/_base/core/Environment.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5911,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5858,
+								5858
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 39,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/_base/core/Logging.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 480,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								93,
+								93
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 38,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "src/_base/core/Physics.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 238,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								132,
+								132
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 37,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "src/_base/core/System.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 406,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								346,
+								346
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "src/_base/core/Window.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1098,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1098,
+								1098
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 24,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "src/_base/core/Database.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4645,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3702,
+								3702
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2400.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "src/_base/core/Item.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 373,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								373,
+								373
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "src/_base/utils/ArrayUtil.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2124,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1979,
+								1979
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 64.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 29,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "src/_base/display/SpriteSheetTexture.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2796,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2340,
+								2340
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1898.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "src/_base/utils/MathUtil.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 792,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								744,
+								744
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 28,
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "src/_base/audio/Sound.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 911,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								280,
+								280
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 44,
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "src/_base/display/PaperView.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 401,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								273,
+								273
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 35,
+					"type": "text"
+				},
+				{
+					"buffer": 23,
+					"file": "src/_base/display/SideScrollerView3D.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3966,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2354,
+								2354
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 253.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 21,
+					"type": "text"
+				},
+				{
+					"buffer": 24,
+					"file": "src/_base/display/View3D.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4941,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								586,
+								586
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1569,101 +2202,516 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
-					"file": "src/input/input.js",
+					"buffer": 25,
+					"file": "src/_base/input/Input.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6237,
+						"buffer_size": 5804,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								664,
-								664
+								1127,
+								1127
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
-							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 34,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
-					"file": "src/input/inputdata.js",
+					"buffer": 26,
+					"file": "src/_base/input/InputData.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8326,
+						"buffer_size": 8013,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8326,
-								8326
+								2083,
+								2083
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
-							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1518.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 27,
+					"file": "src/_base/spritesheet/SpriteSheetAnimation.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2368,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								303,
+								303
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7526.0,
+						"translation.y": 621.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 28,
+					"file": "src/_base/states/CoreProcess.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1581,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								793,
+								793
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 190.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 27,
+					"type": "text"
+				},
+				{
+					"buffer": 29,
+					"file": "src/_base/utils/ObjectUtil.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 621,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								341,
+								341
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 30,
+					"type": "text"
+				},
+				{
+					"buffer": 30,
+					"file": "src/_tests/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 260,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								249,
+								249
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 32,
+					"type": "text"
+				},
+				{
+					"buffer": 31,
+					"file": "src/_tests/gamelogic.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2430,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3,
+								3
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 33,
+					"type": "text"
+				},
+				{
+					"buffer": 32,
+					"file": "src/_tests/game.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2490,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1262,
+								1262
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 552.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 33,
+					"file": "src/_base/spritesheet/SpriteSheetData.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1701,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								435,
+								435
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
-					"file": "src/display/paperviewport.js",
+					"buffer": 34,
+					"file": "src/_tests/inputdisplay.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 396,
+						"buffer_size": 1887,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								109,
-								109
+								4,
+								4
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 43,
+					"type": "text"
+				},
+				{
+					"buffer": 35,
+					"file": "src/_tests/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 377,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								356,
+								356
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 31,
+					"type": "text"
+				},
+				{
+					"buffer": 36,
+					"file": "/D/Akil/Repositories/pixi.js/gulpfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 885,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								430,
+								430
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 47,
+					"type": "text"
+				},
+				{
+					"buffer": 37,
+					"file": "/D/Akil/Repositories/pixi.js/src/mesh/Mesh.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13123,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								64,
+								64
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 46,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
-					"buffer": 15,
+					"buffer": 38,
+					"file": "gulpfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 111,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68,
+								68
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"open_with_edit": true,
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 23,
+					"type": "text"
+				},
+				{
+					"buffer": 39,
+					"file": "gulp/tasks/build.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1464,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								331,
+								331
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 40,
+					"file": "gulp/tasks/watch.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 556,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								376,
+								376
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 41,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1626,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1104,
+								1104
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/Better JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 317.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 42,
 					"file": "debug/config.json",
 					"semi_transient": false,
 					"settings":
@@ -1675,8 +2723,8 @@
 						"selection":
 						[
 							[
-								91,
-								91
+								74,
+								74
 							]
 						],
 						"settings":
@@ -1690,11 +2738,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 43,
 					"file": "debug/strings.json",
 					"semi_transient": false,
 					"settings":
@@ -1712,34 +2760,36 @@
 						],
 						"settings":
 						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/Better JavaScript/JSON.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 42,
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 44,
 					"file": "debug/assets.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 370,
+						"buffer_size": 446,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								278,
-								278
+								271,
+								271
 							]
 						],
 						"settings":
 						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/Better JavaScript/JSON.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
@@ -1747,24 +2797,54 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 18,
-					"file": "debug/index.html",
-					"semi_transient": false,
+					"buffer": 45,
+					"file": "debug/media/images/spritesheets/run.json",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 400,
+						"buffer_size": 4005,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								315,
-								315
+								30,
+								60
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/Better JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 0,
+					"file": "debug/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 652,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								509,
+								509
 							]
 						],
 						"settings":
@@ -1777,28 +2857,29 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 46,
 					"file": "gruntfile.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1422,
+						"buffer_size": 1782,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								147,
-								128
+								1775,
+								1775
 							]
 						],
 						"settings":
 						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/Better JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false,
 							"typescript_plugin_format_options":
@@ -1812,11 +2893,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 45,
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 47,
 					"file": "debug/style/style.css",
 					"semi_transient": false,
 					"settings":
@@ -1840,7 +2921,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 48,
 					"type": "text"
 				}
 			]
@@ -1865,21 +2946,21 @@
 				1
 			],
 			[
-				1,
 				0,
-				2,
-				1
+				1,
+				1,
+				2
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.741172616359,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
+			0.716337522442,
 			1.0
 		]
 	},
@@ -1906,8 +2987,136 @@
 		"selected_items":
 		[
 			[
+				"",
+				"src\\_base\\spritesheet\\SpriteSheetAnimation.js"
+			],
+			[
+				"game",
+				"src\\_tests\\game.js"
+			],
+			[
+				"database",
+				"src\\_base\\core\\Database.js"
+			],
+			[
+				"datab",
+				"src\\_base\\core\\Database.js"
+			],
+			[
+				"application",
+				"src\\_base\\core\\Application.js"
+			],
+			[
+				"databas",
+				"src\\_base\\core\\Database.js"
+			],
+			[
+				"data",
+				"src\\_base\\core\\DataLoad.js"
+			],
+			[
+				"asset",
+				"debug\\assets.json"
+			],
+			[
+				"view",
+				"src\\_base\\display\\View3D.js"
+			],
+			[
+				"applci",
+				"src\\_base\\core\\Application.js"
+			],
+			[
+				"dataload",
+				"src\\_base\\core\\DataLoad.js"
+			],
+			[
+				"assets",
+				"debug\\assets.json"
+			],
+			[
+				"v",
+				"src\\_base\\display\\View3D.js"
+			],
+			[
+				"applicat",
+				"src\\_base\\core\\Application.js"
+			],
+			[
+				"sprite",
+				"src\\_base\\display\\SpriteSheetTexture.js"
+			],
+			[
+				"main",
+				"src\\_tests\\main.js"
+			],
+			[
+				"logging",
+				"src\\_base\\core\\Logging.js"
+			],
+			[
+				"graphi",
+				"src\\_base\\display\\Graphics.js"
+			],
+			[
+				"animyst",
+				"bin\\animyst.js"
+			],
+			[
+				"input",
+				"src\\_base\\input\\Input.js"
+			],
+			[
+				"sound",
+				"src\\_base\\audio\\Sound.js"
+			],
+			[
 				"inputdata",
-				"src\\input\\inputdata.js"
+				"src\\_base\\input\\InputData.js"
+			],
+			[
+				"view3d",
+				"src\\_base\\display\\View3D.js"
+			],
+			[
+				"inde",
+				"debug\\index.html"
+			],
+			[
+				"package",
+				"package.json"
+			],
+			[
+				"grunt",
+				"gruntfile.js"
+			],
+			[
+				"main.j",
+				"src\\_tests\\main.js"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"gul",
+				"gulpfile.js"
+			],
+			[
+				"applica",
+				"src\\_base\\core\\Application.js"
+			],
+			[
+				"index",
+				"src\\_base\\index.js"
+			],
+			[
+				"view3",
+				"src\\_base\\display\\View3D.js"
+			],
+			[
+				"graphic",
+				"src\\_base\\display\\Graphics.js"
 			],
 			[
 				"window",
@@ -1920,10 +3129,6 @@
 			[
 				"wind",
 				"src\\_base\\window.js"
-			],
-			[
-				"applicat",
-				"src\\_base\\application.js"
 			],
 			[
 				"log",
@@ -1942,28 +3147,12 @@
 				"src\\states\\coreprocess.js"
 			],
 			[
-				"dataload",
-				"src\\_base\\dataload.js"
-			],
-			[
-				"application",
-				"src\\_base\\application.js"
-			],
-			[
-				"game",
-				"tests\\game.js"
-			],
-			[
 				"gam",
 				"tests\\gamelogic.js"
 			],
 			[
 				"ssw",
 				"src\\display\\sidescrollerworld3d.js"
-			],
-			[
-				"applica",
-				"src\\_base\\application.js"
 			],
 			[
 				"logg",
@@ -1988,10 +3177,6 @@
 			[
 				"appstate",
 				"src\\_base\\appstate.js"
-			],
-			[
-				"sprite",
-				"src\\display\\spritesheetmaterial.js"
 			],
 			[
 				"datal",
@@ -2020,10 +3205,6 @@
 			[
 				"gamelog",
 				"tests\\gamelogic.js"
-			],
-			[
-				"input",
-				"src\\input\\inputdata.js"
 			],
 			[
 				"wid",
@@ -2072,10 +3253,6 @@
 			[
 				"rainbow",
 				"game/debug/js/rainbowrocks.min.js"
-			],
-			[
-				"index",
-				"game/debug/index.html"
 			],
 			[
 				"qascree",
@@ -2320,102 +3497,6 @@
 			[
 				"signal",
 				"AvotaJS/src/signals/Signal.ts"
-			],
-			[
-				"spritesh",
-				"AvotaJS/src/game/engine/rendering/spritesheet/SpriteSheet.ts"
-			],
-			[
-				"completes",
-				"game/src/scenes/CompleteScreen.ts"
-			],
-			[
-				"backgrou",
-				"game/src/scenes/BackgroundOverlay.ts"
-			],
-			[
-				"singeframe",
-				"AvotaJS/src/game/graphic/SingleFrameGraphic.ts"
-			],
-			[
-				"rockifiedu",
-				"game/src/ui/RockifiedUI.ts"
-			],
-			[
-				"item",
-				"game/src/graphics/Item.ts"
-			],
-			[
-				"gamedata",
-				"game/src/data/GameData.ts"
-			],
-			[
-				"inputmanag",
-				"AvotaJS/src/input/InputManager.ts"
-			],
-			[
-				"inputmanager",
-				"AvotaJS/src/input/InputManager.js"
-			],
-			[
-				"imagegra",
-				"AvotaJS/src/game/graphic/ImageGraphic.ts"
-			],
-			[
-				"ientity",
-				"AvotaJS/src/game/entity/IGameEntity.ts"
-			],
-			[
-				"group",
-				"AvotaJS/src/base/group/Group.ts"
-			],
-			[
-				"igameent",
-				"AvotaJS/src/game/entity/IGameEntity.ts"
-			],
-			[
-				"entity",
-				"AvotaJS/src/base/entity/Entity.ts"
-			],
-			[
-				"element",
-				"AvotaJS/src/base/element/Element.ts"
-			],
-			[
-				"entit",
-				"AvotaJS/src/base/entity/Entity.ts"
-			],
-			[
-				"gameenti",
-				"AvotaJS/src/game/entity/GameEntity.ts"
-			],
-			[
-				"imageg",
-				"AvotaJS/src/game/graphic/ImageGraphic.ts"
-			],
-			[
-				"imagesprite",
-				"AvotaJS/src/game/sprite/ImageSprite.ts"
-			],
-			[
-				"inputcomp",
-				"AvotaJS/src/input/InputComponent.ts"
-			],
-			[
-				"abstract",
-				"AvotaJS/src/base/AbstractBase.ts"
-			],
-			[
-				"stateeleme",
-				"AvotaJS/src/state/StateElement.ts"
-			],
-			[
-				"stateent",
-				"AvotaJS/src/state/StateEntity.ts"
-			],
-			[
-				"gamesce",
-				"AvotaJS/src/game/scene/GameScene.ts"
 			]
 		],
 		"width": 0.0

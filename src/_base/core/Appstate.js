@@ -6,6 +6,9 @@ var AppState = function(id){
 	this.paused = false;
 	this.appScope = null;
 
+	this.framerate = 60;
+	this.timestep = 1000/this.framerate;
+
 }
 
 module.exports = AppState;
@@ -17,6 +20,15 @@ AppState.prototype.setScope = function(appScope){
 AppState.prototype.clearScope = function(){
 	this.appScope = null;
 }
+
+AppState.prototype.setFrameRate = function(framerate){
+	this.framerate = framerate;
+};
+
+AppState.prototype.setTimeStep = function(timestep){
+	this.timestep = timestep;
+};
+
 
 AppState.prototype.setup = function(){
 
@@ -41,6 +53,19 @@ AppState.prototype.update = function(delta, time){
 			var system = this._systemList[i];
 			if(system.started && !system.paused){
 				system.update(delta, time);	
+			}
+		}
+
+	}
+}
+
+AppState.prototype.fixedUpdate = function(timestep, time){
+	//console.log("[AppState] Updating...", this);
+	if(this.active && !this.paused){
+		for(var i = 0 ; i < this._systemList.length; i++){
+			var system = this._systemList[i];
+			if(system.started && !system.paused){
+				system.fixedUpdate(timestep, time);	
 			}
 		}
 

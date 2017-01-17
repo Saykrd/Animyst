@@ -18,3 +18,7 @@ System.prototype.shutdown = function(){
 System.prototype.update = function(delta, time){
 
 }
+
+System.prototype.fixedUpdate = function(timestep, time){
+
+}

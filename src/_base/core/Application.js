@@ -6,7 +6,7 @@ var	AppScope = require('./AppScope');
 var	signals = require('signals');
 var Stats = require('stats');
 var datGUI = require('datGUI');
-
+var ArrayUtil = require('../utils/ArrayUtil');
 
 
 var Application = function(){
@@ -23,10 +23,13 @@ var Application = function(){
 	this.config  = null;
 	this.runtime = 0;
 	this._lastFrame = 0;
+	this.framerate = 60;
+	this.timestep = 1000 / this.framerate;
+
 }
-
-
 module.exports = Application;
+
+
 Application.prototype.startup = function(params){
 	Log.output("===================================================");
 	Log.output("   ----- AnimystJS: (v 0.0.0) by ~Saykrd -----   ");
@@ -113,6 +116,10 @@ Application.prototype._init = function(){
 	var coreprocess = new Animyst.CoreProcess(Animyst.CoreProcess.ID);
 	this.run(coreprocess);
 
+	this.timestep = this.config.settings.timestep || this.timestep;
+
+	setInterval(() => this.fixedUpdate, this.timestep);
+
 	if(window["view"]){
 		window["view"].onFrame = this.update.bind(this);	
 	} else {
@@ -131,6 +138,8 @@ Application.prototype.run = function(appState){
 		this._appStateList.push(appState);
 
 		appState.setScope(this.appScope);
+		appState.setFrameRate(this.framerate);
+		appState.setTimeStep(this.timestep);
 		appState.setup();
 		appState.start();
 	}
@@ -157,6 +166,7 @@ Application.prototype.end = function(appStateID){
 
 		this._appStateLib[appState.id] = null;
 
+
 		for(var i = 0; i < this._appStateList.length; i++){
 			var state = this._appStateList[i];
 			if(state.id == appState.id){
@@ -173,6 +183,15 @@ Application.prototype.endAll = function(){
 	}
 }
 
+Application.prototype.fixedUpdate = function(){
+	this.runtime += this.timestep;
+
+	for(var i = 0; i < this._appStateList.length; i++){
+		var state = this._appStateList[i];
+		state.fixedUpdate(this.timestep, this.runtime);
+	}
+}
+
 Application.prototype.update = function(event){
 	// Calculate time intervals
 	var delta = 0;
@@ -186,8 +205,6 @@ Application.prototype.update = function(event){
 		delta = time - (this._lastFrame || Date.now());
 		this._lastFrame = time;
 	}
-
-	this.runtime += delta;
 
 	if(this._stats){
 		this._stats.begin();

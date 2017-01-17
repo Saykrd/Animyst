@@ -1,3 +1,5 @@
+
+var THREE = require('three');
 var Game = function(id){
 	Animyst.AppState.call(this, id);
 
@@ -24,8 +26,18 @@ Game.prototype.setup = function(){
 	//var gameDisplay = new GameDisplay(this.gameData);
 
 
+	let texture = new THREE.Texture(Animyst.DataLoad.getAsset('run_sheet'));
+	texture.needsUpdate = true;
+	console.log(texture)
+	let material = new THREE.SpriteMaterial({map:texture});
+	let sprite = new THREE.Sprite( material );
 
-	
+	sprite.scale.set(texture.image.width,texture.image.height,1.0);
+	scene.add(sprite);
+
+	var ssData = new Animyst.SpriteSheetData("run", Animyst.DataLoad.getAsset('run_data'))
+	var anim = new Animyst.SpriteSheetAnimation('running', this.framerate);
+	//console.log(ssData.getFrames('run'));
 	//gameDisplay.startup({layer: this.appScope.getDatabase(Animyst.CoreProcess.PAPER_DISPLAY).getLayer(1)});
 	//gameLogic.startup();
 
