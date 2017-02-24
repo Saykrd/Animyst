@@ -146,14 +146,14 @@ Application.prototype.run = function(appState){
 }
 
 Application.prototype.halt = function(appStateID){
-	if(!this._appStateLib[appState.id]){
-		this._appStateLib[appState.id].pause();
+	if(!this._appStateLib[appStateID]){
+		this._appStateLib[appStateID].pause();
 	}
 }
 
 Application.prototype.resume = function(appStateID){
-	if(!this._appStateLib[appState.id]){
-		this._appStateLib[appState.id].resume();
+	if(!this._appStateLib[appStateID]){
+		this._appStateLib[appStateID].resume();
 	}
 }
 

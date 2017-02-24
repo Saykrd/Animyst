@@ -176,7 +176,7 @@ DataLoad.addCommand = function(commandID, command, addOnce){
 			signal = DataLoad._queueProgressSignal;
 			break;
 		case DataLoad.FILE_PROGRESS:
-			signal = DataLoad._loadProgressSignal;
+			signal = DataLoad._fileProgressSignal;
 			break;
 		case DataLoad.LOAD_COMPLETE:
 			signal = DataLoad._queueLoadedSignal;
@@ -213,7 +213,7 @@ DataLoad.removeCommand = function(commandID, command){
 			signal = DataLoad._queueProgressSignal;
 			break;
 		case DataLoad.FILE_PROGRESS:
-			signal = DataLoad._loadProgressSignal;
+			signal = DataLoad._fileProgressSignal;
 			break;
 		case DataLoad.LOAD_COMPLETE:
 			signal = DataLoad._queueLoadedSignal;

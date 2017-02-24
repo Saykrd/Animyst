@@ -1,0 +1,10 @@
+{
+    "outPath": "./debug/js",
+    "compilerOptions": {
+        "module": "system",
+        "target": "es5",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "outFile": "test1.js"
+    }
+}
