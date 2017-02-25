@@ -1,6 +1,7 @@
 module Animyst {
 	export var LOGGING:boolean = true;
 	export var DEBUG:boolean = true;
+	export var GUI:any;
 
 	export var MAJOR:number = 0;
 	export var MINOR:number = 0;

@@ -33,7 +33,7 @@ module Animyst {
 
     	public startup(params:any):void{
     		Log.output("===================================================");
-			Log.output("   ----- AnimystJS: (v 0.0.0) by ~Saykrd -----   ");
+			Log.output("   ----- AnimystJS: (v " + VERSION + ") by ~Saykrd -----   ");
 			Log.output("===================================================");
 			Log.output("Browser:", Environment.browserName);
 			Log.output("Version:", Environment.browserVersion);
@@ -90,8 +90,8 @@ module Animyst {
     	private init():void{
     		var params = this._startParams;
 
-			Animyst.LOGGING = this.config.settings.logging || false;
-			Animyst.DEBUG   = this.config.settings.debug   || false;
+			LOGGING = this.config.settings.logging || LOGGING;
+			DEBUG   = this.config.settings.debug   || DEBUG;
 
 			//window["Paper"] = {};
 			//paper.install(window["Paper"]);
@@ -99,7 +99,7 @@ module Animyst {
 			Log.output("[Application] Application Started")
 
 			if(this.config.settings.debug){
-				if(Stats && !Environment.isCocoonJS){
+				if(window["Stats"] && !Environment.isCocoonJS){
 					this._stats = new window["Stats"]();
 					this._stats.domElement.style.position = 'absolute';
 					this._stats.domElement.style.left = '0px';
@@ -109,8 +109,8 @@ module Animyst {
 					Log.output("[Application] Stats Enabled");
 				}
 
-				if(datGUI && !Environment.isCocoonJS){
-					Animyst.datGUI = new datGUI.GUI();
+				if(window["dat"] && !Environment.isCocoonJS){
+					Animyst.GUI = new window["dat"].GUI();
 				}
 			}
 			
