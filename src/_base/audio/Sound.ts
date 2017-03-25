@@ -1,8 +1,7 @@
 module Animyst {
-    export class Sound extends System {
+    export class Sound  {
     	
-    	constructor(argument) {
-    		// code...
+    	constructor() {
     	}
     }
 }

@@ -44,7 +44,7 @@ gulp.task('port_externals', function(){
 // === BUILD TASKS ===
 
 
-gulp.task('test1', () => buildTS(vendorTS, {dest: tsconfig.outPath, targetName: "test1", uglify : true} ));
+gulp.task('test1', () => buildTS(vendorTS, {dest: tsconfig.outPath, targetName: pkg.name, uglify : true} ));
 
 //gulp.task('build_vendor', gulp.series('clean_vendor', 'bundle_vendor'));
 //gulp.task('build_app', gulp.series('clean_app', 'bundle_app', 'port_externals'));

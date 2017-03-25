@@ -123,7 +123,7 @@ module Animyst {
 			setInterval(() => this.fixedUpdate, this.timestep);
 
 			if(window["view"]){
-				window["view"].onFrame = this.update.bind(this);	
+				window["view"].onFrame = this.frameUpdate.bind(this);	
 			} else {
 				this.initFrame();
 			}
@@ -145,8 +145,8 @@ module Animyst {
 				this._appStateList.push(appState);
 
 				appState.setScope(this.appScope);
-				appState.setFrameRate(this.framerate);
-				appState.setTimeStep(this.timestep);
+				appState.framerate = this.framerate;
+				appState.timestep = this.timestep;
 				appState.setup();
 				appState.start();
 			}
@@ -194,7 +194,7 @@ module Animyst {
     		this.runtime += this.timestep;
 
 			for(var i = 0; i < this._appStateList.length; i++){
-				var state = this._appStateList[i];
+				var state:AppState = this._appStateList[i];
 				state.fixedUpdate(this.timestep, this.runtime);
 			}
     	}
@@ -218,7 +218,7 @@ module Animyst {
 			}
 
 			for(var i = 0; i < this._appStateList.length; i++){
-				var state = this._appStateList[i];
+				var state:AppState = this._appStateList[i];
 				state.update(delta, this._framecount);
 			}
 

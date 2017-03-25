@@ -12,7 +12,7 @@ module Animyst {
 
 		public signal = new Signal();
     	
-    	constructor(argument) {
+    	constructor() {
     		// code...
     	}
 
@@ -27,7 +27,7 @@ module Animyst {
 			this._categoryLists[name] = [];
 			this._categoryChecks[name] = { check: check, context: context, cls: cls};
 
-			this.traverse(this.listItem, this);
+			this.traverse(this.list, this);
 		};
 
 		/**
@@ -42,7 +42,7 @@ module Animyst {
 		 * Adds item into all category lists that it belongs to
 		 * @param {Item} item [description]
 		 */
-		public listItem (item:Item){
+		public list (item:Item){
 			for (var k in this._categoryLists) {
 				var data = this._categoryChecks[k];
 				if (item instanceof data.cls && data.check.call(data.context, item)) {
@@ -55,7 +55,7 @@ module Animyst {
 		 * Removes item from all categories 
 		 * @param {string} itemID [description]
 		 */
-		public unlistItem (itemID:string){
+		public unlist (itemID:string){
 			for (var k in this._categoryLists) {
 				for (var i = 0; i < this._categoryLists[k].length; i++) {
 					ArrayUtil.remove(itemID, this._categoryLists[k]);
@@ -136,7 +136,7 @@ module Animyst {
 			this._items[id] = item;
 			this._itemList.push(item.id);
 
-			this.listItem(item);
+			this.list(item);
 
 			this._itemCount++;
 
@@ -150,11 +150,12 @@ module Animyst {
 		 * Removes item from database
 		 * @param {string} itemID [description]
 		 */
-		public removeItem (itemID:string){
+		public remove (itemID:string){
 			if (!this._items[itemID]) return;
 			var item = this.getItem(itemID);
 			
-			delete this._items[id]
+			this.unlist(itemID);
+			delete this._items[itemID]
 			this.signal.dispatch(Database.REMOVED, itemID);  
 		};
 
@@ -162,8 +163,8 @@ module Animyst {
 		/**
 		 * Removes all items in database
 		 */
-		public removeAllItems (){
-			this.traverse(function(item) { this.removeItem(item.id) }, this);
+		public removeAll (){
+			this.traverse(function(item) { this.remove(item.id) }, this);
 		};
 
 		

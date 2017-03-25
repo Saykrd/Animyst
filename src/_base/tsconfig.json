@@ -1,10 +1,11 @@
 {
-    "outPath": "./debug/js",
+    "outPath": "./bin",
     "compilerOptions": {
         "module": "system",
         "target": "es5",
         "noImplicitAny": false,
         "sourceMap": true,
-        "outFile": "test1.js"
+        "outFile": "animyst.js",
+        "lib" : ["es2015",  "dom"]
     }
 }

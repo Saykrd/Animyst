@@ -113,7 +113,7 @@ module Animyst {
 			}
 		}
 
-		static _checkBrowswer():void{
+		static _checkBrowser():void{
 			var userAgent = navigator.userAgent;
 
 			if(/Safari/.test(userAgent)){
