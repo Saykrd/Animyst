@@ -14,7 +14,7 @@ module Animyst {
 
     	static _assetList:any  = {};
 		static _weakHandlers:any[] = []; // List of handlers to remove once the load is completed
-		static _loadQueue:any  = null;   // CreateJS load queue
+		static _loadQueue:createjs.LoadQueue  = null;   // CreateJS load queue
 		static _loadSignal:Signal = null;
 
 		static _fileStartedSignal:Signal  = null;
@@ -32,8 +32,7 @@ module Animyst {
 		static LoadQueue:any;
 
 		static startup(params):void{
-			DataLoad.LoadQueue = window["createjs"].LoadQueue;
-			DataLoad._loadQueue  = new DataLoad.LoadQueue(true);
+			DataLoad._loadQueue  = new createjs.LoadQueue(true);
 			DataLoad._loadSignal = new Signal();
 
 			var queue = DataLoad._loadQueue;

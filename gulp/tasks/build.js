@@ -1,6 +1,7 @@
 var TSCONFIG_PATH = "./src/_base/tsconfig.json";
 
 var gulp = require('gulp');
+var merge = require('merge2');
 var browserify = require('browserify');
 var uglify = require('gulp-uglify');
 var source = require('vinyl-source-stream');
@@ -44,7 +45,7 @@ gulp.task('port_externals', function(){
 // === BUILD TASKS ===
 
 
-gulp.task('test1', () => buildTS(vendorTS, {dest: tsconfig.outPath, targetName: pkg.name, uglify : true} ));
+gulp.task('build_vendor', () => buildTS(vendorTS, {dest: tsconfig.outPath, targetName: pkg.name, uglify : true} ));
 
 //gulp.task('build_vendor', gulp.series('clean_vendor', 'bundle_vendor'));
 //gulp.task('build_app', gulp.series('clean_app', 'bundle_app', 'port_externals'));
@@ -92,17 +93,27 @@ function buildTS(project, options){//dest, targetName, useUglify, srcRoot){
 		   .pipe(project());
 
 	if(options.uglify){
-		return result.js
-			.pipe(rename(options.targetName + ".min.js"))
-		    .pipe(uglify())
-		    .on('error', function(e){console.log(e)})
-		    .pipe(sourcemaps.write('.', {sourceRoot: options.srcRoot || "./src"}))
-		    .pipe(gulp.dest(options.dest || "./"));
+		return merge([
+			result.js // JS Stream
+				.pipe(rename(options.targetName + ".min.js"))
+			    .pipe(uglify())
+			    .on('error', function(e){console.log(e)})
+			    .pipe(sourcemaps.write('.', {sourceRoot: options.srcRoot || "./src"}))
+			    .pipe(gulp.dest(options.dest || "./")),
+			result.dts// TS Lib Stream
+				.pipe(rename(options.targetName + ".d.ts"))
+				.pipe(gulp.dest(options.dest || "./"))
+			]);
 	} else {
-		return result.js
-			.pipe(rename(options.targetName + ".js"))
-			.pipe(sourcemaps.write('.', {sourceRoot: options.srcRoot || "./src"}))
-			.pipe(gulp.dest(options.dest || "./"));
+		return merge([
+			result.js //JS Stream
+				.pipe(rename(options.targetName + ".js"))
+				.pipe(sourcemaps.write('.', {sourceRoot: options.srcRoot || "./src"}))
+				.pipe(gulp.dest(options.dest || "./")),
+			result.dts// TS Lib Stream
+				.pipe(rename(options.targetName + ".d.ts"))
+				.pipe(gulp.dest(options.dest || "./"))
+			]);
 	}
 		   
 }

@@ -107,7 +107,14 @@ module Animyst {
 		    "~":192
 		};
 
-		static KEY_NAMES = ObjectUtil.invert(InputData.KEY_CODES);
+		static __KEY_NAMES:any;
+		static get KEY_NAMES():any{
+			if(!InputData.__KEY_NAMES){
+				InputData.__KEY_NAMES = ObjectUtil.invert(InputData.KEY_CODES);
+			}
+
+			return InputData.__KEY_NAMES;
+		};
 
 		static MOUSE = 0;
 		static TOUCH = 1;

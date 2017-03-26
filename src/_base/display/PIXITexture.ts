@@ -10,6 +10,7 @@ module Animyst {
     	public _init(){
 			this.image = this.renderer.view;
 
+
 			let graphics = new PIXI.Graphics();
 			graphics.lineStyle(2, 0xFF00FF, 1);
 			graphics.beginFill(0xFF00BB, 0.25);
@@ -19,6 +20,7 @@ module Animyst {
 			let texture = PIXI.Texture.fromCanvas(DataLoad.getAsset('samusftilt'));
 			let sprite = new PIXI.Sprite(texture);
 			this.stage.addChild(sprite);
+
 
 			this.stage.addChild(graphics);
 

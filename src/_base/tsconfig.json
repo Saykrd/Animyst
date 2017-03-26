@@ -6,6 +6,7 @@
         "noImplicitAny": false,
         "sourceMap": true,
         "outFile": "animyst.js",
+        "declaration": true,
         "lib" : ["es2015",  "dom"]
     }
 }

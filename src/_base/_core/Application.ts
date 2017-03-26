@@ -113,12 +113,14 @@ module Animyst {
 					Animyst.GUI = new window["dat"].GUI();
 				}
 			}
+
 			
 
 			var coreprocess = new CoreProcess(CoreProcess.ID);
 			this.run(coreprocess);
 
 			this.timestep = this.config.settings.timestep || this.timestep;
+
 
 			setInterval(() => this.fixedUpdate, this.timestep);
 
