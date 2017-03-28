@@ -1,0 +1,12 @@
+{
+	"outPath" : "./debug/js",
+	"targetName" : "app",
+    "compilerOptions": {
+        "module": "system",
+        "target": "es5",
+        "noImplicitAny": false,
+        "sourceMap": false,
+        "outFile": "app.js",
+        "lib" : ["es2015", "dom"]
+    }
+}

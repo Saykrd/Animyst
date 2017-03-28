@@ -22,7 +22,7 @@ module Animyst {
     	public config:any;
     	public runtime:number = 0;
     	
-    	constructor(argument) {
+    	constructor() {
     		this._appStateList  = [];
 			this._appStateLib   = {};
 

@@ -11,7 +11,7 @@ gulp.task('watch_vendor', function(){
 });
 
 gulp.task('watch_app', function(){
-	return gulp.watch('src/_tests/**/*.*', gulp.parallel('build_app'))
+	return gulp.watch('src/_project/**/*.*', gulp.parallel('build_app'))
 })
 
 gulp.task('watch', gulp.parallel('watch_vendor', 'watch_app'));
