@@ -18,7 +18,8 @@ module Animyst {
     	public set timestep(v:number) { this._timestep = v;};
 
     	public appScope:AppScope;
-    	public initSignal:any;
+    	public initSignal:Signal;
+    	public bootSignal:Signal;
     	public config:any;
     	public runtime:number = 0;
     	
@@ -29,6 +30,7 @@ module Animyst {
 			this.appScope = new AppScope();
 
 			this.initSignal = new Signal();
+			this.bootSignal = new Signal();
     	}
 
     	public startup(params:any):void{
@@ -53,10 +55,12 @@ module Animyst {
 
 				switch(evt.item.id){
 					case "config":
-						Log.output("[Application] Config json loaded");
+						Log.output("[Application] Config json loaded");					
 						
 						this.config = DataLoad.getAsset("config");
 						this.appScope.config = this.config;
+
+						this.bootSignal.dispatch();
 
 						DataLoad.loadFromManifest([
 							{"id" : "assets", "src" : this.config.assets}, 

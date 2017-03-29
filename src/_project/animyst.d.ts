@@ -25,7 +25,8 @@ declare module Animyst {
         private _timestep;
         timestep: number;
         appScope: AppScope;
-        initSignal: any;
+        initSignal: Signal;
+        bootSignal: Signal;
         config: any;
         runtime: number;
         constructor();

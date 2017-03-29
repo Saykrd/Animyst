@@ -3,8 +3,12 @@ module App {
 		
 		constructor() {
 			super("game");
-			
 			// code...
+		}
+
+
+		public setup():void{
+			console.log("Setting up game");
 		}
 	}
 }
