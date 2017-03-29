@@ -1,9 +1,8 @@
 module App {
-	export class Main {
+	export class Main extends Animyst.Application{
 		
-		constructor(argument) {
-			console.log("Yo Yo Yo Yo");
-			var app = new Animyst.Application();
+		constructor() {
+			super();
 		}
 	}
 }
