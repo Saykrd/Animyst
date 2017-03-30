@@ -6,13 +6,16 @@ var sourcemaps = require('gulp-sourcemaps')
 var del = require('del')
 var pkg = require('../../package.json');
 
+var projectFiles = ['src/_project/**/*.*', '!src/_project/animyst.d.ts'];
+var vendorFiles = ['src/_base/**/*.*']
+
 gulp.task('watch_vendor', function(){
 	
-	gulp.watch('src/_base/**/*.*', gulp.series('build_vendor', 'build_app'));
+	gulp.watch(vendorFiles, gulp.series('build'));
 });
 
 gulp.task('watch_app', function(){
-	gulp.watch('src/_project/**/*.*', gulp.parallel('build_app'));
+	gulp.watch(projectFiles, gulp.series('build_app'));
 })
 
 

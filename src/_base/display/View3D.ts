@@ -43,9 +43,15 @@ module Animyst {
 			 	return;	
 			} 
 
+			Log.output("[View3D] Initializing Viewport..");
+
 			this.viewAngle = params.viewAngle || this.viewAngle;
 			this.near = params.near || this.near;
 			this.far = params.far || this.far;
+
+			this.width = params.width || Window.width;
+			this.height = params.height || Window.height;
+
 			this._resize = params.resize;
 
 			this._scene    = this._scene || new THREE.Scene();
@@ -56,13 +62,17 @@ module Animyst {
 
 			this._camera.lookAt(this._scene.position);
 
+			var container:any;
 			if(params.container){
-				var container = document.getElementById(params.container);
-				if(container)	{
-					container.appendChild(this._renderer.domElement);
-				} else {
+				container = document.getElementById(params.container);
+				if(!container)	{
 					Log.error("[View3D] Container ID", params.container, "doesn't exist");
+					
+				} else {
+					container.appendChild(this._renderer.domElement);
 				}
+			} else {
+				document.body.appendChild(this._renderer.domElement);
 			}
 
 			this._camera.position.x = params.cameraX || 500;
@@ -118,7 +128,7 @@ module Animyst {
 				var controls = new THREE.OrbitControls(this._camera);
 
 				if(GUI){
-					var displayControls = GUI.addFolder("Viewport3D");
+					var displayControls = GUI.addFolder("View3D");
 					var c_folder = displayControls.addFolder("camera");
 
 					c_folder.add(this._camera.position, "x", -1000, 1000).listen();
@@ -140,7 +150,7 @@ module Animyst {
 		}
 
 
-		public append(containerID):void{
+		public append(containerID?:string):void{
 
 			if(!containerID){
 				document.body.appendChild(this._renderer.domElement);
@@ -162,7 +172,7 @@ module Animyst {
 			this._renderer.render(this._scene, this._camera);
 
 			//this.context2d.clearRect(0,0, this.view.width, this.view.height);
-			//this.context2d.drawImage(this.renderer.domElement, 0, 0);
+			//this.context2d.drawImage(this.renderer.domElement, 0, 0)
 			//this.context2d.drawImage(this.uiRenderer.view, 0, 0);
 		}
 

@@ -2,16 +2,6 @@
 /// <reference types="three" />
 /// <reference types="pixi.js" />
 declare module Animyst {
-    var LOGGING: boolean;
-    var DEBUG: boolean;
-    var GUI: any;
-    var MAJOR: number;
-    var MINOR: number;
-    var BUILD: number;
-    var DATA: string;
-    var VERSION: string;
-}
-declare module Animyst {
     class Application {
         private _appStateList;
         private _appStateLib;
@@ -70,7 +60,7 @@ declare module Animyst {
         setup(): void;
         start(): void;
         stop(): void;
-        update(delta: number, framecount: number): void;
+        frameUpdate(delta: number, framecount: number): void;
         fixedUpdate(timestep: number, time: number): void;
         pause(): void;
         resume(): void;
@@ -539,6 +529,16 @@ declare module Animyst {
     }
 }
 declare module Animyst {
+    var LOGGING: boolean;
+    var DEBUG: boolean;
+    var GUI: any;
+    var MAJOR: number;
+    var MINOR: number;
+    var BUILD: number;
+    var DATA: string;
+    var VERSION: string;
+}
+declare module Animyst {
     class Sound {
         constructor();
     }
@@ -603,7 +603,7 @@ declare module Animyst {
         clear(): void;
         destroy(): void;
         initDisplay(params: any): void;
-        append(containerID: any): void;
+        append(containerID?: string): void;
         render(): void;
         update(): void;
         onResize(): void;
@@ -611,6 +611,7 @@ declare module Animyst {
 }
 declare module Animyst {
     class Input extends System {
+        static LOGGING: boolean;
         static KEY_DOWN: number;
         static KEY_UP: number;
         static TOUCH_START: number;
@@ -744,7 +745,7 @@ declare module Animyst {
         constructor(id: string);
         setup(): void;
         start(): void;
-        update(delta: any, time: any): void;
+        fixedUpdate(delta: any, time: any): void;
         pause(): void;
         resume(): void;
         kill(): void;

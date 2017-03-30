@@ -1,5 +1,6 @@
 module Animyst {
     export class Input extends System {
+    	static LOGGING:boolean = false;
 
 		static KEY_DOWN:number      = 0;
 		static KEY_UP:number        = 1;
@@ -72,27 +73,27 @@ module Animyst {
 		//=============== TOUCH EVENTS ======================//
 
 		public onTouchStart(evt):void{
-			if(Animyst.LOGGING) console.log("[Input] Touch Start!");
+			if(Input.LOGGING && Animyst.LOGGING) console.log("[Input] Touch Start!");
 			this.handleTouchInput(Input.TOUCH_START, evt);
 		}
 
 		public onTouchMove(evt):void{
-			if(Animyst.LOGGING) console.log("[Input] Touch Move!");
+			if(Input.LOGGING && Animyst.LOGGING) console.log("[Input] Touch Move!");
 			this.handleTouchInput(Input.TOUCH_MOVE, evt);
 		}
 
 		public onTouchRelease(evt):void{
-			if(Animyst.LOGGING) console.log("[Input] Touch Release!");
+			if(Input.LOGGING && Animyst.LOGGING) console.log("[Input] Touch Release!");
 			this.handleTouchInput(Input.TOUCH_RELEASE, evt);
 		}
 
 		public onTouchEnter(evt):void{
-			if(Animyst.LOGGING) console.log("[Input] Touch Enter!");
+			if(Input.LOGGING && Animyst.LOGGING) console.log("[Input] Touch Enter!");
 			this.handleTouchInput(Input.TOUCH_ENTER, evt);
 		}
 
 		public onTouchLeave(evt):void{
-			if(Animyst.LOGGING) console.log("[Input] Touch Leave!");
+			if(Input.LOGGING && Animyst.LOGGING) console.log("[Input] Touch Leave!");
 			this.handleTouchInput(Input.TOUCH_LEAVE, evt);
 		}
 
@@ -100,44 +101,44 @@ module Animyst {
 		//================= MOUSE EVENTS =====================//
 
 		public onClick(evt:any):void{
-			if(Animyst.LOGGING) console.log("[Input] Mouse Click!");
+			if(Input.LOGGING && Animyst.LOGGING) console.log("[Input] Mouse Click!");
 			this.handleMouseInput(Input.MOUSE_CLICK, evt);
 		}
 
 		public onMouseDown(evt:any):void{
-			if(Animyst.LOGGING) console.log("[Input] Mouse Down!");
+			if(Input.LOGGING && Animyst.LOGGING) console.log("[Input] Mouse Down!");
 			this.handleMouseInput(Input.MOUSE_DOWN, evt);
 		}
 
 		public onMouseDrag(evt:any):void{
-			if(Animyst.LOGGING) console.log("[Input] Mouse Drag!");
+			if(Input.LOGGING && Animyst.LOGGING) console.log("[Input] Mouse Drag!");
 			this.handleMouseInput(Input.MOUSE_DRAG, evt);
 		}
 
 		public onMouseMove(evt:any):void{
-			if(Animyst.LOGGING) console.log("[Input] Mouse Move!");
+			if(Input.LOGGING && Animyst.LOGGING) console.log("[Input] Mouse Move!");
 			this.handleMouseInput(Input.MOUSE_MOVE, evt);
 		}
 
 		public onMouseUp(evt:any):void{
-			if(Animyst.LOGGING) console.log("[Input] Mouse Up!");
+			if(Input.LOGGING && Animyst.LOGGING) console.log("[Input] Mouse Up!");
 			this.handleMouseInput(Input.MOUSE_UP, evt);
 		}
 
 		public onMouseEnter(evt:any):void{
-			if(Animyst.LOGGING) console.log("[Input] Mouse Enter!");
+			if(Input.LOGGING && Animyst.LOGGING) console.log("[Input] Mouse Enter!");
 			this.handleMouseInput(Input.MOUSE_ENTER, evt);
 		}
 
 		public onMouseLeave(evt:any):void{
-			if(Animyst.LOGGING) console.log("[Input] Mouse Leave!");
+			if(Input.LOGGING && Animyst.LOGGING) console.log("[Input] Mouse Leave!");
 			this.handleMouseInput(Input.MOUSE_LEAVE, evt);
 		}
 
 		//================ KEYBOARD EVENTS ===================//
 
 		public onKeyUp(evt:any):void{
-			if(Animyst.LOGGING) console.log("[Input] Released Key:", evt.key || InputData.KEY_NAMES[evt.keyCode]);
+			if(Input.LOGGING && Animyst.LOGGING) console.log("[Input] Released Key:", evt.key || InputData.KEY_NAMES[evt.keyCode]);
 			if(!this.keyboardSettings.allowDefault[evt.key || InputData.KEY_NAMES[evt.keyCode]]){
 				evt.preventDefault();
 			}
@@ -146,7 +147,7 @@ module Animyst {
 
 
 		public onKeyDown(evt:any):void{
-			if(Animyst.LOGGING) console.log("[Input] Pressed Key:", evt.key || InputData.KEY_NAMES[evt.keyCode]);
+			if(Input.LOGGING && Animyst.LOGGING) console.log("[Input] Pressed Key:", evt.key || InputData.KEY_NAMES[evt.keyCode]);
 			if(!this.keyboardSettings.allowDefault[evt.key || InputData.KEY_NAMES[evt.keyCode]]){
 				evt.preventDefault();
 			}

@@ -45,7 +45,7 @@ module Animyst {
 			}
 		}
 
-		public update (delta:number, framecount:number):void{
+		public frameUpdate (delta:number, framecount:number):void{
 			//console.log("[AppState] Updating...", this);
 			if(this.active && !this.paused){
 				for(var i = 0 ; i < this._systemList.length; i++){

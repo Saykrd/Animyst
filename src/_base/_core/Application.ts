@@ -225,7 +225,7 @@ module Animyst {
 
 			for(var i = 0; i < this._appStateList.length; i++){
 				var state:AppState = this._appStateList[i];
-				state.update(delta, this._framecount);
+				state.frameUpdate(delta, this._framecount);
 			}
 
 			this._framecount++;

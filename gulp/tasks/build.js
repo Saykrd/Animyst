@@ -66,7 +66,7 @@ gulp.task('compile_app', () => buildTS(appTS, {dest: configApp.outPath, targetNa
 // === BUILD TASKS ===
 
 
-gulp.task('build_vendor', gulp.series('clean_vendor', 'compile_vendor', 'compile_vendor_lib', 'port_vendor_lib'));
+gulp.task('build_vendor', gulp.series('compile_vendor', 'compile_vendor_lib', 'port_vendor_lib'));
 gulp.task('build_app', gulp.series('clean_app', 'compile_app', 'port_vendor', 'port_externals'));
 gulp.task('build', gulp.series('build_vendor', 'build_app'));
 

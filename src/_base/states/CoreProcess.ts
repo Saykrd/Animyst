@@ -36,9 +36,9 @@ module Animyst {
 			super.start();
 		}
 
-		public update(delta, time):void{
+		public fixedUpdate(delta, time):void{
 			//console.log("[Game] Updating...")
-			super.update(delta, time);
+			super.fixedUpdate(delta, time);
 		}
 
 		public pause():void{
