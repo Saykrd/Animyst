@@ -19,7 +19,7 @@ module Animyst {
 		static MOUSE_LEAVE:number   = 10;
 		static MOUSE_CLICK:number   = 11;
     	
-    	public inputData:any;
+    	public inputData:Animyst.InputData;
     	public keyboardSettings:any;
 
     	constructor(inputData:any) {

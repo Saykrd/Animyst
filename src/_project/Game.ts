@@ -20,7 +20,7 @@ module App {
 
 		public frameUpdate(delta:number, framecount:number):void{
 			super.frameUpdate(delta, framecount);
-			this.viewport.render();
+			if(this.viewport) this.viewport.render();
 		}
 	}
 }

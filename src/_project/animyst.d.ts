@@ -626,7 +626,7 @@ declare module Animyst {
         static MOUSE_ENTER: number;
         static MOUSE_LEAVE: number;
         static MOUSE_CLICK: number;
-        inputData: any;
+        inputData: Animyst.InputData;
         keyboardSettings: any;
         constructor(inputData: any);
         startup(params: any): void;
@@ -653,6 +653,7 @@ declare module Animyst {
 }
 declare module Animyst {
     class InputData extends Database {
+        static LOGGING: boolean;
         static TOUCH_HISTORY_LIMIT: number;
         static TOUCH_PROPERTIES: any[];
         static MOUSE_PROPERTIES: any[];

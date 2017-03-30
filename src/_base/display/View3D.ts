@@ -28,13 +28,11 @@ module Animyst {
     	}
 
 		public clear():void{
-
-			Database.prototype.clear.call(this);
+			super.clear();
 		}
 
 		public destroy():void{
-
-			Database.prototype.destroy.call(this);
+			super.destroy();
 		}
 
 		public initDisplay(params:any):void{
