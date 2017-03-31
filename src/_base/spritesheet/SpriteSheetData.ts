@@ -24,7 +24,7 @@ module Animyst {
 		}
 
 		public getFrame(frameID):void{
-			return this.getItem(frameID);
+			return this.get(frameID);
 		}
 
 		public getFrames(framePrefix):void{
@@ -36,7 +36,7 @@ module Animyst {
 				}, FrameData, ctx);
 			} 
 
-			let frames = this.getItemsInCategory(framePrefix);
+			let frames = this.getFromCategory(framePrefix);
 			frames.sort(this._sortCaseInsensitive);
 			return frames;
 		}

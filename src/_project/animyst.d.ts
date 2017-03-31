@@ -109,7 +109,7 @@ declare module Animyst {
          * Returns the list of item ID's in a given category
          * @param {string} category [description]
          */
-        getItemsInCategory(category: string): any;
+        getFromCategory(category: string): any;
         /**
          * Evaluates whether an item is listed in a specific category
          * @param  {string}  itemID   [description]
@@ -144,7 +144,7 @@ declare module Animyst {
          * Returns item in database
          * @param {string} itemID [description]
          */
-        getItem(itemID: string): any;
+        get(itemID: string): any;
         clear(): void;
         destroy(): void;
     }
@@ -584,6 +584,7 @@ declare module Animyst {
 }
 declare module Animyst {
     class View3D extends Database {
+        static CONTROLS: boolean;
         viewAngle: number;
         near: number;
         far: number;
@@ -597,16 +598,30 @@ declare module Animyst {
         private _view;
         private _context2d;
         readonly aspect: number;
+        readonly scene: THREE.Scene;
+        readonly camera: THREE.Camera;
         width: number;
         height: number;
         constructor();
         clear(): void;
         destroy(): void;
-        initDisplay(params: any): void;
+        init(params: any): void;
         append(containerID?: string): void;
         render(): void;
+        renderScene3D(scene3D: Scene3D): void;
         update(): void;
         onResize(): void;
+    }
+    class CameraType {
+        static PERSPECTIVE: string;
+        static ORTHOGRAPHIC: string;
+    }
+    class Scene3D extends Item {
+        scene: THREE.Scene;
+        activeCamera: string;
+        constructor(id: string, params: any);
+        setup(params: any): void;
+        getActiveCamera(): THREE.Camera;
     }
 }
 declare module Animyst {

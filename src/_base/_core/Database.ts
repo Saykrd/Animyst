@@ -67,11 +67,11 @@ module Animyst {
 		 * Returns the list of item ID's in a given category
 		 * @param {string} category [description]
 		 */
-		public getItemsInCategory (category:string){
+		public getFromCategory (category:string){
 			var items = this._categoryLists[category] || [];
 
 			for (var i = items.length - 1; i >= 0 && items.length > 0; i--) {
-				var item = this.getItem(items[i]);
+				var item = this.get(items[i]);
 				if (!item) {
 					items.splice(i, 1);
 				}
@@ -100,7 +100,7 @@ module Animyst {
 			var list = this._categoryLists[category] || this._itemList;
 
 			for (var i = 0; i < list.length; i++) {
-				var item = this.getItem(list[i]);
+				var item = this.get(list[i]);
 
 				if (item) {
 					command.call(context, item);
@@ -152,7 +152,7 @@ module Animyst {
 		 */
 		public remove (itemID:string){
 			if (!this._items[itemID]) return;
-			var item = this.getItem(itemID);
+			var item = this.get(itemID);
 			
 			this.unlist(itemID);
 			delete this._items[itemID]
@@ -172,7 +172,7 @@ module Animyst {
 		 * Returns item in database
 		 * @param {string} itemID [description]
 		 */
-		public getItem (itemID:string){
+		public get (itemID:string){
 			return this._items[itemID];
 		};
 
