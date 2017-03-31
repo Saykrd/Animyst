@@ -56,8 +56,10 @@ module Animyst {
 			this._resize = params.resize;
 			this._renderer = new THREE.WebGLRenderer();
 
+			this._renderer.setPixelRatio(window.devicePixelRatio);
 			this._renderer.setClearColor(params.rendererColor || 0x888888);
 			this._renderer.setSize(this.width, this.height);
+			this._renderer.autoClear = false;
 
 			
 
@@ -96,11 +98,13 @@ module Animyst {
 
 
 		public render():void{
+			this._renderer.clear();
 			this.traverse(this.renderScene3D, this);
 		}
 
 		public renderScene3D(scene3D:Scene3D):void{
 			var camera:THREE.Camera = scene3D.getActiveCamera();
+			this._renderer.clearDepth();
 			this._renderer.render(scene3D.scene, camera);
 		}
 
@@ -177,12 +181,15 @@ module Animyst {
 						}	
 					} 
 
-					camera.position.x = data.x || 500;
-					camera.position.y = data.y || 500;
-					camera.position.z = data.z || 500;
+					camera.position.x = data.x !== null ?  data.x : 500;
+					camera.position.y = data.y !== null ?  data.y : 500;
+					camera.position.z = data.z !== null ?  data.z : 500;
 
 					this.scene.add(camera);
-					camera.lookAt(this.scene.position);
+
+					if(data.lookAtScene === undefined || data.lookAtScene) {
+						camera.lookAt(this.scene.position);
+					}
     			}
     		}
     	}

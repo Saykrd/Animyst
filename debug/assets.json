@@ -5,11 +5,26 @@
 		{"id":"run_sheet", "src" : "media/images/spritesheets/run.png"},
 		{"id":"samusftilt", "src" : "media/images/samusftilt.png"},
 
+		{"id":"redball1", "src" : "media/images/spheres/red_ball1.png"},
+		{"id":"redball2", "src" : "media/images/spheres/red_ball2.png"},
+		{"id":"yellowball1", "src" : "media/images/spheres/yellow_ball1.png"},
+		{"id":"yellowball2", "src" : "media/images/spheres/yellow_ball2.png"},
+		{"id":"greenball1", "src" : "media/images/spheres/green_ball1.png"},
+		{"id":"greenball2", "src" : "media/images/spheres/green_ball2.png"},
+		{"id":"blueball1", "src" : "media/images/spheres/blue_ball1.png"},
+		{"id":"blueball2", "src" : "media/images/spheres/blue_ball2.png"},
+
+
+
 		{"id":"cube", "src" : "media/3d/cube.json"}
 	],
 
 	"initialLoad": [
-		"run_data", "run_sheet", "cube", "samusftilt"
+		"run_data", "run_sheet", "cube", "samusftilt",
+		"redball1", "redball2",
+		"greenball1", "greenball2",
+		"yellowball1", "yellowball2",
+		"blueball1", "blueball2"
 	],
 
 	"preload" : [

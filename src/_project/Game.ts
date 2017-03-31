@@ -17,6 +17,7 @@ module App {
 			this.viewport.init({resize : true, debugControls : true});
 			this.viewport.append();
 
+
 			this.viewport.create(Animyst.Scene3D, 'base', {
 				addAxis : true,
 				debugControls: true,
@@ -25,29 +26,49 @@ module App {
 				]
 			});
 
-			var scene3D:Animyst.Scene3D = <Animyst.Scene3D> this.viewport.get('base');
+			this.viewport.create(Animyst.Scene3D, 'ui', {
+				addAxis : true,
+				debugControls: false,
+				cameras : [
+					{	
+						name:"camera0", type:"orthographic", 
+						x:this.viewport.width/2, y:-this.viewport.height/2, z:10, 
+						left : - this.viewport.width / 2, right: this.viewport.width / 2, 
+						top: this.viewport.height / 2, bottom: -this.viewport.height / 2,
+					 	near: 1, far: 2000, main:true, lookAtScene:false
+					 }
+				]
+			});
 
-/*			var geom:THREE.PlaneGeometry = new THREE.PlaneGeometry(5,5,32);
-			var matr:THREE.MeshBasicMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00});
+			var base:Animyst.Scene3D = <Animyst.Scene3D> this.viewport.get('base');
+			var ui:Animyst.Scene3D   = <Animyst.Scene3D> this.viewport.get('ui');
 
-			var meshA:THREE.Mesh = new THREE.Mesh(geom, matr);
-			var meshB:THREE.Mesh = new THREE.Mesh(geom, matr);
+			var texture0:THREE.CanvasTexture = new THREE.CanvasTexture(Animyst.DataLoad.getAsset("redball1"));
+			var texture1:THREE.CanvasTexture = new THREE.CanvasTexture(Animyst.DataLoad.getAsset("greenball2"));
 
-			meshA.position.set( 10, 10,0);
-			meshB.position.set(-10,-10,0);
+			var smatr0:THREE.SpriteMaterial = new THREE.SpriteMaterial({map: texture0, color: 0xffffff});
+			var smatr1:THREE.SpriteMaterial = new THREE.SpriteMaterial({map: texture1, color: 0xffffff});
 
-			var group:THREE.Group = new THREE.Group();
-			group.add(meshA);
-			group.add(meshB);
-
-			let vFOV = (<THREE.PerspectiveCamera> this.viewport.camera).fov * (Math.PI / 180);
-			let distance =  this.viewport.height / (2 * Math.tan(vFOV / 2)) ;
-
-			group.position.set(0, 0, -distance);
+			var spriteBase:THREE.Sprite = new THREE.Sprite(smatr1);
+			var spriteUI:THREE.Sprite = new THREE.Sprite(smatr0);
 
 
-			this.viewport.scene.add(group);
-			this.viewport.camera.add(group);*/	
+
+			var twidth = spriteUI.material.map.image.width;
+			var theight = spriteUI.material.map.image.height;
+
+			console.log(twidth, theight, this.viewport.width, this.viewport.height);
+
+			
+			spriteUI.scale.set(twidth, theight, 1);
+			spriteUI.position.set(178, -178, 0);
+
+			spriteBase.position.set(100, 100, 100);
+			spriteBase.scale.set(twidth / 2, theight / 2, 1);
+
+
+			base.scene.add(spriteBase);
+			ui.scene.add(spriteUI);
 		}
 
 		public frameUpdate(delta:number, framecount:number):void{
