@@ -15,8 +15,12 @@ module App {
 		public onInit():void{
 			Animyst.Log.output("App Initialized!");
 
-			var game:Game = new Game();
-			this.run(game);
+			this.runTest(PIXITests);
+		}
+
+		public runTest(cls:any):void{
+			var state:Animyst.AppState = <Animyst.AppState> new cls();
+			this.run(state);
 		}
 
 	}

@@ -1,8 +1,13 @@
 {
 	"manifest" : [
 		{"id":"music", "src" : "media/audio/bgm_01.mp3"},
-		{"id":"run_data", "src" : "media/images/spritesheets/run.json", "dataType" : "spritesheet"},
-		{"id":"run_sheet", "src" : "media/images/spritesheets/run.png"},
+		{"id":"run_data", "src" : "media/images/atlas/run.json", "dataType" : "spritesheet"},
+		{"id":"run_sheet", "src" : "media/images/atlas/run.png"},
+
+		{"id":"raptor_data", "src" : "media/images/spine/raptor.json"},
+		{"id":"raptor_atlas", "src" : "media/images/spine/raptor.atlas"},
+		{"id":"raptor_sheet", "src" : "media/images/spine/raptor.png"},
+
 		{"id":"samusftilt", "src" : "media/images/samusftilt.png"},
 
 		{"id":"redball1", "src" : "media/images/spheres/red_ball1.png"},
@@ -21,6 +26,7 @@
 
 	"initialLoad": [
 		"run_data", "run_sheet", "cube", "samusftilt",
+		"raptor_data", "raptor_atlas", "raptor_sheet",
 		"redball1", "redball2",
 		"greenball1", "greenball2",
 		"yellowball1", "yellowball2",

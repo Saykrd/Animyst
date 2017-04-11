@@ -1,5 +1,5 @@
 module App {
-	export class Game extends Animyst.AppState {
+	export class View3DTests extends Animyst.AppState {
 		
 
 		public viewport:Animyst.View3D;
@@ -61,7 +61,7 @@ module App {
 
 			
 			spriteUI.scale.set(twidth, theight, 1);
-			spriteUI.position.set(178, -178, 0);
+			spriteUI.position.set(178, -18, 0);
 
 			spriteBase.position.set(100, 100, 100);
 			spriteBase.scale.set(twidth / 2, theight / 2, 1);

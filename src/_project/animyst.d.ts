@@ -150,6 +150,11 @@ declare module Animyst {
     }
 }
 declare module Animyst {
+    class AssetData {
+        id: string;
+        src: string;
+        constructor(params: any);
+    }
     class DataLoad {
         static LOAD_INITIALIZE: number;
         static LOAD_STARTED: number;
@@ -173,13 +178,13 @@ declare module Animyst {
         static _queueLoadedSignal: Signal;
         static _queueErrorSignal: Signal;
         static _busy: boolean;
-        static LoadQueue: any;
         static startup(params: any): void;
         static listAssets(manifest: any): void;
         static loadFromManifest(value: any, loadHandler?: any, persistant?: boolean): void;
         static loadAsset(value: any, loadHandler?: any, persistant?: boolean): void;
-        static getAsset(id: any): any;
-        static getData(id: any): any;
+        static getAsset(id: string): any;
+        static getData(id: string): AssetData;
+        static getPath(id: string): string;
         static addLoadHandler(handler: any, persistant?: boolean): void;
         static removeLoadHandler(handler: any): void;
         static removeWeakHandlers(handlers: any[]): void;
@@ -227,12 +232,12 @@ declare module Animyst {
         static path: string;
         static port: string;
         static queryString: string;
-        static _setup(): void;
+        static _setup(): boolean;
         static _checkPlatform(): void;
         static _checkDevice(): void;
         static _checkBrowser(): void;
         static getURLParameterByName(name: string, escapeSpaces?: boolean): string;
-        constructor(argument: any);
+        static setup: boolean;
     }
 }
 declare module Animyst {
@@ -557,6 +562,20 @@ declare module Animyst {
     }
 }
 declare module Animyst {
+    class PIXIView extends Database {
+        width: number;
+        height: number;
+        stage: PIXI.Container;
+        renderer: any;
+        readonly halfWidth: number;
+        readonly halfHeight: number;
+        constructor();
+        init(params: any): void;
+        append(containerID?: string): void;
+        render(): void;
+    }
+}
+declare module Animyst {
     class SpriteSheetTexture extends THREE.Texture {
         atlas: any;
         frames: any[];
@@ -598,8 +617,6 @@ declare module Animyst {
         private _view;
         private _context2d;
         readonly aspect: number;
-        readonly scene: THREE.Scene;
-        readonly camera: THREE.Camera;
         width: number;
         height: number;
         constructor();

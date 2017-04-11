@@ -51,10 +51,12 @@ module Animyst {
 
 		//========================================
 
-		static _setup():void{
+		static _setup():boolean{
 			Environment._checkBrowser();
 			Environment._checkPlatform();
 			Environment._checkDevice();
+
+			return true;
 		}
 
 		static _checkPlatform():void{
@@ -201,8 +203,6 @@ module Animyst {
 			return (escapeSpaces) ? match && decodeURIComponent(match[1].replace(/\/+/g, '')) : match && decodeURIComponent(match[1]);
 		}
     	
-    	constructor(argument) {
-    		// code...
-    	}
+    	static setup:boolean = Environment._setup();
     }
 }

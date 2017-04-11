@@ -1,4 +1,14 @@
 module Animyst {
+
+	export class AssetData {
+		public id:string;
+		public src:string;
+
+		constructor(params:any) {
+			this.id = params.id;
+			this.src = params.src;
+		}
+	}
     export class DataLoad {
 
     	static LOAD_INITIALIZE:number = 0;
@@ -28,8 +38,6 @@ module Animyst {
 		static _queueErrorSignal:Signal    = null;
 
 		static _busy:boolean = false;
-
-		static LoadQueue:any;
 
 		static startup(params):void{
 			DataLoad._loadQueue  = new createjs.LoadQueue(true);
@@ -61,6 +69,17 @@ module Animyst {
 			if(params.manifest != null){
 				//DataLoad.loadManifest(params.manifest, params.callback)
 			}
+
+			if(PIXI){
+				DataLoad.addCommand(DataLoad.FILE_LOADED, function(event:any){
+					//console.log(event);
+					if(event.result instanceof HTMLImageElement || event.result instanceof HTMLCanvasElement){
+						console.log(event.result);
+						let baseTexture = PIXI.BaseTexture.fromCanvas(event.result as HTMLCanvasElement);
+						PIXI.utils.BaseTextureCache[event.item.src] = baseTexture;
+					}
+				})
+			}
 		}
 
 		static listAssets(manifest):void{
@@ -79,9 +98,9 @@ module Animyst {
 				var item;
 
 				if(typeof v == "string"){
-					item = {"id" : v, "src" : v};
+					item = new AssetData({"id" : v, "src" : v});
 				} else {
-					item = {"id" : v.id, "src" :  v.src};
+					item = new AssetData({"id" : v.id, "src" :  v.src});
 				}
 
 				if(!DataLoad._assetList[item.id]){
@@ -102,9 +121,9 @@ module Animyst {
 			var item; 
 
 			if(typeof value == "string"){
-				item = {"id" : value, "src" : value};
+				item = new AssetData({"id" : value, "src" : value});
 			} else {
-				item = {"id" : value.id, "src" : value.src};
+				item = new AssetData({"id" : value.id, "src" : value.src});
 			}
 
 			if(!DataLoad._assetList[item.id]){
@@ -116,12 +135,16 @@ module Animyst {
 			queue.loadFile(DataLoad._assetList[item.id]);
 		}
 
-		static getAsset(id):any{
+		static getAsset(id:string):any{
 			return DataLoad._loadQueue.getResult(id);
 		}
 
-		static getData(id):any{
+		static getData(id:string):AssetData{
 			return DataLoad._assetList[id];
+		}
+
+		static getPath(id:string):string{
+			return DataLoad._assetList[id].src;
 		}
 
 

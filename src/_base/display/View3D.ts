@@ -18,8 +18,6 @@ module Animyst {
     	private _context2d:CanvasRenderingContext2D;
 
     	public get aspect():number{ return this.width / this.height};
-    	public get scene():THREE.Scene{ return this._scene};
-    	public get camera():THREE.Camera{ return this._camera};
 
 
     	public width:number;
