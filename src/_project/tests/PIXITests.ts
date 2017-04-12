@@ -16,7 +16,8 @@ module App {
 
     		var t1:PIXI.Texture = PIXI.Texture.from(Animyst.DataLoad.getPath('redball1'));//PIXI.Texture.fromCanvas(Animyst.DataLoad.getAsset('redball1'));
     		var t2:PIXI.Texture = PIXI.Texture.from(Animyst.DataLoad.getPath('yellowball1'));//PIXI.Texture.fromCanvas(Animyst.DataLoad.getAsset('yellowball1'));
-    		var t3:PIXI.Texture = PIXI.Texture.from(Animyst.DataLoad.getPath('redball1'));//PIXI.Texture.fromCanvas(Animyst.DataLoad.getAsset('greenball1'));
+    		var t3:PIXI.Texture = PIXI.Texture.from(Animyst.DataLoad.getPath('greenball1'));//PIXI.Texture.fromCanvas(Animyst.DataLoad.getAsset('greenball1'));
+
 
 
     		var s1:PIXI.Sprite = new PIXI.Sprite(t1);//PIXI.Sprite.fromImage(Animyst.DataLoad.getData('redball1').src);
@@ -44,13 +45,6 @@ module App {
 
             anim.x = this.viewport.halfWidth;
             anim.y = this.viewport.halfHeight + anim.height / 2;
-
-
-
-
-            //var skeleton:PIXI.spine.core.SkeletonData = new PIXI.spine.core.SkeletonData();
-
-            //var anim:PIXI.spine.Spine = new PIXI.spine.Spine();
 
     		
 
