@@ -1,6 +1,6 @@
 /// <reference types="preloadjs" />
-/// <reference types="three" />
 /// <reference types="pixi.js" />
+/// <reference types="three" />
 declare module Animyst {
     class Application {
         private _appStateList;
@@ -548,6 +548,46 @@ declare module Animyst {
         constructor();
     }
 }
+declare module Animyst.PIXIModules {
+    var BUTTON_DOWN: number;
+    var BUTTON_UP: number;
+    var BUTTON_OVER: number;
+    var BUTTON_OUT: number;
+    class Button extends PIXI.Sprite {
+        down: Signal;
+        over: Signal;
+        up: Signal;
+        out: Signal;
+        upTexture: PIXI.Texture;
+        downTexture: PIXI.Texture;
+        overTexture: PIXI.Texture;
+        options: any;
+        private _isDown;
+        readonly isDown: boolean;
+        private _isOver;
+        readonly isOver: boolean;
+        constructor(upTexture: PIXI.Texture, options?: any);
+        setup(params?: any): void;
+        onDown(): void;
+        onUp(): void;
+        onOver(): void;
+        onOut(): void;
+    }
+}
+declare module Animyst {
+    class ViewPIXI extends Animyst.Database {
+        width: number;
+        height: number;
+        stage: PIXI.Container;
+        renderer: any;
+        readonly halfWidth: number;
+        readonly halfHeight: number;
+        constructor();
+        init(params: any): void;
+        append(containerID?: string): void;
+        render(): void;
+    }
+}
 declare module Animyst {
     class PIXITexture extends THREE.Texture {
         stage: any;
@@ -559,20 +599,6 @@ declare module Animyst {
         invalidate(): void;
         update(): void;
         constructor(stage: any, renderer: any);
-    }
-}
-declare module Animyst {
-    class PIXIView extends Database {
-        width: number;
-        height: number;
-        stage: PIXI.Container;
-        renderer: any;
-        readonly halfWidth: number;
-        readonly halfHeight: number;
-        constructor();
-        init(params: any): void;
-        append(containerID?: string): void;
-        render(): void;
     }
 }
 declare module Animyst {

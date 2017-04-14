@@ -11333,4 +11333,4 @@ var Animyst;
     Animyst.ObjectUtil = ObjectUtil;
 })(Animyst || (Animyst = {}));
 
-//# sourceMappingURL=animyst.min.js.map
+//# sourceMappingURL=animyst.js.map

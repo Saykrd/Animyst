@@ -1,5 +1,5 @@
 module Animyst {
-    export class PIXIView extends Database {
+    export class ViewPIXI extends Animyst.Database {
     	
     	public width:number = 0;
     	public height:number = 0;

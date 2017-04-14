@@ -9,11 +9,21 @@
 
 		"keyboard": {
 			"allowDefault" : {
-				"f12" : true
+				"F12" : true
 			}
 		}
 
 	},
+	"external" : [
+		{"name" : "datGUI", "path" : "externals/dat.gui.min.js"},
+		{"name" : "stats", "path" : "externals/stats.min.js"},
+		{"name" : "PIXI", "path" : "externals/pixi.min.js"},
+		{"name" : "THREE", "path" : "externals/three.min.js"},
+		{"name" : "pixi-spine", "path" : "externals/pixi-spine.js"},
+		{"name" : "OrbitControls", "path" : "externals/OrbitControls.js"}
+
+	],
+
 	"assets" : "assets.json",
 	"strings": "strings.json"
 

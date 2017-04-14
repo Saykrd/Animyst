@@ -1,18 +1,19 @@
 module App {
     export class PIXITests extends Animyst.AppState {
     	
-    	public viewport:Animyst.PIXIView;
+    	public viewport:Animyst.ViewPIXI;
 
     	constructor() {
     		super('PIXITests');
     	}
 
     	public setup():void{
-    		this.viewport = new Animyst.PIXIView();
+    		this.viewport = new Animyst.ViewPIXI();
     		this.viewport.init({
     			backgroundColor: 0x555555 
     		});
     		this.viewport.append();
+
 
     		var t1:PIXI.Texture = PIXI.Texture.from(Animyst.DataLoad.getPath('redball1'));//PIXI.Texture.fromCanvas(Animyst.DataLoad.getAsset('redball1'));
     		var t2:PIXI.Texture = PIXI.Texture.from(Animyst.DataLoad.getPath('yellowball1'));//PIXI.Texture.fromCanvas(Animyst.DataLoad.getAsset('yellowball1'));
@@ -20,8 +21,8 @@ module App {
 
 
 
-    		var s1:PIXI.Sprite = new PIXI.Sprite(t1);//PIXI.Sprite.fromImage(Animyst.DataLoad.getData('redball1').src);
-    		var s2:PIXI.Sprite = new PIXI.Sprite(t3);
+    		//var s1:PIXI.Sprite = new PIXI.Sprite(t1);//PIXI.Sprite.fromImage(Animyst.DataLoad.getData('redball1').src);
+    		//var s2:PIXI.Sprite = new PIXI.Sprite(t3);
 
             
             var atlas:any = new PIXI.spine.core.TextureAtlas(Animyst.DataLoad.getAsset('raptor_atlas'), function(line, callback){
@@ -46,17 +47,45 @@ module App {
             anim.x = this.viewport.halfWidth;
             anim.y = this.viewport.halfHeight + anim.height / 2;
 
-    		
+
+            var button:Animyst.PIXIModules.Button = new Animyst.PIXIModules.Button(t1, {downTexture : t3, overTexture:t2});
+            this.viewport.stage.addChild(button);
+
+            button.name = "myButt";
+    		button.down.add(function(id:number, button:Animyst.PIXIModules.Button){
+                console.log(id, button.name);
+            })
+
+            button.up.add(function(id:number, button:Animyst.PIXIModules.Button){
+                console.log(id, button.name);
+            })
+
+            button.over.add(function(id:number, button:Animyst.PIXIModules.Button){
+                console.log(id, button.name);
+            })
+
+            button.out.add(function(id:number, button:Animyst.PIXIModules.Button){
+                console.log(id, button.name);
+            })
 
     		//this.viewport.stage.addChild(s1);
     		//this.viewport.stage.addChild(s2);
-    		s1.x = 100;
+    		/*s1.x = 100;
     		s1.y = 100;
 
     		s2.x = this.viewport.width / 2;
     		s2.y = this.viewport.height / 2;
 
     		s1.interactive = true;
+            s1.buttonMode = true;
+
+            s1.on('pointerdown', function(){
+                console.log("pointer down~~~");
+            })
+
+            s1.on('pointerup', function(){
+                console.log("pointer up~~~");
+            })*/
     	}
 
     	public frameUpdate(delta:number, framecount:number):void{

@@ -2,14 +2,21 @@
 <head>
 
 	<link rel="stylesheet" type="text/css" href="style/style.css"/>
-	<script type="text/javascript" src="js/dat.gui.min.js"></script>
-	<script type="text/javascript" src="js/stats.min.js"></script>
-	<script type="text/javascript" src="js/pixi.min.js"></script>
-	<script type="text/javascript" src="js/pixi-spine.js"></script>
-	<script type="text/javascript" src="js/three.min.js"></script>
-	<script type="text/javascript" src="js/OrbitControls.js"></script>
-	<script type="text/javascript" src="js/animyst.min.js"></script>
-	<script type="text/javascript" src="js/app.min.js"></script>
+	
+	<!--external:js-->
+	<script src="js/external/dat.gui.min.js"></script>
+	<script src="js/external/pixi.min.js"></script>
+	<script src="js/external/stats.min.js"></script>
+	<script src="js/external/three.min.js"></script>
+	<script src="js/external/helpers/OrbitControls.js"></script>
+	<script src="js/external/helpers/pixi-spine.js"></script>
+	<!--endinject-->
+
+	<!-- inject:js -->
+	<script src="js/animyst.js"></script>
+	<script src="js/app.min.js"></script>
+	<!-- endinject -->
+
 
 	<script type="text/javascript">
 		window.onload = function(){

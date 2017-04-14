@@ -1,9 +1,13 @@
 var CONFIG_PATH_VENDOR = "./src/_base/tsconfig.json";
 var CONFIG_PATH_APP    = "./src/_project/tsconfig.json";
 
+var DEBUG = true;
+var EXTENSION = (DEBUG ? '.js' : '.min.js');
+
 var gulp = require('gulp');
 var merge = require('merge2');
-var concat = require('gulp-concat')
+var concat = require('gulp-concat');
+var inject = require('gulp-inject');
 var browserify = require('browserify');
 var uglify = require('gulp-uglify');
 var source = require('vinyl-source-stream');
@@ -24,6 +28,8 @@ var vendorLib = ts.createProject(CONFIG_PATH_VENDOR, {declaration: true, allowJs
 var appTS = ts.createProject(CONFIG_PATH_APP);
 
 
+
+
 //========================================================
 // === BASE TASKS ====
 
@@ -40,13 +46,13 @@ gulp.task('clean_app', function(){
 
 //Places the vendor files into the debug folder
 gulp.task('port_vendor', function(){
-	return gulp.src(['./bin/animyst.min.js', './bin/animyst.min.js.map']).pipe(gulp.dest('./debug/js'));
+	return gulp.src(['./bin/animyst' + EXTENSION, './bin/animyst' + EXTENSION + '.map']).pipe(gulp.dest('./debug/js'));
 })
 
 
 //Moves all libraries to the debug/js folder
 gulp.task('port_externals', function(){
-	return gulp.src('./src/_libs/*.js').pipe(gulp.dest('./debug/js'));
+	return gulp.src(['./src/_libs/**/*.js', './src/_libs/**/*.js.map']).pipe(gulp.dest('./debug/js/external'));
 });
 
 //Places the vendor lib into the _project folder
@@ -54,9 +60,20 @@ gulp.task('port_vendor_lib', function(){
 	return gulp.src('./bin/animyst.d.ts').pipe(gulp.dest('./src/_project'));
 });
 
+gulp.task('inject_sources', function(){
+	var target = gulp.src('./debug/index.html');
+	var externals = gulp.src(['./debug/js/external/**/*.js'],{read: false});
+	var main = gulp.src(['./debug/js/*.js'],{read: false});
+
+	return target
+		.pipe(inject(externals, {name: 'external', relative:true}))
+		.pipe(inject(main, {relative:true}))
+		.pipe(gulp.dest('./debug'));
+})
 
 
-gulp.task('compile_vendor', () => buildTS(vendorTS, {dest: configVendor.outPath, targetName: pkg.name, uglify : true} ));
+
+gulp.task('compile_vendor', () => buildTS(vendorTS, {dest: configVendor.outPath, targetName: pkg.name, uglify : !DEBUG} ));
 gulp.task('compile_vendor_lib', () => buildLib(vendorLib, {dest: configVendor.outPath, targetName: pkg.name, uglify : true} ));
 gulp.task('compile_app', () => buildTS(appTS, {dest: configApp.outPath, targetName: configApp.targetName, uglify : true}));
 
@@ -67,7 +84,7 @@ gulp.task('compile_app', () => buildTS(appTS, {dest: configApp.outPath, targetNa
 
 
 gulp.task('build_vendor', gulp.series('compile_vendor', 'compile_vendor_lib', 'port_vendor_lib'));
-gulp.task('build_app', gulp.series('clean_app', 'compile_app', 'port_vendor', 'port_externals'));
+gulp.task('build_app', gulp.series('clean_app', 'compile_app', 'port_vendor', 'port_externals', 'inject_sources'));
 gulp.task('build', gulp.series('build_vendor', 'build_app'));
 
 
@@ -84,32 +101,27 @@ gulp.task('build', gulp.series('build_vendor', 'build_app'));
  */
 function buildTS(project, options){//dest, targetName, useUglify, srcRoot){
 	var result = project.src()
-		   .pipe(sourcemaps.init({loadMaps:true}))
+		   .pipe(sourcemaps.init())
 		   .pipe(project());
 
+	console.log(options.uglify);
 	if(options.uglify){
-		return merge([
-			result.js // JS Stream
-				.pipe(rename(options.targetName + ".min.js"))
-			    .pipe(uglify())
-			    .on('error', function(e){console.log(e)})
-			    .pipe(sourcemaps.write('.', {sourceRoot: options.srcRoot || "./src"}))
-			    .pipe(gulp.dest(options.dest || "./"))
-			]);
+		return result.js // JS Stream
+		    //.pipe(uglify())
+		    .pipe(rename({suffix : ".min"}))
+		    .pipe(sourcemaps.write('.', {sourceRoot: options.srcRoot || "./src"}))
+		    .pipe(gulp.dest(options.dest || "./"));
 	} else {
-		return merge([
-			result.js //JS Stream
-				.pipe(rename(options.targetName + ".js"))
+		return result.js //JS Stream
 				.pipe(sourcemaps.write('.', {sourceRoot: options.srcRoot || "./src"}))
-				.pipe(gulp.dest(options.dest || "./"))
-			]);
+				.pipe(gulp.dest(options.dest || "./"));
 	}
 		   
 }
 
 function buildLib(project, options){
 	return project.src()
-		   .pipe(sourcemaps.init({loadMaps:true}))
+		   //.pipe(sourcemaps.init({loadMaps:true}))
 		   .pipe(project()).dts
 		   .pipe(rename(options.targetName + ".d.ts"))
 		   .pipe(gulp.dest(options.dest || "./"))

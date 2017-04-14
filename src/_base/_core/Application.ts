@@ -62,10 +62,18 @@ module Animyst {
 
 						this.bootSignal.dispatch();
 
-						DataLoad.loadFromManifest([
-							{"id" : "assets", "src" : this.config.assets}, 
-							{"id" : "strings", "src" : this.config.strings}
-						]);
+						var manifest = [];
+
+						if(this.config.externals){
+							for(var k in this.config.externals){
+								manifest.push(this.config.externals[k]);
+							}	
+						}
+						
+						manifest.push({"id" : "assets", "src" : this.config.assets});
+						manifest.push({"id" : "strings", "src" : this.config.strings});
+
+						DataLoad.loadFromManifest(manifest);
 
 						break;
 					case "assets":
