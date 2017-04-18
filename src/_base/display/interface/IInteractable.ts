@@ -1,5 +1,5 @@
 module Animyst {
-    export interface IButton extends IDisplay {
+    export interface IInteractable extends IDisplay {
         down:Signal;
     	over:Signal;
     	up:Signal;
@@ -7,7 +7,7 @@ module Animyst {
 
     	enabled:boolean;
 
-    	disable():void;
-    	enable():void;
+    	disableInteract():void;
+    	enableInteract():void;
     }
 }

@@ -45,7 +45,7 @@ module Animyst {
 		public list (item:Item){
 			for (var k in this._categoryLists) {
 				var data = this._categoryChecks[k];
-				if (item instanceof data.cls && data.check.call(data.context, item)) {
+				if ((!data.cls || item instanceof data.cls) && data.check.call(data.context, item)) {
 					ArrayUtil.include(item.id, this._categoryLists[k]);
 				}
 			}  

@@ -1,19 +1,5 @@
-module Animyst.PIXIModules {
-
-	export var BUTTON_DOWN:number = 0;
-	export var BUTTON_UP:number   = 1;
-	export var BUTTON_OVER:number = 2;
-	export var BUTTON_OUT:number  = 3;
-
-    export class Button extends PIXI.Sprite implements IButton{
-
-    	public down:Signal;
-    	public over:Signal;
-    	public up:Signal;
-    	public out:Signal;
-
-    	private _enabled:boolean;
-    	public get enabled():boolean{return this._enabled};
+module Animyst {
+    export class ButtonPIXI extends SpritePIXI {
 
     	public upTexture:PIXI.Texture;
     	public downTexture:PIXI.Texture;
@@ -36,12 +22,9 @@ module Animyst.PIXIModules {
     		this.upTexture = upTexture;
     		this.options = options;
 
-    		this.down = new Signal();
-    		this.up = new Signal();
-    		this.over = new Signal();
-    		this.out = new Signal();
 
-    		this.enable();
+
+    		this.enableInteract();
 
     		this.interactive = true;
     		this.buttonMode = true;
@@ -56,22 +39,14 @@ module Animyst.PIXIModules {
     		}
     	}
 
-    	public disable():void{
-    		this.removeAllListeners();
-    		this.interactive = false;
+    	public disableInteract():void{
     		this.buttonMode = false;
-    		this._enabled = false;
+    		super.disableInteract();
     	}
 
-    	public enable():void{
-    		this.on('pointerdown', this.onDown);
-    		this.on('pointerup', this.onUp);
-    		this.on('pointerover', this.onOver)
-    		this.on('pointerout', this.onOut);
-
-    		this.interactive = true;
+    	public enableInteract():void{
     		this.buttonMode = true;
-    		this._enabled = true;
+    		super.enableInteract();
     	}
 
     	public onDown():void{
@@ -79,25 +54,25 @@ module Animyst.PIXIModules {
     		if(this.downTexture) this.texture = this.downTexture;
 
 
-    		this.down.dispatch(BUTTON_DOWN, this);
+    		super.onDown();
     	}
 
     	public onUp():void{
     		this._isDown = false;
     		this.texture = this.upTexture;
-    		this.up.dispatch(BUTTON_UP, this);
+    		super.onUp();
     	}
 
     	public onOver():void{
     		this._isOver = true;
     		if(this.overTexture) this.texture = this.overTexture;
-    		this.over.dispatch(BUTTON_OVER, this);
+    		super.onOver();
     	}
 
     	public onOut():void{
     		this._isOver = false;
     		this.texture = this.upTexture;
-    		this.out.dispatch(BUTTON_OUT, this);
+    		super.onOut()
     	}
 
     

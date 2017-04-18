@@ -35,19 +35,19 @@ module App {
                 x: 50, y : 500, scale : 0.5
             })
 
-    		button.down.add(function(id:number, button:Animyst.PIXIModules.Button){
+    		button.down.add(function(id:number, button:Animyst.ButtonPIXI){
                 console.log(id, button.name);
             })
 
-            button.up.add(function(id:number, button:Animyst.PIXIModules.Button){
+            button.up.add(function(id:number, button:Animyst.ButtonPIXI){
                 console.log(id, button.name);
             })
 
-            button.over.add(function(id:number, button:Animyst.PIXIModules.Button){
+            button.over.add(function(id:number, button:Animyst.ButtonPIXI){
                 console.log(id, button.name);
             })
 
-            button.out.add(function(id:number, button:Animyst.PIXIModules.Button){
+            button.out.add(function(id:number, button:Animyst.ButtonPIXI){
                 console.log(id, button.name);
             })
 

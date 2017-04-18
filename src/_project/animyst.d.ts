@@ -2,6 +2,16 @@
 /// <reference types="pixi.js" />
 /// <reference types="three" />
 declare module Animyst {
+    var LOGGING: boolean;
+    var DEBUG: boolean;
+    var GUI: any;
+    var MAJOR: number;
+    var MINOR: number;
+    var BUILD: number;
+    var DATA: string;
+    var VERSION: string;
+}
+declare module Animyst {
     class Application {
         private _appStateList;
         private _appStateLib;
@@ -535,29 +545,18 @@ declare module Animyst {
     }
 }
 declare module Animyst {
-    var LOGGING: boolean;
-    var DEBUG: boolean;
-    var GUI: any;
-    var MAJOR: number;
-    var MINOR: number;
-    var BUILD: number;
-    var DATA: string;
-    var VERSION: string;
-}
-declare module Animyst {
     class Sound {
         constructor();
     }
 }
 declare module Animyst {
-    interface IButton extends IDisplay {
-        down: Signal;
-        over: Signal;
-        up: Signal;
-        out: Signal;
-        enabled: boolean;
-        disable(): void;
-        enable(): void;
+    class SceneItem extends Item {
+        static BUTTON: string;
+        static SPRITE: string;
+        static SPINE: string;
+        type: string;
+        constructor(id: string, params: any);
+        setup(params: any): void;
     }
 }
 declare module Animyst {
@@ -570,6 +569,17 @@ declare module Animyst {
         makeSprite(name: string, params: any): any;
         makeButton(name: string, params: any): any;
         makeElement(name: string, type: string, params: any): any;
+    }
+}
+declare module Animyst {
+    interface IInteractable extends IDisplay {
+        down: Signal;
+        over: Signal;
+        up: Signal;
+        out: Signal;
+        enabled: boolean;
+        disableInteract(): void;
+        enableInteract(): void;
     }
 }
 declare module Animyst {
@@ -588,21 +598,11 @@ declare module Animyst {
         menuData: any;
         elements: any;
         scene: IScene;
-        constructor();
-        enableButton(button: string): void;
-        disableButton(button: string): void;
-        enableButtons(buttons?: any): void;
-        disableButtons(buttons?: any): void;
+        constructor(scene: IScene);
     }
-    class MenuItemType {
-        static SPRITE: string;
-        static BUTTON: string;
-    }
-    class MenuItem extends Item {
+    class Screen extends Item {
         type: string;
-        display: any;
-        private _enabled;
-        readonly enabled: boolean;
+        active: boolean;
         constructor(id: any, params: any);
         setup(params: any): void;
     }
@@ -616,45 +616,44 @@ declare module Animyst {
         exit(name: string, callback?: any): void;
     }
 }
-declare module Animyst.PIXIModules {
-    var BUTTON_DOWN: number;
-    var BUTTON_UP: number;
-    var BUTTON_OVER: number;
-    var BUTTON_OUT: number;
-    class Button extends PIXI.Sprite implements IButton {
+declare module Animyst {
+    class ScenePIXI extends Item implements IScene {
+        container: PIXI.Container;
+        root: PIXI.Container;
+        input: Signal;
+        private elements;
+        constructor(id: string, params: any);
+        setup(params: any): void;
+        destroy(): void;
+        addChild(child: PIXI.DisplayObject): void;
+        getChild(name: string): any;
+        removeChild(child: any): void;
+        makeElement(name: string, type: string, params: any): any;
+        makeSprite(name: string, params: any): any;
+        makeButton(name: string, params: any): any;
+        makeSpine(name: string, params: any): any;
+        private setProperties(obj, params);
+        enableButton(button: string): void;
+        disableButton(button: string): void;
+        enableButtons(buttons?: any): void;
+        disableButtons(buttons?: any): void;
+    }
+}
+declare module Animyst {
+    class SpritePIXI extends PIXI.Sprite implements IInteractable {
         down: Signal;
         over: Signal;
         up: Signal;
         out: Signal;
         private _enabled;
         readonly enabled: boolean;
-        upTexture: PIXI.Texture;
-        downTexture: PIXI.Texture;
-        overTexture: PIXI.Texture;
-        options: any;
-        private _isDown;
-        readonly isDown: boolean;
-        private _isOver;
-        readonly isOver: boolean;
-        constructor(upTexture: PIXI.Texture, options?: any);
-        setup(params?: any): void;
-        disable(): void;
-        enable(): void;
+        constructor(texture?: PIXI.Texture);
+        disableInteract(): void;
+        enableInteract(): void;
         onDown(): void;
         onUp(): void;
         onOver(): void;
         onOut(): void;
-    }
-}
-declare module Animyst.PIXIModules {
-    class DisplayBuilder implements IDisplayBuilder {
-        private scene;
-        constructor(scene: ScenePIXI);
-        makeElement(name: string, type: string, params: any): any;
-        makeSprite(name: string, params: any): any;
-        makeButton(name: string, params: any): any;
-        makeSpine(name: string, params: any): any;
-        private setProperties(obj, params);
     }
 }
 declare module Animyst {
@@ -671,20 +670,25 @@ declare module Animyst {
         append(containerID?: string): void;
         render(): void;
     }
-    class ScenePIXI extends Item implements IScene {
-        container: PIXI.Container;
-        root: PIXI.Container;
-        private elements;
-        constructor(id: string, params: any);
-        setup(params: any): void;
-        destroy(): void;
-        addChild(child: PIXI.DisplayObject): void;
-        removeChild(child: any): void;
-        makeElement(name: string, type: string, params: any): any;
-        makeSprite(name: string, params: any): any;
-        makeButton(name: string, params: any): any;
-        makeSpine(name: string, params: any): any;
-        private setProperties(obj, params);
+}
+declare module Animyst {
+    class ButtonPIXI extends SpritePIXI {
+        upTexture: PIXI.Texture;
+        downTexture: PIXI.Texture;
+        overTexture: PIXI.Texture;
+        options: any;
+        private _isDown;
+        readonly isDown: boolean;
+        private _isOver;
+        readonly isOver: boolean;
+        constructor(upTexture: PIXI.Texture, options?: any);
+        setup(params?: any): void;
+        disableInteract(): void;
+        enableInteract(): void;
+        onDown(): void;
+        onUp(): void;
+        onOver(): void;
+        onOut(): void;
     }
 }
 declare module Animyst {
@@ -826,6 +830,7 @@ declare module Animyst {
         static MOUSE_DOWN: number;
         static MOUSE_UP: number;
         static MOUSE_MOVE: number;
+        static MOUSE_OUT: number;
         static KEY_ACTIVE: number;
         static KEY_INACTIVE: number;
         map: any;

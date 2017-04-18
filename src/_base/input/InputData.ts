@@ -128,6 +128,7 @@ module Animyst {
 		static MOUSE_DOWN = 0;
 		static MOUSE_UP   = 1;
 		static MOUSE_MOVE = 2;
+		static MOUSE_OUT  = 3;
 
 		static KEY_ACTIVE   = 0;
 		static KEY_INACTIVE = 1;
