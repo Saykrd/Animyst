@@ -1,0 +1,22 @@
+{
+	"start" : "Title",
+	"loading" : "Load",
+
+	"menus" : {
+
+		"Title" : {
+			"elements" : [],
+			"transitions" : [],
+			"commands" : []
+		}
+
+	},
+
+	"screens" : {
+		"Loading" : {
+			"elements" : [],
+			"transitions" : [],
+			"commands" : []
+		}
+	}
+}

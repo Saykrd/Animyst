@@ -2,12 +2,12 @@ module Animyst {
     export class Item {
     	
     	public id:string;
-    	public startParams:any;
+    	public props:any;
 
     	constructor(id:string, params:any) {
     		// code...
     		this.id = id;
-    		this.startParams = params;
+    		this.props = params;
     		this.setup(params);
     	}
 
@@ -15,11 +15,11 @@ module Animyst {
     	}
 
     	public reset():void{
-    		this.setup(this.startParams);
+    		this.setup(this.props);
     	}
 
     	public destroy():void{
-    		this.startParams = null;
+    		this.props = null;
     	}
     }
 }			

@@ -27,7 +27,7 @@ module Animyst {
 			return this.get(frameID);
 		}
 
-		public getFrames(framePrefix):void{
+		public getFrames(framePrefix):any{
 			if(!this.hasCategory(framePrefix)){
 				let ctx:any = {}
 				ctx.framePrefix = framePrefix;

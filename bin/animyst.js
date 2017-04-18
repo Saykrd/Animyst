@@ -384,7 +384,7 @@ var Animyst;
          * Returns the list of item ID's in a given category
          * @param {string} category [description]
          */
-        Database.prototype.getFromCategory = function (category) {
+        Database.prototype.getCategory = function (category) {
             var items = this._categoryLists[category] || [];
             for (var i = items.length - 1; i >= 0 && items.length > 0; i--) {
                 var item = this.get(items[i]);
@@ -395,6 +395,14 @@ var Animyst;
             return items;
         };
         ;
+        Database.prototype.getFromCategory = function (category) {
+            var list = this.getCategory(category);
+            var items = [];
+            for (var i = 0; i < list.length; ++i) {
+                items.push(this.get(list[i]));
+            }
+            return items;
+        };
         /**
          * Evaluates whether an item is listed in a specific category
          * @param  {string}  itemID   [description]
@@ -950,16 +958,16 @@ var Animyst;
         function Item(id, params) {
             // code...
             this.id = id;
-            this.startParams = params;
+            this.props = params;
             this.setup(params);
         }
         Item.prototype.setup = function (params) {
         };
         Item.prototype.reset = function () {
-            this.setup(this.startParams);
+            this.setup(this.props);
         };
         Item.prototype.destroy = function () {
-            this.startParams = null;
+            this.props = null;
         };
         return Item;
     }());
@@ -1518,6 +1526,106 @@ var Animyst;
 })(Animyst || (Animyst = {}));
 var Animyst;
 (function (Animyst) {
+    var Menu = (function (_super) {
+        __extends(Menu, _super);
+        function Menu() {
+            var _this = _super.call(this) || this;
+            _this.activeScreens = [];
+            _this.activeScreens = [];
+            _this.addCategory('buttons', function (elm) { return elm.type == MenuItemType.BUTTON; });
+            _this.create;
+            return _this;
+        }
+        Menu.prototype.enableButton = function (button) {
+            var element = this.get(button);
+            if (element.type == MenuItemType.BUTTON) {
+                var b = element.display;
+                b.enable();
+            }
+        };
+        Menu.prototype.disableButton = function (button) {
+            var element = this.get(button);
+            if (element.type == MenuItemType.BUTTON) {
+                var b = element.display;
+                b.disable();
+            }
+        };
+        Menu.prototype.enableButtons = function (buttons) {
+            buttons = buttons || this.getFromCategory('buttons');
+            if (Array.isArray(buttons)) {
+                for (var i = 0; i < buttons.length; i++) {
+                    this.enableButton(buttons[i]);
+                }
+            }
+            else if (typeof buttons === 'string') {
+                this.enableButton(buttons);
+            }
+        };
+        Menu.prototype.disableButtons = function (buttons) {
+            buttons = buttons || this.getFromCategory('buttons');
+            if (Array.isArray(buttons)) {
+                for (var i = 0; i < buttons.length; i++) {
+                    this.enableButton(buttons[i]);
+                }
+            }
+            else if (typeof buttons === 'string') {
+                this.enableButton(buttons);
+            }
+        };
+        return Menu;
+    }(Animyst.Database));
+    Animyst.Menu = Menu;
+    var MenuItemType = (function () {
+        function MenuItemType() {
+        }
+        return MenuItemType;
+    }());
+    MenuItemType.SPRITE = "sprite";
+    MenuItemType.BUTTON = "button";
+    Animyst.MenuItemType = MenuItemType;
+    var MenuItem = (function (_super) {
+        __extends(MenuItem, _super);
+        function MenuItem(id, params) {
+            return _super.call(this, id, params) || this;
+        }
+        Object.defineProperty(MenuItem.prototype, "enabled", {
+            get: function () { return this._enabled; },
+            enumerable: true,
+            configurable: true
+        });
+        ;
+        MenuItem.prototype.setup = function (params) {
+            _super.prototype.setup.call(this, params);
+            this.type = params.type;
+        };
+        return MenuItem;
+    }(Animyst.Item));
+    Animyst.MenuItem = MenuItem;
+})(Animyst || (Animyst = {}));
+var Animyst;
+(function (Animyst) {
+    var MenuSystem = (function (_super) {
+        __extends(MenuSystem, _super);
+        function MenuSystem(menu) {
+            var _this = _super.call(this) || this;
+            _this.menu = menu;
+            return _this;
+        }
+        MenuSystem.prototype.startup = function (params) {
+        };
+        MenuSystem.prototype.show = function (name, callback) {
+            // Exit all active screens that are pinned
+            // Show the screen you want to show
+        };
+        MenuSystem.prototype.exit = function (name, callback) {
+            // Exit named screen
+        };
+        return MenuSystem;
+    }(Animyst.System));
+    Animyst.MenuSystem = MenuSystem;
+})(Animyst || (Animyst = {}));
+var Animyst;
+(function (Animyst) {
     var PIXIModules;
     (function (PIXIModules) {
         PIXIModules.BUTTON_DOWN = 0;
@@ -1534,15 +1642,18 @@ var Animyst;
                 _this.up = new Animyst.Signal();
                 _this.over = new Animyst.Signal();
                 _this.out = new Animyst.Signal();
-                _this.on('pointerdown', _this.onDown);
-                _this.on('pointerup', _this.onUp);
-                _this.on('pointerover', _this.onOver);
-                _this.on('pointerout', _this.onOut);
+                _this.enable();
                 _this.interactive = true;
                 _this.buttonMode = true;
                 _this.setup(_this.options);
                 return _this;
             }
+            Object.defineProperty(Button.prototype, "enabled", {
+                get: function () { return this._enabled; },
+                enumerable: true,
+                configurable: true
+            });
+            ;
             Object.defineProperty(Button.prototype, "isDown", {
                 get: function () { return this._isDown; },
                 enumerable: true,
@@ -1560,6 +1671,21 @@ var Animyst;
                     this.downTexture = params.downTexture;
                     this.overTexture = params.overTexture;
                 }
+            };
+            Button.prototype.disable = function () {
+                this.removeAllListeners();
+                this.interactive = false;
+                this.buttonMode = false;
+                this._enabled = false;
+            };
+            Button.prototype.enable = function () {
+                this.on('pointerdown', this.onDown);
+                this.on('pointerup', this.onUp);
+                this.on('pointerover', this.onOver);
+                this.on('pointerout', this.onOut);
+                this.interactive = true;
+                this.buttonMode = true;
+                this._enabled = true;
             };
             Button.prototype.onDown = function () {
                 this._isDown = true;
@@ -1586,6 +1712,94 @@ var Animyst;
             return Button;
         }(PIXI.Sprite));
         PIXIModules.Button = Button;
+    })(PIXIModules = Animyst.PIXIModules || (Animyst.PIXIModules = {}));
+})(Animyst || (Animyst = {}));
+var Animyst;
+(function (Animyst) {
+    var PIXIModules;
+    (function (PIXIModules) {
+        var DisplayBuilder = (function () {
+            function DisplayBuilder(scene) {
+                this.scene = scene;
+            }
+            DisplayBuilder.prototype.makeElement = function (name, type, params) {
+                var element;
+                switch (type) {
+                    case 'sprite':
+                        // TODO: Implement case content
+                        element = this.makeSprite(name, params);
+                        break;
+                    case 'button':
+                        element = this.makeButton(name, params);
+                        break;
+                    case 'spine':
+                        element = this.makeSpine(name, params);
+                        break;
+                }
+                return element;
+            };
+            DisplayBuilder.prototype.makeSprite = function (name, params) {
+                var texture;
+                if (params.path) {
+                    texture = PIXI.Texture.from(params.path);
+                }
+                else {
+                    texture = PIXI.Texture.from(Animyst.DataLoad.getPath(params.texture));
+                }
+                var sprite = new PIXI.Sprite(texture);
+                sprite.name = name;
+                this.setProperties(sprite, params);
+                this.scene.container.addChild(sprite);
+                return sprite;
+            };
+            DisplayBuilder.prototype.makeButton = function (name, params) {
+                var up = PIXI.Texture.from(Animyst.DataLoad.getPath(params.up));
+                var opt = {
+                    downTexture: params.down ? PIXI.Texture.from(Animyst.DataLoad.getPath(params.down)) : null,
+                    overTexture: params.over ? PIXI.Texture.from(Animyst.DataLoad.getPath(params.over)) : null
+                };
+                console.log(params.down, params.over, params.up);
+                console.log(opt);
+                var button = new PIXIModules.Button(up, opt);
+                button.name = name;
+                this.setProperties(button, params);
+                this.scene.container.addChild(button);
+                return button;
+            };
+            DisplayBuilder.prototype.makeSpine = function (name, params) {
+                var atlas = new PIXI.spine.core.TextureAtlas(Animyst.DataLoad.getAsset(params.atlas), function (line, callback) {
+                    callback(PIXI.BaseTexture.from(Animyst.DataLoad.getPath(params.sheet)));
+                });
+                var rawSkelData = Animyst.DataLoad.getAsset(params.data);
+                var spineJSONParser = new PIXI.spine.core.SkeletonJson(new PIXI.spine.core.AtlasAttachmentLoader(atlas));
+                var skeletonData = spineJSONParser.readSkeletonData(rawSkelData);
+                var anim = new PIXI.spine.Spine(skeletonData);
+                anim.name = name;
+                if (params.anim && anim.state.hasAnimation(params.anim)) {
+                    anim.state.setAnimation(params.trackIndex || 0, params.anim, params.loop === undefined ? true : params.loop);
+                }
+                this.setProperties(anim, params);
+                this.scene.container.addChild(anim);
+                return anim;
+            };
+            DisplayBuilder.prototype.setProperties = function (obj, params) {
+                obj.x = params.x || 0;
+                obj.y = params.y || 0;
+                if (params.scaleX)
+                    obj.scale.x = params.scaleX;
+                if (params.scaleY)
+                    obj.scale.y = params.scaleY;
+                if (params.scale) {
+                    if (typeof params.scale == 'object')
+                        obj.scale.set(params.scale.x, params.scale.y);
+                    if (typeof params.scale == 'number')
+                        obj.scale.set(params.scale, params.scale);
+                }
+                obj.rotation = params.rotation || 0;
+            };
+            return DisplayBuilder;
+        }());
+        PIXIModules.DisplayBuilder = DisplayBuilder;
     })(PIXIModules = Animyst.PIXIModules || (Animyst.PIXIModules = {}));
 })(Animyst || (Animyst = {}));
 var Animyst;
@@ -1617,6 +1831,11 @@ var Animyst;
             this.renderer.backgroundColor = params.backgroundColor || this.renderer.backgroundColor;
             this.stage = new PIXI.Container();
         };
+        ViewPIXI.prototype.create = function (cls, id, params) {
+            if (!params.stage)
+                params.stage = this.stage;
+            return _super.prototype.create.call(this, cls, id, params);
+        };
         ViewPIXI.prototype.append = function (containerID) {
             if (!containerID) {
                 document.body.appendChild(this.renderer.view);
@@ -1627,7 +1846,7 @@ var Animyst;
                     container.appendChild(this.renderer.view);
                 }
                 else {
-                    Animyst.Log.error("[PIXIViewport] Container ID", containerID, "doesn't exist");
+                    Animyst.Log.error("[ViewPIXI] Container ID", containerID, "doesn't exist");
                 }
             }
         };
@@ -1637,6 +1856,126 @@ var Animyst;
         return ViewPIXI;
     }(Animyst.Database));
     Animyst.ViewPIXI = ViewPIXI;
+    var ScenePIXI = (function (_super) {
+        __extends(ScenePIXI, _super);
+        function ScenePIXI(id, params) {
+            return _super.call(this, id, params) || this;
+        }
+        ScenePIXI.prototype.setup = function (params) {
+            this.container = new PIXI.Container;
+            this.root = params.stage;
+            this.root.addChild(this.container);
+            this.elements = new Animyst.Database();
+            _super.prototype.setup.call(this, params);
+        };
+        ScenePIXI.prototype.destroy = function () {
+            var _this = this;
+            this.elements.traverse(function (elm) { return _this.removeChild(elm.id); }, null);
+            this.container.removeChildren();
+            this.container.destroy();
+            this.root = null;
+            this.container = null;
+            this.elements = null;
+            _super.prototype.destroy.call(this);
+        };
+        ScenePIXI.prototype.addChild = function (child) {
+            this.container.addChild(child);
+            this.elements.create(Animyst.Item, child.name, { display: child });
+        };
+        ScenePIXI.prototype.removeChild = function (child) {
+            var display;
+            if (child instanceof PIXI.DisplayObject) {
+                display = child;
+            }
+            else if (typeof child == "string") {
+                var item = this.elements.get(child);
+                if (!item) {
+                    Animyst.Log.error("[!ScenePIXI] No child found with the name", child);
+                }
+                else {
+                    display = item.props.display;
+                }
+            }
+            this.elements.remove(display.name);
+            this.container.removeChild(display);
+        };
+        ScenePIXI.prototype.makeElement = function (name, type, params) {
+            var element;
+            switch (type) {
+                case 'sprite':
+                    element = this.makeSprite(name, params);
+                    break;
+                case 'button':
+                    element = this.makeButton(name, params);
+                    break;
+                case 'spine':
+                    element = this.makeSpine(name, params);
+                    break;
+            }
+            return element;
+        };
+        ScenePIXI.prototype.makeSprite = function (name, params) {
+            var texture;
+            if (params.path) {
+                texture = PIXI.Texture.from(params.path);
+            }
+            else {
+                texture = PIXI.Texture.from(Animyst.DataLoad.getPath(params.texture));
+            }
+            var sprite = new PIXI.Sprite(texture);
+            sprite.name = name;
+            this.setProperties(sprite, params);
+            this.addChild(sprite);
+            return sprite;
+        };
+        ScenePIXI.prototype.makeButton = function (name, params) {
+            var up = PIXI.Texture.from(Animyst.DataLoad.getPath(params.up));
+            var opt = {
+                downTexture: params.down ? PIXI.Texture.from(Animyst.DataLoad.getPath(params.down)) : null,
+                overTexture: params.over ? PIXI.Texture.from(Animyst.DataLoad.getPath(params.over)) : null
+            };
+            console.log(params.down, params.over, params.up);
+            console.log(opt);
+            var button = new Animyst.PIXIModules.Button(up, opt);
+            button.name = name;
+            this.setProperties(button, params);
+            this.addChild(button);
+            return button;
+        };
+        ScenePIXI.prototype.makeSpine = function (name, params) {
+            var atlas = new PIXI.spine.core.TextureAtlas(Animyst.DataLoad.getAsset(params.atlas), function (line, callback) {
+                callback(PIXI.BaseTexture.from(Animyst.DataLoad.getPath(params.sheet)));
+            });
+            var rawSkelData = Animyst.DataLoad.getAsset(params.data);
+            var spineJSONParser = new PIXI.spine.core.SkeletonJson(new PIXI.spine.core.AtlasAttachmentLoader(atlas));
+            var skeletonData = spineJSONParser.readSkeletonData(rawSkelData);
+            var anim = new PIXI.spine.Spine(skeletonData);
+            anim.name = name;
+            if (params.anim && anim.state.hasAnimation(params.anim)) {
+                anim.state.setAnimation(params.trackIndex || 0, params.anim, params.loop === undefined ? true : params.loop);
+            }
+            this.setProperties(anim, params);
+            this.addChild(anim);
+            return anim;
+        };
+        ScenePIXI.prototype.setProperties = function (obj, params) {
+            obj.x = params.x || 0;
+            obj.y = params.y || 0;
+            if (params.scaleX)
+                obj.scale.x = params.scaleX;
+            if (params.scaleY)
+                obj.scale.y = params.scaleY;
+            if (params.scale) {
+                if (typeof params.scale == 'object')
+                    obj.scale.set(params.scale.x, params.scale.y);
+                if (typeof params.scale == 'number')
+                    obj.scale.set(params.scale, params.scale);
+            }
+            obj.rotation = params.rotation || 0;
+        };
+        return ScenePIXI;
+    }(Animyst.Item));
+    Animyst.ScenePIXI = ScenePIXI;
 })(Animyst || (Animyst = {}));
 var Animyst;
 (function (Animyst) {

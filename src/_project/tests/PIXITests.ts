@@ -14,44 +14,27 @@ module App {
     		});
     		this.viewport.append();
 
-
-    		var t1:PIXI.Texture = PIXI.Texture.from(Animyst.DataLoad.getPath('redball1'));//PIXI.Texture.fromCanvas(Animyst.DataLoad.getAsset('redball1'));
-    		var t2:PIXI.Texture = PIXI.Texture.from(Animyst.DataLoad.getPath('yellowball1'));//PIXI.Texture.fromCanvas(Animyst.DataLoad.getAsset('yellowball1'));
-    		var t3:PIXI.Texture = PIXI.Texture.from(Animyst.DataLoad.getPath('greenball1'));//PIXI.Texture.fromCanvas(Animyst.DataLoad.getAsset('greenball1'));
+            var gameLayer:Animyst.ScenePIXI = <Animyst.ScenePIXI> this.viewport.create(Animyst.ScenePIXI, "gameLayer", {});
+            var uiLayer:Animyst.ScenePIXI = <Animyst.ScenePIXI> this.viewport.create(Animyst.ScenePIXI, "uiLayer", {});
 
 
 
-    		//var s1:PIXI.Sprite = new PIXI.Sprite(t1);//PIXI.Sprite.fromImage(Animyst.DataLoad.getData('redball1').src);
-    		//var s2:PIXI.Sprite = new PIXI.Sprite(t3);
+            gameLayer.makeElement('raptor', 'spine', {
+                atlas: 'raptor_atlas',
+                data: 'raptor_data',
+                sheet: 'raptor_sheet',
+                anim : 'walk',
+                x : this.viewport.halfWidth, y : this.viewport.halfHeight + 600 / 2,
+                scale : {x : 0.75, y : 0.75}
+            })
 
-            
-            var atlas:any = new PIXI.spine.core.TextureAtlas(Animyst.DataLoad.getAsset('raptor_atlas'), function(line, callback){
-                callback(PIXI.BaseTexture.from(Animyst.DataLoad.getPath('raptor_sheet')));
-            });
+            var button = uiLayer.makeElement('button', 'button', {
+                up : 'greenball2',
+                down : 'redball1',
+                over: 'yellowball1',
+                x: 50, y : 500, scale : 0.5
+            })
 
-            var rawSkelData:any = Animyst.DataLoad.getAsset('raptor_data');
-            var spineJSONParser:any = new PIXI.spine.core.SkeletonJson(new PIXI.spine.core.AtlasAttachmentLoader(atlas));
-            var skeletonData:any = spineJSONParser.readSkeletonData(rawSkelData);
-
-            var anim:PIXI.spine.Spine = new PIXI.spine.Spine(skeletonData);
-
-            this.viewport.stage.addChild(anim);
-
-            if(anim.state.hasAnimation("walk")){
-                anim.state.setAnimation(0, "walk", true);
-            }
-
-           
-            anim.scale.set(0.75, 0.75);
-
-            anim.x = this.viewport.halfWidth;
-            anim.y = this.viewport.halfHeight + anim.height / 2;
-
-
-            var button:Animyst.PIXIModules.Button = new Animyst.PIXIModules.Button(t1, {downTexture : t3, overTexture:t2});
-            this.viewport.stage.addChild(button);
-
-            button.name = "myButt";
     		button.down.add(function(id:number, button:Animyst.PIXIModules.Button){
                 console.log(id, button.name);
             })
@@ -68,24 +51,6 @@ module App {
                 console.log(id, button.name);
             })
 
-    		//this.viewport.stage.addChild(s1);
-    		//this.viewport.stage.addChild(s2);
-    		/*s1.x = 100;
-    		s1.y = 100;
-
-    		s2.x = this.viewport.width / 2;
-    		s2.y = this.viewport.height / 2;
-
-    		s1.interactive = true;
-            s1.buttonMode = true;
-
-            s1.on('pointerdown', function(){
-                console.log("pointer down~~~");
-            })
-
-            s1.on('pointerup', function(){
-                console.log("pointer up~~~");
-            })*/
     	}
 
     	public frameUpdate(delta:number, framecount:number):void{

@@ -5,12 +5,15 @@ module Animyst.PIXIModules {
 	export var BUTTON_OVER:number = 2;
 	export var BUTTON_OUT:number  = 3;
 
-    export class Button extends PIXI.Sprite {
+    export class Button extends PIXI.Sprite implements IButton{
 
     	public down:Signal;
     	public over:Signal;
     	public up:Signal;
     	public out:Signal;
+
+    	private _enabled:boolean;
+    	public get enabled():boolean{return this._enabled};
 
     	public upTexture:PIXI.Texture;
     	public downTexture:PIXI.Texture;
@@ -38,10 +41,7 @@ module Animyst.PIXIModules {
     		this.over = new Signal();
     		this.out = new Signal();
 
-    		this.on('pointerdown', this.onDown);
-    		this.on('pointerup', this.onUp);
-    		this.on('pointerover', this.onOver)
-    		this.on('pointerout', this.onOut);
+    		this.enable();
 
     		this.interactive = true;
     		this.buttonMode = true;
@@ -54,6 +54,24 @@ module Animyst.PIXIModules {
     			this.downTexture = params.downTexture;
     			this.overTexture = params.overTexture;
     		}
+    	}
+
+    	public disable():void{
+    		this.removeAllListeners();
+    		this.interactive = false;
+    		this.buttonMode = false;
+    		this._enabled = false;
+    	}
+
+    	public enable():void{
+    		this.on('pointerdown', this.onDown);
+    		this.on('pointerup', this.onUp);
+    		this.on('pointerover', this.onOver)
+    		this.on('pointerout', this.onOut);
+
+    		this.interactive = true;
+    		this.buttonMode = true;
+    		this._enabled = true;
     	}
 
     	public onDown():void{

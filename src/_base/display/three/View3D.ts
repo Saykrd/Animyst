@@ -1,5 +1,5 @@
 module Animyst {
-    export class View3D extends Database {
+    export class View3D extends Database implements IViewport {
     	
     	static CONTROLS:boolean = false;
 

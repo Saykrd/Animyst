@@ -109,7 +109,8 @@ declare module Animyst {
          * Returns the list of item ID's in a given category
          * @param {string} category [description]
          */
-        getFromCategory(category: string): any;
+        getCategory(category: string): any[];
+        getFromCategory(category: string): Item[];
         /**
          * Evaluates whether an item is listed in a specific category
          * @param  {string}  itemID   [description]
@@ -243,7 +244,7 @@ declare module Animyst {
 declare module Animyst {
     class Item {
         id: string;
-        startParams: any;
+        props: any;
         constructor(id: string, params: any);
         setup(params: any): void;
         reset(): void;
@@ -548,16 +549,85 @@ declare module Animyst {
         constructor();
     }
 }
+declare module Animyst {
+    interface IButton extends IDisplay {
+        down: Signal;
+        over: Signal;
+        up: Signal;
+        out: Signal;
+        enabled: boolean;
+        disable(): void;
+        enable(): void;
+    }
+}
+declare module Animyst {
+    interface IDisplay {
+        visible: boolean;
+    }
+}
+declare module Animyst {
+    interface IDisplayBuilder {
+        makeSprite(name: string, params: any): any;
+        makeButton(name: string, params: any): any;
+        makeElement(name: string, type: string, params: any): any;
+    }
+}
+declare module Animyst {
+    interface IScene {
+        makeElement(name: any, type: string, params: any): any;
+    }
+}
+declare module Animyst {
+    interface IViewport {
+        render(): void;
+    }
+}
+declare module Animyst {
+    class Menu extends Database {
+        activeScreens: string[];
+        menuData: any;
+        elements: any;
+        scene: IScene;
+        constructor();
+        enableButton(button: string): void;
+        disableButton(button: string): void;
+        enableButtons(buttons?: any): void;
+        disableButtons(buttons?: any): void;
+    }
+    class MenuItemType {
+        static SPRITE: string;
+        static BUTTON: string;
+    }
+    class MenuItem extends Item {
+        type: string;
+        display: any;
+        private _enabled;
+        readonly enabled: boolean;
+        constructor(id: any, params: any);
+        setup(params: any): void;
+    }
+}
+declare module Animyst {
+    class MenuSystem extends System {
+        private menu;
+        constructor(menu: Menu);
+        startup(params?: any): void;
+        show(name: string, callback?: any): void;
+        exit(name: string, callback?: any): void;
+    }
+}
 declare module Animyst.PIXIModules {
     var BUTTON_DOWN: number;
     var BUTTON_UP: number;
     var BUTTON_OVER: number;
     var BUTTON_OUT: number;
-    class Button extends PIXI.Sprite {
+    class Button extends PIXI.Sprite implements IButton {
         down: Signal;
         over: Signal;
         up: Signal;
         out: Signal;
+        private _enabled;
+        readonly enabled: boolean;
         upTexture: PIXI.Texture;
         downTexture: PIXI.Texture;
         overTexture: PIXI.Texture;
@@ -568,14 +638,27 @@ declare module Animyst.PIXIModules {
         readonly isOver: boolean;
         constructor(upTexture: PIXI.Texture, options?: any);
         setup(params?: any): void;
+        disable(): void;
+        enable(): void;
         onDown(): void;
         onUp(): void;
         onOver(): void;
         onOut(): void;
     }
 }
+declare module Animyst.PIXIModules {
+    class DisplayBuilder implements IDisplayBuilder {
+        private scene;
+        constructor(scene: ScenePIXI);
+        makeElement(name: string, type: string, params: any): any;
+        makeSprite(name: string, params: any): any;
+        makeButton(name: string, params: any): any;
+        makeSpine(name: string, params: any): any;
+        private setProperties(obj, params);
+    }
+}
 declare module Animyst {
-    class ViewPIXI extends Animyst.Database {
+    class ViewPIXI extends Animyst.Database implements IViewport {
         width: number;
         height: number;
         stage: PIXI.Container;
@@ -584,8 +667,24 @@ declare module Animyst {
         readonly halfHeight: number;
         constructor();
         init(params: any): void;
+        create(cls: any, id: string, params: any): Item;
         append(containerID?: string): void;
         render(): void;
+    }
+    class ScenePIXI extends Item implements IScene {
+        container: PIXI.Container;
+        root: PIXI.Container;
+        private elements;
+        constructor(id: string, params: any);
+        setup(params: any): void;
+        destroy(): void;
+        addChild(child: PIXI.DisplayObject): void;
+        removeChild(child: any): void;
+        makeElement(name: string, type: string, params: any): any;
+        makeSprite(name: string, params: any): any;
+        makeButton(name: string, params: any): any;
+        makeSpine(name: string, params: any): any;
+        private setProperties(obj, params);
     }
 }
 declare module Animyst {
@@ -628,7 +727,7 @@ declare module Animyst {
     }
 }
 declare module Animyst {
-    class View3D extends Database {
+    class View3D extends Database implements IViewport {
         static CONTROLS: boolean;
         viewAngle: number;
         near: number;
@@ -782,7 +881,7 @@ declare module Animyst {
         parse(): void;
         addFrame(frameID: any, data: any): void;
         getFrame(frameID: any): void;
-        getFrames(framePrefix: any): void;
+        getFrames(framePrefix: any): any;
         private _sortCaseInsensitive(a, b);
     }
     class FrameData extends Item {

@@ -67,7 +67,7 @@ module Animyst {
 		 * Returns the list of item ID's in a given category
 		 * @param {string} category [description]
 		 */
-		public getFromCategory (category:string){
+		public getCategory (category:string):any[]{
 			var items = this._categoryLists[category] || [];
 
 			for (var i = items.length - 1; i >= 0 && items.length > 0; i--) {
@@ -79,6 +79,17 @@ module Animyst {
 
 			return items; 
 		};
+
+		public getFromCategory(category:string):Item[]{
+			var list = this.getCategory(category);
+			var items:Item[] = [];
+
+			for (var i = 0; i < list.length; ++i) {
+				items.push(this.get(list[i]));
+			}
+
+			return items;
+		}
 
 		/**
 		 * Evaluates whether an item is listed in a specific category
