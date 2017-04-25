@@ -154,12 +154,12 @@ var Animyst;
             }
         };
         Application.prototype.halt = function (appStateID) {
-            if (!this._appStateLib[appStateID]) {
+            if (this._appStateLib[appStateID]) {
                 this._appStateLib[appStateID].pause();
             }
         };
         Application.prototype.resume = function (appStateID) {
-            if (!this._appStateLib[appStateID]) {
+            if (this._appStateLib[appStateID]) {
                 this._appStateLib[appStateID].resume();
             }
         };
@@ -177,6 +177,9 @@ var Animyst;
                 }
             }
         };
+        Application.prototype.getState = function (appStateID) {
+            return this._appStateLib[appStateID];
+        };
         Application.prototype.endAll = function () {
             for (var k in this._appStateLib) {
                 this.end(k);
@@ -186,6 +189,8 @@ var Animyst;
             this.runtime += this.timestep;
             for (var i = 0; i < this._appStateList.length; i++) {
                 var state = this._appStateList[i];
+                if (state.paused)
+                    continue;
                 state.fixedUpdate(this.timestep, this.runtime);
             }
         };
@@ -207,6 +212,8 @@ var Animyst;
             }
             for (var i = 0; i < this._appStateList.length; i++) {
                 var state = this._appStateList[i];
+                if (state.paused)
+                    continue;
                 state.frameUpdate(delta, this._framecount);
             }
             this._framecount++;
@@ -341,13 +348,14 @@ var Animyst;
 (function (Animyst) {
     var Database = (function () {
         function Database() {
+            // code...
             this._itemCount = 0;
             this._items = {};
             this._itemList = [];
             this._categoryLists = {};
             this._categoryChecks = {};
             this.signal = new Animyst.Signal();
-            // code...
+            this.signal.add(this.onItemSignal, this, 100000);
         }
         /**
          * Adds an item category list to keep track of specific items
@@ -379,6 +387,9 @@ var Animyst;
                 var data = this._categoryChecks[k];
                 if ((!data.cls || item instanceof data.cls) && data.check.call(data.context, item)) {
                     Animyst.ArrayUtil.include(item.id, this._categoryLists[k]);
+                }
+                else {
+                    Animyst.ArrayUtil.remove(item.id, this._categoryLists[k]);
                 }
             }
         };
@@ -428,6 +439,10 @@ var Animyst;
             return list.indexOf(itemID) > -1;
         };
         ;
+        Database.prototype.isCategoryEmpty = function (category) {
+            var list = this._categoryLists[category];
+            return list.length <= 0;
+        };
         /**
          * Traverses a category of items or all items in this database and executes a command on all of them
          * @param  {function} command  Command to execute on all items ("function(item){//...}")
@@ -506,6 +521,18 @@ var Animyst;
         Database.prototype.clear = function () {
         };
         Database.prototype.destroy = function () {
+            this._itemCount = undefined;
+            this._items = null;
+            this._itemList = null;
+            this._categoryLists = null;
+            this._categoryChecks = null;
+        };
+        Database.prototype.onItemSignal = function (id, entity) {
+            switch (id) {
+                case Animyst.Item.RELIST:
+                    this.list(this.get(entity));
+                    break;
+            }
         };
         return Database;
     }());
@@ -985,8 +1012,13 @@ var Animyst;
         Item.prototype.destroy = function () {
             this.props = null;
         };
+        Item.prototype.relist = function () {
+            if (this.signal)
+                this.signal.dispatch(Item.RELIST, this.id);
+        };
         return Item;
     }());
+    Item.RELIST = "relist";
     Animyst.Item = Item;
 })(Animyst || (Animyst = {}));
 var Animyst;
@@ -1550,14 +1582,266 @@ var Animyst;
 })(Animyst || (Animyst = {}));
 var Animyst;
 (function (Animyst) {
-    var Menu = (function (_super) {
-        __extends(Menu, _super);
-        function Menu(scene) {
+    var TweenEngine = (function (_super) {
+        __extends(TweenEngine, _super);
+        function TweenEngine() {
             var _this = _super.call(this) || this;
-            _this.activeScreens = [];
-            _this.scene = scene;
+            _this.tweenTypes = {
+                "Power1.easeIn": Power1.easeIn,
+                "Power1.easeInOut": Power1.easeInOut,
+                "Power2.easeIn": Power2.easeIn,
+                "Power2.easeInOut": Power2.easeInOut,
+                "Power3.easeIn": Power3.easeIn,
+                "Power3.easeInOut": Power3.easeInOut,
+                "Power4.easeIn": Power4.easeIn,
+                "Power4.easeInOut": Power4.easeInOut,
+                "Bounce.easeOut": Bounce.easeOut,
+                "Bounce.easeIn": Bounce.easeIn,
+                "Bounce.easeInOut": Bounce.easeInOut,
+                "Back.easeIn": Back.easeIn,
+                "Back.easeOut": Back.easeOut,
+                "Back.easeInOut": Back.easeInOut,
+                "Elastic.easeIn": Elastic.easeIn,
+                "Elastic.easeOut": Elastic.easeOut,
+                "Elastic.easeInOut": Elastic.easeInOut,
+                "Linear.easeIn": Linear.easeIn,
+                "Linear.easeOut": Linear.easeOut,
+                "Linear.easeInOut": Linear.easeInOut,
+            };
             return _this;
         }
+        TweenEngine.prototype.addAnimation = function (name, anim) {
+            this.create(Animyst.Item, name, anim);
+        };
+        TweenEngine.prototype.animateElements = function (anim, elements, callback) {
+            var onEnd = function () { if (callback)
+                callback(); };
+            var animations;
+            if (typeof anim == "string") {
+                var animData = this.get(name);
+                if (!animData) {
+                    console.warn("No anim found for:", anim);
+                    return;
+                }
+                animations = animData.props.anims;
+            }
+            else {
+                animations = anim.anims;
+            }
+            var timeline = new TimelineMax({ onComplete: function () { return onEnd(); } });
+            var tweenElements = [];
+            for (var i = 0; i < animations.length; i++) {
+                var transition = animations[i];
+                switch (transition.element) {
+                    case "all":
+                        elements.forEach(function (element) { tweenElements.push(element); });
+                        break;
+                    default:
+                        Animyst.ArrayUtil.searchAll("name", transition.element, elements, tweenElements);
+                        break;
+                }
+                //
+                if (tweenElements.length == 0)
+                    continue;
+                while (tweenElements.length) {
+                    var graphic = tweenElements.shift();
+                    if (!graphic)
+                        continue;
+                    for (var j = 0; j < transition.tweens.length; j++) {
+                        var tween = transition.tweens[j];
+                        var params = {};
+                        for (var k in tween.params) {
+                            if (k == "ease") {
+                                params[k] = this.tweenTypes[tween.params[k]];
+                            }
+                            else {
+                                params[k] = tween.params[k];
+                            }
+                        }
+                        timeline.add(TweenMax[tween.type](graphic, tween.time, params));
+                    }
+                }
+            }
+        };
+        return TweenEngine;
+    }(Animyst.Database));
+    Animyst.TweenEngine = TweenEngine;
+})(Animyst || (Animyst = {}));
+var Animyst;
+(function (Animyst) {
+    var MenuCategory = (function () {
+        function MenuCategory() {
+        }
+        return MenuCategory;
+    }());
+    MenuCategory.ACTIVE = 'active';
+    MenuCategory.PINNED = 'pinned';
+    MenuCategory.EXITABLE = 'exitable';
+    Animyst.MenuCategory = MenuCategory;
+    var Menu = (function (_super) {
+        __extends(Menu, _super);
+        function Menu(scene, params) {
+            var _this = _super.call(this) || this;
+            _this.scene = scene;
+            _this.addCategory(MenuCategory.ACTIVE, function (s) { return s.active; }, Screen);
+            _this.addCategory(MenuCategory.PINNED, function (s) { return s.pinned; }, Screen);
+            _this.addCategory(MenuCategory.EXITABLE, function (s) { return !s.pinned && s.active; }, Screen);
+            if (params) {
+                _this.tweenEngine = params.tweenEngine;
+                _this.disableTransitions = params.disableTransitions;
+            }
+            return _this;
+        }
+        Menu.prototype.addScreens = function (screens) {
+            for (var k in screens) {
+                var data = screens[k];
+                this.create(Screen, k, data);
+                if (this.prebuild)
+                    this.build(k);
+            }
+        };
+        Menu.prototype.build = function (screenID) {
+            var screen = this.get(screenID);
+            if (screen.built)
+                return;
+            this.scene.makeElements(screen.elements);
+            for (var j = 0; j < screen.elements.length; j++) {
+                var element = screen.elements[j];
+                var graphic = this.scene.getChild(element.name);
+                if (!graphic)
+                    continue;
+                graphic.visible = false;
+            }
+            screen.built = true;
+        };
+        Menu.prototype.deconstruct = function (screenID) {
+            var screen = this.get(screenID);
+            var elements = screen.elements;
+            for (var j = 0; j < elements.length; j++) {
+                var element = elements[j];
+                var graphic = this.scene.getChild(element.name);
+                if (!graphic)
+                    continue;
+                // this.destroyTree(graphic);
+                this.scene.removeChild(element.name);
+                TweenMax.killTweensOf(graphic);
+                //graphic.removeAllChildren();
+                graphic.destroy();
+            }
+            screen.built = false;
+        };
+        Menu.prototype.show = function (name, callback) {
+            var _this = this;
+            // Exit all active screens that aren't pinned, then come back and show this screen
+            if (!this.isCategoryEmpty(MenuCategory.EXITABLE)) {
+                this.traverse(function (s) {
+                    _this.exit(s.id, function () {
+                        if (_this.isCategoryEmpty(MenuCategory.EXITABLE))
+                            _this.show(name, callback);
+                    });
+                }, null, MenuCategory.EXITABLE);
+                return;
+            }
+            // Show the screen you want to show
+            var screen = this.get(name);
+            var enterTransition = Animyst.ArrayUtil.search("name", "enter", screen.transitions);
+            var idleTransitions = Animyst.ArrayUtil.search("name", "idle", screen.transitions);
+            var displays = [];
+            this.build(name);
+            screen.elements.forEach(function (element) {
+                var display = _this.scene.getChild(element.name);
+                TweenMax.killTweensOf(display);
+                displays.push(display);
+            });
+            var onEnter = function () {
+                _this.scene.enableInteract();
+                if (idleTransitions)
+                    _this.tweenEngine.animateElements(idleTransitions, displays);
+                _this.executeCommandsFor("start");
+                if (callback)
+                    callback();
+            };
+            screen.activate();
+            this.scene.disableInteract();
+            this.resetPositions(name, true);
+            this.executeCommandsFor("enter");
+            if (this.tweenEngine) {
+                if (this.disableTransitions || !enterTransition) {
+                    onEnter();
+                }
+                else {
+                    this.tweenEngine.animateElements(enterTransition, displays, function () { return onEnter(); });
+                }
+            }
+            else {
+                onEnter();
+            }
+        };
+        Menu.prototype.exit = function (name, callback) {
+            var _this = this;
+            // Exit named screen
+            var screen = this.get(name);
+            var exitTransitions = Animyst.ArrayUtil.search("name", "exit", screen.transitions);
+            var displays = [];
+            screen.elements.forEach(function (element) {
+                var display = _this.scene.getChild(element.name);
+                TweenMax.killTweensOf(display);
+                displays.push(display);
+            });
+            var onExit = function (s, c) {
+                _this.executeCommandsFor("exit");
+                _this.resetPositions(s, false);
+                var curScreen = _this.get(s);
+                curScreen.deactivate();
+                if (_this.destroyOnExit)
+                    _this.deconstruct(s);
+                if (c)
+                    c();
+            };
+            this.scene.disableInteract();
+            this.executeCommandsFor("end");
+            if (this.tweenEngine) {
+                if (this.disableTransitions || !exitTransitions) {
+                    onExit(name, callback);
+                }
+                else {
+                    this.tweenEngine.animateElements(exitTransitions, displays, function () { return onExit(name, callback); });
+                }
+            }
+            else {
+                onExit(name, callback);
+            }
+        };
+        Menu.prototype.executeCommandsFor = function (name) {
+        };
+        Menu.prototype.hideAll = function () {
+            var _this = this;
+            this.traverse(function (screen) {
+                if (!screen.built)
+                    return;
+                for (var j = 0; j < screen.elements.length; j++) {
+                    var element = screen.elements[j];
+                    var graphic = _this.scene.getChild(element.name);
+                    if (!graphic)
+                        continue;
+                    graphic.visible = false;
+                }
+            });
+        };
+        Menu.prototype.resetPositions = function (screenID, visible) {
+            if (visible === void 0) { visible = false; }
+            var screen = this.get(screenID);
+            for (var i = 0; i < screen.elements.length; i++) {
+                var element = screen.elements[i];
+                var graphic = this.scene.getChild(element.name);
+                if (!graphic)
+                    continue;
+                this.scene.setProperties(graphic, element);
+                if (visible !== null) {
+                    graphic.visible = element.visible == null ? visible : element.visible;
+                }
+            }
+        };
         return Menu;
     }(Animyst.Database));
     Animyst.Menu = Menu;
@@ -1566,9 +1850,43 @@ var Animyst;
         function Screen(id, params) {
             return _super.call(this, id, params) || this;
         }
+        Object.defineProperty(Screen.prototype, "active", {
+            get: function () { return this._active; },
+            enumerable: true,
+            configurable: true
+        });
+        ;
+        Object.defineProperty(Screen.prototype, "pinned", {
+            get: function () { return this._pinned; },
+            enumerable: true,
+            configurable: true
+        });
+        ;
         Screen.prototype.setup = function (params) {
             _super.prototype.setup.call(this, params);
             this.type = params.type;
+            this.elements = params.elements || [];
+            this.transitions = params.transitions || [];
+            this.commands = params.commands || [];
+            this.built = false;
+            this.data = {};
+            this._pinned = params.pin;
+        };
+        Screen.prototype.activate = function () {
+            this._active = true;
+            this.relist();
+        };
+        Screen.prototype.deactivate = function () {
+            this._active = false;
+            this.relist();
+        };
+        Screen.prototype.pin = function () {
+            this._pinned = false;
+            this.relist();
+        };
+        Screen.prototype.unpin = function () {
+            this._pinned = false;
+            this.relist();
         };
         return Screen;
     }(Animyst.Item));
@@ -1598,6 +1916,14 @@ var Animyst;
 })(Animyst || (Animyst = {}));
 var Animyst;
 (function (Animyst) {
+    var ScenePIXICategory = (function () {
+        function ScenePIXICategory() {
+        }
+        return ScenePIXICategory;
+    }());
+    ScenePIXICategory.INTERACTABLES = 'interact';
+    ScenePIXICategory.BUTTONS = 'buttons';
+    Animyst.ScenePIXICategory = ScenePIXICategory;
     var ScenePIXI = (function (_super) {
         __extends(ScenePIXI, _super);
         function ScenePIXI(id, params) {
@@ -1609,12 +1935,13 @@ var Animyst;
             this.input = new Animyst.Signal();
             this.root.addChild(this.container);
             this.elements = new Animyst.Database();
-            this.elements.addCategory('buttons', function (elm) { return elm.type == Animyst.SceneItem.BUTTON; });
+            this.elements.addCategory(ScenePIXICategory.BUTTONS, function (elm) { return elm.type == Animyst.SceneItem.BUTTON; });
+            this.elements.addCategory(ScenePIXICategory.INTERACTABLES, function (elm) { return elm.props.display.hasOwnProperty("enableInteract"); });
             _super.prototype.setup.call(this, params);
         };
         ScenePIXI.prototype.destroy = function () {
             var _this = this;
-            this.elements.traverse(function (elm) { return _this.removeChild(elm.id); }, null);
+            this.elements.traverse(function (elm) { return _this.removeChild(elm.id); });
             this.container.removeChildren();
             this.container.destroy();
             this.root = null;
@@ -1647,6 +1974,12 @@ var Animyst;
             }
             this.elements.remove(display.name);
             this.container.removeChild(display);
+        };
+        ScenePIXI.prototype.makeElements = function (elements) {
+            for (var i = 0; i < elements.length; ++i) {
+                var element = elements[i];
+                this.makeElement(element.name, element.type, element);
+            }
         };
         ScenePIXI.prototype.makeElement = function (name, type, params) {
             var element;
@@ -1683,8 +2016,6 @@ var Animyst;
                 downTexture: params.down ? PIXI.Texture.from(Animyst.DataLoad.getPath(params.down)) : null,
                 overTexture: params.over ? PIXI.Texture.from(Animyst.DataLoad.getPath(params.over)) : null
             };
-            console.log(params.down, params.over, params.up);
-            console.log(opt);
             var button = new Animyst.ButtonPIXI(up, opt);
             button.name = name;
             this.setProperties(button, params);
@@ -1722,42 +2053,36 @@ var Animyst;
             }
             obj.rotation = params.rotation || 0;
         };
-        ScenePIXI.prototype.enableButton = function (button) {
-            var element = this.elements.get(button);
-            if (element.type == Animyst.SceneItem.BUTTON) {
-                var b = element.props.display;
-                b.enableInteract();
-                //element.enable(); 
-            }
+        ScenePIXI.prototype.enableInteractable = function (interactable) {
+            var element = this.elements.get(interactable);
+            var b = element.props.display;
+            b.enableInteract();
         };
-        ScenePIXI.prototype.disableButton = function (button) {
-            var element = this.elements.get(button);
-            if (element.type == Animyst.SceneItem.BUTTON) {
-                var b = element.props.display;
-                b.disableInteract();
-                //element.disable(); 
-            }
+        ScenePIXI.prototype.disableInteractable = function (interactable) {
+            var element = this.elements.get(interactable);
+            var b = element.props.display;
+            b.disableInteract();
         };
-        ScenePIXI.prototype.enableButtons = function (buttons) {
-            buttons = buttons || this.elements.getFromCategory('buttons');
-            if (Array.isArray(buttons)) {
-                for (var i = 0; i < buttons.length; i++) {
-                    this.enableButton(buttons[i]);
+        ScenePIXI.prototype.enableInteract = function (interactables) {
+            interactables = interactables || this.elements.getFromCategory('buttons');
+            if (Array.isArray(interactables)) {
+                for (var i = 0; i < interactables.length; i++) {
+                    this.enableInteractable(interactables[i]);
                 }
             }
-            else if (typeof buttons === 'string') {
-                this.enableButton(buttons);
+            else if (typeof interactables === 'string') {
+                this.enableInteractable(interactables);
             }
         };
-        ScenePIXI.prototype.disableButtons = function (buttons) {
-            buttons = buttons || this.elements.getFromCategory('buttons');
-            if (Array.isArray(buttons)) {
-                for (var i = 0; i < buttons.length; i++) {
-                    this.enableButton(buttons[i]);
+        ScenePIXI.prototype.disableInteract = function (interactables) {
+            interactables = interactables || this.elements.getFromCategory('interactables');
+            if (Array.isArray(interactables)) {
+                for (var i = 0; i < interactables.length; i++) {
+                    this.disableInteractable(interactables[i]);
                 }
             }
-            else if (typeof buttons === 'string') {
-                this.enableButton(buttons);
+            else if (typeof interactables === 'string') {
+                this.disableInteractable(interactables);
             }
         };
         return ScenePIXI;

@@ -14,6 +14,8 @@ module Animyst {
     	
     	constructor() {
     		// code...
+
+    		this.signal.add(this.onItemSignal, this, 100000);
     	}
 
     	/**
@@ -47,6 +49,8 @@ module Animyst {
 				var data = this._categoryChecks[k];
 				if ((!data.cls || item instanceof data.cls) && data.check.call(data.context, item)) {
 					ArrayUtil.include(item.id, this._categoryLists[k]);
+				} else {
+					ArrayUtil.remove(item.id, this._categoryLists[k]);
 				}
 			}  
 		};
@@ -96,10 +100,15 @@ module Animyst {
 		 * @param  {string}  itemID   [description]
 		 * @param  {string}  category [description]
 		 */
-		public isInCategory (itemID:string, category:string){
+		public isInCategory (itemID:string, category:string):boolean{
 			var list = this._categoryLists[category];
 			return list.indexOf(itemID) > -1;  
 		};
+
+		public isCategoryEmpty(category:string):boolean{
+			var list = this._categoryLists[category];
+			return list.length <= 0;
+		}
 
 		/**
 		 * Traverses a category of items or all items in this database and executes a command on all of them
@@ -107,7 +116,7 @@ module Animyst {
 		 * @param  {object} context  'this' variable for the command
 		 * @param  {string} category Category to traverse. Traverses entire database if no category is specified
 		 */
-		public traverse (command:any, context:any, category:string = null){
+		public traverse (command:any, context?:any, category:string = null){
 			var list = this._categoryLists[category] || this._itemList;
 
 			for (var i = 0; i < list.length; i++) {
@@ -140,7 +149,8 @@ module Animyst {
 				id = id + this._itemCount;
 			}
 
-			var item = new cls(id, params);
+
+			var item:Item = new cls(id, params) as Item;
 
 			item.id = id;
 
@@ -192,7 +202,21 @@ module Animyst {
 		}
 
 		public destroy (){
-
+			this._itemCount = undefined;
+			this._items = null;
+			this._itemList = null;
+			this._categoryLists  = null;
+			this._categoryChecks = null;
 		}
+
+		private onItemSignal(id:string, entity:string):void {
+			switch(id){
+				case Item.RELIST:
+					this.list(this.get(entity));
+					break;
+			}
+		}
+
+
     }
 }			

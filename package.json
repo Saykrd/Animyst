@@ -5,6 +5,8 @@
     "build": "gulp build"
   },
   "devDependencies": {
+    "@types/greensock": "^1.15.32",
+    "@types/gsap": "^1.19.1",
     "@types/pixi-spine": "^1.4.2",
     "@types/three": "^0.83.4",
     "babel-cli": "^6.7.5",

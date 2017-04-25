@@ -1,8 +1,11 @@
 module Animyst {
     export class Item {
+
+        static RELIST:string = "relist";
     	
     	public id:string;
     	public props:any;
+        public signal:Signal;
 
     	constructor(id:string, params:any) {
     		// code...
@@ -21,5 +24,9 @@ module Animyst {
     	public destroy():void{
     		this.props = null;
     	}
+
+        public relist():void{
+            if(this.signal) this.signal.dispatch(Item.RELIST, this.id);
+        }
     }
 }			

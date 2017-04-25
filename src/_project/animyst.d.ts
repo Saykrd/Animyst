@@ -38,6 +38,7 @@ declare module Animyst {
         halt(appStateID: string): void;
         resume(appStateID: string): void;
         end(appStateID: any): void;
+        getState(appStateID: string): AppState;
         endAll(): void;
         fixedUpdate(): void;
         frameUpdate(event?: any): void;
@@ -127,13 +128,14 @@ declare module Animyst {
          * @param  {string}  category [description]
          */
         isInCategory(itemID: string, category: string): boolean;
+        isCategoryEmpty(category: string): boolean;
         /**
          * Traverses a category of items or all items in this database and executes a command on all of them
          * @param  {function} command  Command to execute on all items ("function(item){//...}")
          * @param  {object} context  'this' variable for the command
          * @param  {string} category Category to traverse. Traverses entire database if no category is specified
          */
-        traverse(command: any, context: any, category?: string): void;
+        traverse(command: any, context?: any, category?: string): void;
         /**
          * Creates an item and adds it to the database
          * @param {object} cls   Class of the item
@@ -158,6 +160,7 @@ declare module Animyst {
         get(itemID: string): any;
         clear(): void;
         destroy(): void;
+        private onItemSignal(id, entity);
     }
 }
 declare module Animyst {
@@ -253,12 +256,15 @@ declare module Animyst {
 }
 declare module Animyst {
     class Item {
+        static RELIST: string;
         id: string;
         props: any;
+        signal: Signal;
         constructor(id: string, params: any);
         setup(params: any): void;
         reset(): void;
         destroy(): void;
+        relist(): void;
     }
 }
 declare module Animyst {
@@ -560,6 +566,14 @@ declare module Animyst {
     }
 }
 declare module Animyst {
+    class TweenEngine extends Database {
+        private tweenTypes;
+        constructor();
+        addAnimation(name: string, anim: any): void;
+        animateElements(anim: any, elements: any[], callback?: any): void;
+    }
+}
+declare module Animyst {
     interface IDisplay {
         visible: boolean;
     }
@@ -585,6 +599,12 @@ declare module Animyst {
 declare module Animyst {
     interface IScene {
         makeElement(name: any, type: string, params: any): any;
+        makeElements(elements: object[]): void;
+        enableInteract(interactables?: any): void;
+        disableInteract(interactables?: any): void;
+        getChild(name: string): any;
+        removeChild(child: any): void;
+        setProperties(obj: any, params: any): any;
     }
 }
 declare module Animyst {
@@ -593,18 +613,46 @@ declare module Animyst {
     }
 }
 declare module Animyst {
+    class MenuCategory {
+        static ACTIVE: string;
+        static PINNED: string;
+        static EXITABLE: string;
+    }
     class Menu extends Database {
-        activeScreens: string[];
         menuData: any;
         elements: any;
         scene: IScene;
-        constructor(scene: IScene);
+        destroyOnExit: boolean;
+        prebuild: boolean;
+        disableTransitions: boolean;
+        tweenEngine: TweenEngine;
+        constructor(scene: IScene, params?: any);
+        addScreens(screens: any): void;
+        build(screenID: string): void;
+        deconstruct(screenID: any): void;
+        show(name: string, callback?: any): void;
+        exit(name: string, callback?: any): void;
+        executeCommandsFor(name: string): void;
+        hideAll(): void;
+        resetPositions(screenID: string, visible?: boolean): void;
     }
     class Screen extends Item {
         type: string;
-        active: boolean;
+        private _active;
+        readonly active: boolean;
+        elements: Object[];
+        transitions: Object[];
+        commands: Object[];
+        data: Object;
+        built: boolean;
+        private _pinned;
+        readonly pinned: boolean;
         constructor(id: any, params: any);
         setup(params: any): void;
+        activate(): void;
+        deactivate(): void;
+        pin(): void;
+        unpin(): void;
     }
 }
 declare module Animyst {
@@ -617,6 +665,10 @@ declare module Animyst {
     }
 }
 declare module Animyst {
+    class ScenePIXICategory {
+        static INTERACTABLES: string;
+        static BUTTONS: string;
+    }
     class ScenePIXI extends Item implements IScene {
         container: PIXI.Container;
         root: PIXI.Container;
@@ -628,15 +680,16 @@ declare module Animyst {
         addChild(child: PIXI.DisplayObject): void;
         getChild(name: string): any;
         removeChild(child: any): void;
+        makeElements(elements: Object[]): void;
         makeElement(name: string, type: string, params: any): any;
         makeSprite(name: string, params: any): any;
         makeButton(name: string, params: any): any;
         makeSpine(name: string, params: any): any;
-        private setProperties(obj, params);
-        enableButton(button: string): void;
-        disableButton(button: string): void;
-        enableButtons(buttons?: any): void;
-        disableButtons(buttons?: any): void;
+        setProperties(obj: any, params: any): void;
+        enableInteractable(interactable: string): void;
+        disableInteractable(interactable: string): void;
+        enableInteract(interactables?: any): void;
+        disableInteract(interactables?: any): void;
     }
 }
 declare module Animyst {

@@ -1,4 +1,9 @@
 module Animyst{
+
+    export class ScenePIXICategory {
+        static INTERACTABLES:string = 'interact';
+        static BUTTONS:string = 'buttons';
+    }
     export class ScenePIXI extends Item implements IScene {
 
         public container:PIXI.Container;
@@ -18,14 +23,15 @@ module Animyst{
             this.root.addChild(this.container);
             this.elements = new Database();
 
-            this.elements.addCategory('buttons', function(elm:SceneItem){return elm.type == SceneItem.BUTTON});
+            this.elements.addCategory(ScenePIXICategory.BUTTONS, function(elm:SceneItem){return elm.type == SceneItem.BUTTON});
+            this.elements.addCategory(ScenePIXICategory.INTERACTABLES, function(elm:SceneItem){return elm.props.display.hasOwnProperty("enableInteract")});
 
 
             super.setup(params);
         }
 
         public destroy():void{
-            this.elements.traverse((elm:Item) => this.removeChild(elm.id), null);
+            this.elements.traverse((elm:Item) => this.removeChild(elm.id));
             this.container.removeChildren();
             this.container.destroy();
 
@@ -60,6 +66,13 @@ module Animyst{
 
             this.elements.remove(display.name);
             this.container.removeChild(display);
+        }
+
+        public makeElements(elements:Object[]):void{
+            for (var i = 0; i < elements.length; ++i) {
+                var element:any = elements[i];
+                this.makeElement(element.name, element.type, element);
+            }
         }
 
         public makeElement(name:string, type:string, params:any):any{
@@ -107,9 +120,6 @@ module Animyst{
                 overTexture : params.over ? PIXI.Texture.from(DataLoad.getPath(params.over)) : null
             }
 
-            console.log(params.down, params.over, params.up);
-            console.log(opt);
-
             var button:ButtonPIXI=  new ButtonPIXI(up, opt);
             button.name = name;
             
@@ -140,7 +150,7 @@ module Animyst{
             return anim;
         }
 
-        private setProperties(obj:PIXI.DisplayObject, params:any):void{
+        public setProperties(obj:any, params:any):void{
             obj.x = params.x || 0;
             obj.y = params.y || 0;
             
@@ -154,46 +164,39 @@ module Animyst{
             obj.rotation = params.rotation || 0;
         }
 
-        public enableButton(button:string):void{
-            var element:SceneItem = this.elements.get(button);
-            if(element.type == SceneItem.BUTTON){
-                var b:IInteractable = <IInteractable> element.props.display;
-                b.enableInteract();
-
-                //element.enable(); 
-            }
+        public enableInteractable(interactable:string):void{
+            var element:SceneItem = this.elements.get(interactable);
+            var b:IInteractable = <IInteractable> element.props.display;
+            b.enableInteract();
         }
 
-        public disableButton(button:string):void{
-            var element:SceneItem = this.elements.get(button);
-            if(element.type == SceneItem.BUTTON){
-                var b:IInteractable = element.props.display;
-                b.disableInteract();
-                //element.disable(); 
-            }
+        public disableInteractable(interactable:string):void{
+            var element:SceneItem = this.elements.get(interactable);
+            var b:IInteractable = element.props.display;
+            b.disableInteract();
         }
 
-        public enableButtons(buttons?:any):void{
-            buttons = buttons || this.elements.getFromCategory('buttons');
+        public enableInteract(interactables?:any):void{
+            interactables = interactables || this.elements.getFromCategory('buttons');
 
-            if(Array.isArray(buttons)){
-                for(var i = 0; i < buttons.length; i++){
-                    this.enableButton(buttons[i]);
+            if(Array.isArray(interactables)){
+                for(var i = 0; i < interactables.length; i++){
+                    this.enableInteractable(interactables[i]);
                 }
-            } else if(typeof buttons === 'string'){
-                this.enableButton(buttons);
+            } else if(typeof interactables === 'string'){
+                this.enableInteractable(interactables);
             }
         }
 
-        public disableButtons(buttons?:any):void{
-            buttons = buttons || this.elements.getFromCategory('buttons');
+        public disableInteract(interactables?:any):void{
+            interactables = interactables || this.elements.getFromCategory('interactables');
 
-            if(Array.isArray(buttons)){
-                for(var i = 0; i < buttons.length; i++){
-                    this.enableButton(buttons[i]);
+            if(Array.isArray(interactables)){
+                for(var i = 0; i < interactables.length; i++){
+                    this.disableInteractable(interactables[i]);
                 }
-            } else if(typeof buttons === 'string'){
-                this.enableButton(buttons);
+            } else if(typeof interactables === 'string'){
+                this.disableInteractable(interactables);
             }
         }
     }

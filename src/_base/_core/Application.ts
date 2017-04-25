@@ -168,13 +168,13 @@ module Animyst {
 
 
     	public halt(appStateID:string):void{
-    		if(!this._appStateLib[appStateID]){
+    		if(this._appStateLib[appStateID]){
 				this._appStateLib[appStateID].pause();
 			}
     	}
 
     	public resume(appStateID:string):void{
-    		if(!this._appStateLib[appStateID]){
+    		if(this._appStateLib[appStateID]){
 				this._appStateLib[appStateID].resume();
 			}
     	}
@@ -198,6 +198,10 @@ module Animyst {
 			}
     	}
 
+    	public getState(appStateID:string):AppState{
+    		return this._appStateLib[appStateID];
+    	}
+
     	public endAll():void{
     		for(var k in this._appStateLib){
 				this.end(k)
@@ -209,6 +213,7 @@ module Animyst {
 
 			for(var i = 0; i < this._appStateList.length; i++){
 				var state:AppState = this._appStateList[i];
+				if(state.paused) continue;
 				state.fixedUpdate(this.timestep, this.runtime);
 			}
     	}
@@ -233,6 +238,7 @@ module Animyst {
 
 			for(var i = 0; i < this._appStateList.length; i++){
 				var state:AppState = this._appStateList[i];
+				if(state.paused) continue;
 				state.frameUpdate(delta, this._framecount);
 			}
 

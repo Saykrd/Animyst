@@ -15,11 +15,11 @@ module App {
 		public onInit():void{
 			Animyst.Log.output("App Initialized!");
 
-			this.runTest(PIXITests);
+			this.runTest(PIXITests, "state01");
 		}
 
-		public runTest(cls:any):void{
-			var state:Animyst.AppState = <Animyst.AppState> new cls();
+		public runTest(cls:any, id:string):void{
+			var state:Animyst.AppState = <Animyst.AppState> new cls(id);
 			this.run(state);
 		}
 

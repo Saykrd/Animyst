@@ -15,7 +15,18 @@
 	"screens" : {
 		"Loading" : {
 			"elements" : [],
-			"transitions" : [],
+			"transitions" : [
+				{
+					"name" : "enter", 
+				 	"anims": [
+				 		{
+				 			"element" : "elementName", 
+				 			"tweens" : [
+				 				{"type" : "from", "time" : 0.5, "params" : {"y" : "+=50", "ease" :  "Power3.easeIn"} }
+				 			]
+				 		}
+				 	]},
+			],
 			"commands" : []
 		}
 	}
