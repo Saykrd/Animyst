@@ -74,7 +74,7 @@ module Animyst {
 				DataLoad.addCommand(DataLoad.FILE_LOADED, function(event:any){
 					//console.log(event);
 					if(event.result instanceof HTMLImageElement || event.result instanceof HTMLCanvasElement){
-						console.log(event.result);
+						//console.log(event.result);
 						let baseTexture = PIXI.BaseTexture.fromCanvas(event.result as HTMLCanvasElement);
 						PIXI.utils.BaseTextureCache[event.item.src] = baseTexture;
 					}

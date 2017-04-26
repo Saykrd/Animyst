@@ -4,9 +4,42 @@
 
 	"menus" : {
 
-		"Title" : {
-			"elements" : [],
-			"transitions" : [],
+		"Generic" : {
+			"elements" : [
+				{"name" : "BGGroup", "type" : "group", "x" : 0, "y" : 0, "scale": 2},
+					{"name" : "BGSlice1", "type" : "sprite", "group" : "BGGroup", "texture" : "texture_generic", "x" : 0, "y" : 0},
+					{"name" : "BGSlice2", "type" : "sprite", "group" : "BGGroup", "texture" : "texture_generic", "x" : 512, "y" : 0},
+					{"name" : "BGSlice3", "type" : "sprite", "group" : "BGGroup", "texture" : "texture_generic", "x" : 0, "y" : 512},
+					{"name" : "BGSlice4", "type" : "sprite", "group" : "BGGroup", "texture" : "texture_generic", "x" : 512, "y" : 512},
+
+				{"name" : "BGSlice0", "type" : "sprite", "texture" : "texture_generic", "x" : "centerX",   "y" : "centerY", "scale" : 1, "anchor" : 0.5, "visible" : true},
+
+				{"name" : "GradientTop", "type" : "group", "x" : 0, "y" : 0, "alpha" : 0.5},
+					{"name" : "Gradient0", "type" : "sprite","group" : "GradientTop", "texture" : "gradient", "x" : 0, "y" : "top", "anchorX" : 1, "anchorY" : 1, "rotation" : 180},
+					{"name" : "Gradient1", "type" : "sprite","group" : "GradientTop", "texture" : "gradient", "x" : 512, "y" : "top", "anchorX" : 1, "anchorY" : 1, "rotation" : 180},
+					{"name" : "Gradient2", "type" : "sprite","group" : "GradientTop", "texture" : "gradient", "x" : 1024, "y" : "top", "anchorX" : 1, "anchorY" : 1, "rotation" : 180},
+
+				{"name" : "GradientBottom", "type" : "group", "x" : 0, "y" : 0, "alpha" : 0.5},
+					{"name" : "Gradient3", "type" : "sprite","group" : "GradientBottom", "texture" : "gradient", "x" : 0, "y" : "bottom-=128"},
+					{"name" : "Gradient4", "type" : "sprite","group" : "GradientBottom", "texture" : "gradient", "x" : 512, "y" : "bottom-=128"},
+					{"name" : "Gradient5", "type" : "sprite","group" : "GradientBottom", "texture" : "gradient", "x" : 1024, "y" : "bottom-=128"}
+			],
+			"transitions" : [
+				{
+					"name" : "enter", 
+				 	"anims": [
+				 		{ "element" : "BGSlice0.scale", "tweens" : [ {"type" : "from", "time" : 2, "params" : {"x" : 2, "y" : 2, "ease" :  "Elastic.easeInOut"} } ]}
+				 	]
+
+				},
+				{
+					"name" : "idle", 
+				 	"anims": [
+				 		{"element" : "BGGroup", "tweens" : [ {"type" : "to", "time" : 10, "params" : {"x" : "-=500", "y" : "-=500", "repeat" : -1, "yoyo" : true, "ease" :  "Linear.easeInOut"} } ]}
+				 	]
+
+				}
+			],
 			"commands" : []
 		}
 
@@ -16,16 +49,6 @@
 		"Loading" : {
 			"elements" : [],
 			"transitions" : [
-				{
-					"name" : "enter", 
-				 	"anims": [
-				 		{
-				 			"element" : "elementName", 
-				 			"tweens" : [
-				 				{"type" : "from", "time" : 0.5, "params" : {"y" : "+=50", "ease" :  "Power3.easeIn"} }
-				 			]
-				 		}
-				 	]},
 			],
 			"commands" : []
 		}

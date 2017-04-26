@@ -590,7 +590,7 @@ var Animyst;
                 DataLoad.addCommand(DataLoad.FILE_LOADED, function (event) {
                     //console.log(event);
                     if (event.result instanceof HTMLImageElement || event.result instanceof HTMLCanvasElement) {
-                        console.log(event.result);
+                        //console.log(event.result);
                         var baseTexture = PIXI.BaseTexture.fromCanvas(event.result);
                         PIXI.utils.BaseTextureCache[event.item.src] = baseTexture;
                     }
@@ -1637,7 +1637,19 @@ var Animyst;
                         elements.forEach(function (element) { tweenElements.push(element); });
                         break;
                     default:
-                        Animyst.ArrayUtil.searchAll("name", transition.element, elements, tweenElements);
+                        var hashList = transition.element.split(".");
+                        var key = hashList[0];
+                        var element = Animyst.ArrayUtil.search("name", key, elements);
+                        for (var j = 1; j < hashList.length; j++) {
+                            var h = hashList[j];
+                            if (element[h]) {
+                                element = element[h];
+                            }
+                            else {
+                                break;
+                            }
+                        }
+                        tweenElements.push(element);
                         break;
                 }
                 //
@@ -1933,6 +1945,7 @@ var Animyst;
             this.container = new PIXI.Container;
             this.root = params.stage;
             this.input = new Animyst.Signal();
+            this.viewport = params.viewport;
             this.root.addChild(this.container);
             this.elements = new Animyst.Database();
             this.elements.addCategory(ScenePIXICategory.BUTTONS, function (elm) { return elm.type == Animyst.SceneItem.BUTTON; });
@@ -1993,8 +2006,27 @@ var Animyst;
                 case 'spine':
                     element = this.makeSpine(name, params);
                     break;
+                case 'group':
+                    element = this.makeGroup(name, params);
+                    break;
+            }
+            if (params.group) {
+                var group = this.getChild(params.group);
+                if (group) {
+                    group.addChild(element);
+                }
+                else {
+                    Animyst.Log.error("[!ScenePIXI] No group found with name", params.group);
+                }
             }
             return element;
+        };
+        ScenePIXI.prototype.makeGroup = function (name, params) {
+            var group = new PIXI.Container();
+            group.name = name;
+            this.setProperties(group, params);
+            this.addChild(group);
+            return group;
         };
         ScenePIXI.prototype.makeSprite = function (name, params) {
             var texture;
@@ -2039,8 +2071,18 @@ var Animyst;
             return anim;
         };
         ScenePIXI.prototype.setProperties = function (obj, params) {
-            obj.x = params.x || 0;
-            obj.y = params.y || 0;
+            if (typeof params.x == 'string') {
+                this.setToExpression(params.x, obj, "x");
+            }
+            else {
+                obj.x = params.x || 0;
+            }
+            if (typeof params.y == 'string') {
+                this.setToExpression(params.y, obj, "y");
+            }
+            else {
+                obj.y = params.y || 0;
+            }
             if (params.scaleX)
                 obj.scale.x = params.scaleX;
             if (params.scaleY)
@@ -2051,7 +2093,56 @@ var Animyst;
                 if (typeof params.scale == 'number')
                     obj.scale.set(params.scale, params.scale);
             }
-            obj.rotation = params.rotation || 0;
+            if (params.anchorX && obj.anchor)
+                obj.anchor.x = params.anchorX;
+            if (params.anchorY && obj.anchor)
+                obj.anchor.y = params.anchorY;
+            if (params.anchor && obj.anchor)
+                obj.anchor.set(params.anchor, params.anchor);
+            obj.rotation = Animyst.MathUtil.toRadians(params.rotation) || 0;
+            obj.visible = params.visible == undefined ? true : params.visible;
+            obj.alpha = params.alpha || 1;
+        };
+        ScenePIXI.prototype.setToExpression = function (expression, object, property) {
+            var pos = expression.split(/[+=-]+\d+/)[0];
+            var oper = expression.split(/\w+/)[1];
+            var value = parseInt(expression.split(/\D+/)[1]);
+            var base;
+            if (isNaN(value))
+                value = 0;
+            switch (pos) {
+                //"top" and "left" are 0
+                case "right":
+                    base = this.viewport.width;
+                    break;
+                case "bottom":
+                    base = this.viewport.height;
+                    break;
+                case "centerX":
+                    base = this.viewport.width / 2;
+                    break;
+                case "centerY":
+                    base = this.viewport.height / 2;
+                    break;
+                default:
+                    base = 0;
+                    break;
+            }
+            if (oper == "+=") {
+                object[property] = base + value;
+            }
+            else if (oper == "-=") {
+                object[property] = base - value;
+            }
+            else if (oper == "*=") {
+                object[property] = base * value;
+            }
+            else if (oper == "/=") {
+                object[property] = base / value;
+            }
+            else {
+                object[property] = base;
+            }
         };
         ScenePIXI.prototype.enableInteractable = function (interactable) {
             var element = this.elements.get(interactable);
@@ -2168,6 +2259,8 @@ var Animyst;
         ViewPIXI.prototype.create = function (cls, id, params) {
             if (!params.stage)
                 params.stage = this.stage;
+            if (!params.viewport)
+                params.viewport = this;
             return _super.prototype.create.call(this, cls, id, params);
         };
         ViewPIXI.prototype.append = function (containerID) {
@@ -11931,6 +12024,12 @@ var Animyst;
         };
         MathUtil.interpolate = function (a, b, percent) {
             return a + (b - a) * percent;
+        };
+        MathUtil.toRadians = function (degrees) {
+            return degrees * (Math.PI / 180);
+        };
+        MathUtil.toDegrees = function (radians) {
+            return radians * (180 / Math.PI);
         };
         return MathUtil;
     }());

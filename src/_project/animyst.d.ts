@@ -610,6 +610,8 @@ declare module Animyst {
 declare module Animyst {
     interface IViewport {
         render(): void;
+        width: number;
+        height: number;
     }
 }
 declare module Animyst {
@@ -673,6 +675,7 @@ declare module Animyst {
         container: PIXI.Container;
         root: PIXI.Container;
         input: Signal;
+        private viewport;
         private elements;
         constructor(id: string, params: any);
         setup(params: any): void;
@@ -682,10 +685,12 @@ declare module Animyst {
         removeChild(child: any): void;
         makeElements(elements: Object[]): void;
         makeElement(name: string, type: string, params: any): any;
+        makeGroup(name: string, params: any): any;
         makeSprite(name: string, params: any): any;
         makeButton(name: string, params: any): any;
         makeSpine(name: string, params: any): any;
         setProperties(obj: any, params: any): void;
+        private setToExpression(expression, object, property);
         enableInteractable(interactable: string): void;
         disableInteractable(interactable: string): void;
         enableInteract(interactables?: any): void;
@@ -1017,6 +1022,8 @@ declare module Animyst {
         static findClosestDivisable(value: any, divisor: any): number;
         static findNextDivisable(value: any, divisor: any): number;
         static interpolate(a: any, b: any, percent: any): number;
+        static toRadians(degrees: number): number;
+        static toDegrees(radians: number): number;
     }
 }
 declare module Animyst {

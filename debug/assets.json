@@ -20,20 +20,25 @@
 		{"id":"blueball2", "src" : "media/images/spheres/blue_ball2.png"},
 
 
+		{"id":"cube", "src" : "media/3d/cube.json"},
+		{"id":"texture_generic", "src" : "media/images/texture/bg_texture.png"},
+		{"id":"gradient", "src" : "media/images/texture/overlay_gradient.png"},
 
-		{"id":"cube", "src" : "media/3d/cube.json"}
+		{"id":"menus", "src" : "media/data/menus.json"}
+
 	],
 
 	"initialLoad": [
-		"run_data", "run_sheet", "cube", "samusftilt",
+		"run_data", "run_sheet", "cube",
 		"raptor_data", "raptor_atlas", "raptor_sheet",
 		"redball1", "redball2",
 		"greenball1", "greenball2",
 		"yellowball1", "yellowball2",
-		"blueball1", "blueball2"
+		"blueball1", "blueball2",
+		"texture_generic", "gradient", "menus"
 	],
 
 	"preload" : [
-		"music"
+		
 	]
 }

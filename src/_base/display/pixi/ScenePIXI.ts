@@ -9,6 +9,7 @@ module Animyst{
         public container:PIXI.Container;
         public root:PIXI.Container;
         public input:Signal;
+        private viewport:IViewport;
         private elements:Database;
 
         constructor(id:string, params:any) {
@@ -19,6 +20,7 @@ module Animyst{
             this.container = new PIXI.Container;
             this.root = params.stage;
             this.input = new Signal();
+            this.viewport = params.viewport as IViewport;
 
             this.root.addChild(this.container);
             this.elements = new Database();
@@ -88,11 +90,31 @@ module Animyst{
                 case 'spine':
                     element = this.makeSpine(name, params);
                     break;
+                case 'group':
+                    element = this.makeGroup(name, params);
+                    break;
+            }
+
+            if(params.group){
+                var group = this.getChild(params.group);
+                if(group) { 
+                    group.addChild(element);
+                } else {
+                    Log.error("[!ScenePIXI] No group found with name", params.group);
+                }
             }
 
             return element;
         }
 
+        public makeGroup(name:string, params:any):any{
+            var group:PIXI.Container = new PIXI.Container();
+
+            group.name = name;
+            this.setProperties(group, params);
+            this.addChild(group);
+            return group;
+        }
 
         public makeSprite(name:string, params:any):any{
             var texture:PIXI.Texture;
@@ -151,8 +173,18 @@ module Animyst{
         }
 
         public setProperties(obj:any, params:any):void{
-            obj.x = params.x || 0;
-            obj.y = params.y || 0;
+            
+            if(typeof params.x == 'string'){
+                this.setToExpression(params.x, obj, "x");
+            } else {
+                obj.x = params.x || 0;
+            }
+
+            if(typeof params.y == 'string'){
+                this.setToExpression(params.y, obj, "y");
+            } else {
+                obj.y = params.y || 0;
+            }
             
             if(params.scaleX) obj.scale.x = params.scaleX;
             if(params.scaleY) obj.scale.y = params.scaleY;
@@ -161,7 +193,54 @@ module Animyst{
                 if(typeof params.scale == 'number') obj.scale.set(params.scale, params.scale);
             }
 
-            obj.rotation = params.rotation || 0;
+            if(params.anchorX && obj.anchor) obj.anchor.x = params.anchorX;
+            if(params.anchorY && obj.anchor) obj.anchor.y = params.anchorY;
+            if(params.anchor && obj.anchor) obj.anchor.set(params.anchor, params.anchor);
+
+
+            obj.rotation = MathUtil.toRadians(params.rotation) || 0;
+            obj.visible = params.visible == undefined ? true : params.visible;
+            obj.alpha = params.alpha || 1;
+        }
+
+        private setToExpression(expression:string, object:any, property:string):void{
+            var pos:string = expression.split(/[+=-]+\d+/)[0];
+            var oper:string = expression.split(/\w+/)[1];
+            var value:number = parseInt(expression.split(/\D+/)[1]);
+            var base:number
+
+            if(isNaN(value)) value = 0; 
+
+            switch(pos){
+                //"top" and "left" are 0
+                case "right":
+                    base = this.viewport.width
+                    break;
+                case "bottom":
+                    base = this.viewport.height
+                    break;
+                case "centerX":
+                    base = this.viewport.width / 2;
+                    break;
+                case "centerY":
+                    base = this.viewport.height / 2;
+                    break;
+                default:
+                    base = 0;
+                    break;
+            }
+
+            if(oper == "+="){
+              object[property] = base + value;  
+            } else if(oper == "-=") {
+              object[property] = base - value;  
+            } else if(oper == "*="){
+              object[property] = base * value;
+            } else if(oper == "/="){
+              object[property] = base / value;
+            } else {
+              object[property] = base;
+            }
         }
 
         public enableInteractable(interactable:string):void{

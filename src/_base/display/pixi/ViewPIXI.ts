@@ -34,6 +34,7 @@ module Animyst {
 
     	public create(cls:any, id:string, params:any):Item{
     		if(!params.stage) params.stage = this.stage;
+            if(!params.viewport) params.viewport = this;
     		return super.create(cls, id, params);
     	}
 

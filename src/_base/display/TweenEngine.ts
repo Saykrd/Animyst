@@ -61,7 +61,20 @@ module Animyst {
 						elements.forEach(function(element){tweenElements.push(element)});
 						break;
 					default :
-						ArrayUtil.searchAll("name", transition.element, elements, tweenElements);
+						var hashList:string[] = transition.element.split(".");
+						var key = hashList[0];
+						var element = ArrayUtil.search("name", key, elements);
+
+						for(var j = 1; j < hashList.length; j++) {
+							var h = hashList[j];
+							if(element[h]) {
+								element = element[h];	
+							} else {
+								break;
+							}
+						}
+
+						tweenElements.push(element);
 						break;
 				}
 
